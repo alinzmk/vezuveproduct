@@ -1,10 +1,10 @@
-import '../App.css';
+import '../admin.css';
 import { useEffect, useState } from 'react';
 import Modal from "../Modals/Product-Modal";
 import info from "../Assets/ürün.jpg";
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { addProductToUser, deleteProduct } from '../AdminApiService';
+import { addProductToUser, deleteProduct, getUserProductsAsExcel } from '../AdminApiService';
 import { successNotification, warningNotification } from '../../Modals/Notification';
 import { getProductAdmin } from '../../redux/features/adminproduct/productAdminSlice';
 import fetchAdminRedux from '../../redux/fetchAdminRedux';
@@ -75,13 +75,21 @@ function Products() {
         }
     };
 
+    const handleDownloadUserProductsAsExcel = async () => {
+        try {
+          await getUserProductsAsExcel(customerID, accessToken);
+            console.log('EXCEL');
+        } catch (error) {
+            console.error('Error downloading user products as Excel:', error);
+          // Handle error
+        }
+      };
 
     const filteredProducts = productadmin?.userProducts?.filter(product =>
         product[5]?.toLowerCase().includes(searchQuery.toLowerCase())
     ) || [];
     
     useEffect(() => {
-        console.log("MAl")
         if (!productadmin || productadmin.length === 0) {
             dispatch(fetchAdminRedux());
         }
@@ -98,7 +106,7 @@ function Products() {
   
     const handleClick = () => {
       openModal();
-  };
+    };
     
   
 
@@ -109,40 +117,37 @@ function Products() {
                 <div className="col-3 pe-3 ps-0 ms-0">
                     <div className="pbg ps-3 pe-3">
 
-                    <div className="row p-search mx-auto mt-4 mb-0">
-                        <div className="col-1 my-auto ms-2 p-0">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                        </div>
-                        <div className="col-8 p-0">
-                            <input type="text" className='product-input' value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} placeholder='Ürün Arayın'></input>
-                        </div>
-                        <div className="col-1 ps-auto m-auto">
-                        
-                            <div class="dropdown d-inline">
-                                <button class="product-btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <i class="fa-solid fa-plus "></i>
-                                </button>
-                                <div class="dropdown-menu upload" aria-labelledby="dropdownMenuButton">
-                                    <div className="row product-dropdown">
-                                        <div className="col-12 dropdown-item m-0">
-                                            <form>
-                                                <label htmlFor="file-upload" className="add-product">
-                                                    <i className="fa-solid fa-plus"></i> Dosya Yüklemek İçin Tıklayınız
-                                                </label>
-                                                <input id="file-upload" className="d-none" type="file" onChange={handleFileUpload} />
-                                            </form>
-                                        </div>
+                    <div class="row p-search mx-auto mt-4 mb-0 align-items-center">
+    <div class="col-1 my-auto p-0">
+        <i class="fa-solid fa-magnifying-glass"></i>
+    </div>
+    <div class="col-6 p-0">
+        <input type="text" class='product-input form-control' value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} placeholder='Ürün Arayın'/>
+    </div>
+    <div class="col-5 d-flex justify-content-end">
+        <button onClick={handleDownloadUserProductsAsExcel} class="product-btn mx-1">
+            <i class="fa-solid fa-cloud-arrow-down"></i>
+        </button>
+        <button class="product-btn mx-1" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fa-solid fa-plus"></i>
+        </button>
+        <div class="dropdown-menu upload" aria-labelledby="dropdownMenuButton">
+            <div class="dropdown-item">
+                <form>
+                    <label for="file-upload" class="add-product">
+                        <i class="fa-solid fa-plus"></i> Dosya Yüklemek İçin Tıklayınız
+                    </label>
+                    <input id="file-upload" class="d-none" type="file" onchange={handleFileUpload}/>
+                </form>
+            </div>
+            <hr class='dropdown-divider'/>
+            <div class="dropdown-item">
+                <Modal/>
+            </div>
+        </div>
+    </div>
+</div>
 
-                                        <hr className='dropdown-divider' />
-                                        
-                                        <div className="col-12 dropdown-item m-0">
-                                            <Modal/>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                     <hr />
                     <div className="row">
                         <div className="col-12 p-0 product-list-container">

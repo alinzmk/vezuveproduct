@@ -1,4 +1,4 @@
-import '../App.css';
+import '../admin.css';
 import { useState, useEffect } from 'react';
 import logo from "../Assets/logo-renkli.png"
 import { useNavigate } from 'react-router-dom';

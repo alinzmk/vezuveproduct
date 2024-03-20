@@ -1,4 +1,4 @@
-import '../App.css';
+import '../admin.css';
 import logo from "../Assets/logo-renkli.png"
 import Sidebar2 from '../Modals/Sidebar2';
 import { useSelector, useDispatch } from 'react-redux';

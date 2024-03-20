@@ -77,8 +77,8 @@ function Login() {
     
     
     <div className="App row m-0">
-      <div className="col-5">
-        <div className="login-container">
+      <div className="col-12 col-lg-5">
+        <div className="login-container d-flex d-lg-block justify-content-center">
           <div className="wrapper">
             <div className="title"><img src={logo} className="login-logo" alt="VevüzeLogo" /></div>
             <form action="#">
@@ -105,7 +105,7 @@ function Login() {
               <div className="row button">
                 <input onClick={handleSubmit} type="submit" value="Giriş Yap" />
               </div>
-              <div className="signup-link" onClick={()=>navigate("/kayit")}>Hala VezüPort ile tanışmadın mı? Hemen bizimle iletişime geçebilirsin</div>
+              <div className="pass" onClick={()=>navigate("/kayit")}><a href="">Hala VezüPort ile tanışmadın mı? Buraya tıklayarak erken kayıt olabilirsin.</a></div>
             </form>
           </div>
         </div>

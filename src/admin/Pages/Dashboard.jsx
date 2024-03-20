@@ -1,4 +1,4 @@
-import '../App.css';
+import '../admin.css';
 import { useEffect, useState } from 'react';
 import logo from "../Assets/logo-renkli.png"
 import LineChart from '../Modals/Linechart';

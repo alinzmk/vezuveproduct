@@ -16,7 +16,6 @@ export const getAdminToken = async (username, password) => {
         },
       }
     );
-
     return response.data;
   } catch (error) {
     warningNotification("GİRİŞ BAŞARISIZ")
@@ -367,5 +366,34 @@ export const updateToUserSalesUnit = async ( customer_id, month, sale_unit_amoun
   } catch (error) {
     console.error('Error updating user sales:', error);
     throw error;
+  }
+};
+
+export const getUserProductsAsExcel = async (customerId, accessToken) => {
+  try {
+    const response = await axios.get(
+      `${BASE_URL}/get_user_products_as_excel?customer_id=${customerId}`,
+      {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+        responseType: 'blob', // Specify the response type as blob to handle binary data
+      }
+    );
+    // Create a blob URL for the Excel file
+    const url = window.URL.createObjectURL(new Blob([response.data]));
+    // Create a link element to trigger the download
+    const link = document.createElement('a');
+    link.href = url;
+    link.setAttribute('download', 'user_products.xlsx');
+    // Append the link to the body and trigger the download
+    document.body.appendChild(link);
+    link.click();
+    // Cleanup
+    window.URL.revokeObjectURL(url);
+    link.remove();
+  } catch (error) {
+    console.error('Error fetching user products as Excel:', error);
+    // Handle error
   }
 };

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../App.css';
+import '../admin.css';
 import { Link, NavLink } from 'react-router-dom';
 import logo from "../Assets/kare-logo.jpg";
 import { useLocation } from "react-router-dom";
@@ -30,11 +30,6 @@ const Sidebar2 = () => {
                     <li className={(splitLocation[1] === "admin" && splitLocation[2] === "Profil") ? "side-active sidebar-li2" : "sidebar-li2"}>
                          <NavLink to={"/admin/Profil"} className='sidebar-link' activeClassName="side-active">
                             <i class="fa-solid fa-user"></i>
-                         </NavLink>
-                    </li>
-                    <li className={(splitLocation[1] === "admin" && splitLocation[2] === "Hizmetler")  ? "side-active sidebar-li2" : "sidebar-li2"}>
-                         <NavLink to={"/admin/Hizmetler"} className='sidebar-link' activeClassName="side-active">
-                             <i class="fa-solid fa-pen-ruler"></i>
                          </NavLink>
                     </li>
                     <li className={(splitLocation[1] === "admin" && splitLocation[2] === "Urunler")  ? "side-active sidebar-li2" : "sidebar-li2"}>
