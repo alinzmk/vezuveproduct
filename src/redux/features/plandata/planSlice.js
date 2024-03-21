@@ -10,7 +10,6 @@ const initialState = {
 
 export const getPlanData = createAsyncThunk('getPlanData', async() => {
   const accessToken = (sessionStorage.getItem("token"))
-  console.log(accessToken)
   try {
     const result = await getUserPlan(accessToken);
     return result.userPlan

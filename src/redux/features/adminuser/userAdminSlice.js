@@ -7,7 +7,6 @@ const initialState = {
 
 export const getUserAdmin = createAsyncThunk('getUserAdmin', async() => {
   const accessToken = (sessionStorage.getItem("token"))
-  console.log(accessToken)
   try {
     const result = await getAllUserData(accessToken);
     const data1 = result.userData

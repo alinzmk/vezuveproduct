@@ -6,7 +6,6 @@ const Plan1 = ({isOpen,onClose,selectedItem, serviceItems }) => {
 
 
     if (!selectedItem) return null;
-    console.log(selectedItem.img);
     const handleOverlayClick = (e) => {
         if (e.target.classList.contains('overlay')) {
             onClose();

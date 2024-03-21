@@ -11,7 +11,6 @@ const initialState = {
 
 export const getTaskData = createAsyncThunk('getTaskData', async() => {
   const accessToken = (sessionStorage.getItem("token"))
-  console.log(accessToken)
   try {
     const result = await getUserTasks(accessToken);
     return result.tasks

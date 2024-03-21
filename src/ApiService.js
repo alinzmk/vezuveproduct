@@ -126,7 +126,6 @@ export const getUserDocuments = async (accessToken) => {
 };
 
 export const uploadDocument = async (accessToken, fileName, file) => {
-  console.log("APİ İÇİNDEKİ DATA",fileName, accessToken, file)
   try {
     // Check file type
     if (file.type !== 'application/pdf') {
@@ -158,9 +157,8 @@ export const uploadDocument = async (accessToken, fileName, file) => {
 
 // DOKUNMA ZOR AYAKTA DURUYOR
 export const downloadDocument = async (accessToken, fileName) => {
-  console.log(fileName, accessToken)
   try {
-    const response = await axios.get(`http://userapi.vezuport.com/download_document?file_name=${fileName}`, {
+    const response = await axios.get(`https://userapi.vezuport.com/download_document?file_name=${fileName}`, {
       responseType: 'blob',
       headers: {
         'Authorization': `Bearer ${accessToken}`,
@@ -196,9 +194,6 @@ export const getUserProducts = async (accessToken) => {
 
 
 export const addProductToUser = async (accessToken, file) => {
-  
-  console.log("token", accessToken)
-  console.log("api file",file)
   try {
     const formData = new FormData();
     formData.append('file', file);
@@ -254,11 +249,9 @@ export const getMarketFinder = async (accessToken, requestData) => {
       params: requestData,
     });
 
-    console.log(response.data);
     return response.data;
 
   } catch (error) {
-    console.log("wow");
     console.error('Error fetching market finder data in API:', error);
     throw error;
   }

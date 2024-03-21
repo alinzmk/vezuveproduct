@@ -110,14 +110,12 @@ export const setUserPlan = async (accessToken, customerId, column, newValue) => 
   }
 };
 export const getUserDocuments = async (accessToken, customerId) => {
-  console.log(customerId, accessToken)
   try {
     const response = await axios.get(`${BASE_URL}/get_user_documents?customer_id=${customerId}`, {
       headers: {
         'Authorization': `Bearer ${accessToken}`,
       },
     });
-    console.log(response)
     return response.data;
   } catch (error) {
     console.error('Error fetching user documents:', error);
@@ -126,7 +124,6 @@ export const getUserDocuments = async (accessToken, customerId) => {
 };
 
 export const uploadDocument = async (accessToken, fileName, file, customer_id) => {
-  console.log("APİ İÇİNDEKİ DATA", customer_id, fileName, accessToken, file)
   try {
     // Check file type
     if (file.type !== 'application/pdf') {
@@ -158,7 +155,7 @@ export const uploadDocument = async (accessToken, fileName, file, customer_id) =
 export const downloadDocument = async (fileName, customerId, token ) => {
 
   try {
-    const fullUrl = `http://adminapi.vezuport.com/download_document?file_name=${fileName}&customer_id=${customerId}`;
+    const fullUrl = `https://adminapi.vezuport.com/download_document?file_name=${fileName}&customer_id=${customerId}`;
     const response = await axios.get(fullUrl, {
       headers: {
         'Authorization': `Bearer ${token}`
@@ -217,7 +214,6 @@ export const setUserTasks = async (taskName, column, newValue, customer_id, acce
 };
 
 export const createUserTask = async (customer_id, task_name, accessToken) => {
-  console.log("API FUNCTION", customer_id, task_name, accessToken)
   customer_id = parseInt(customer_id)
   try {
     const response = await axios.post(
@@ -313,7 +309,6 @@ export const deleteProduct = async (product_id, customer_id, accessToken) => {
 };
 
 export const updateToUserSales = async ( customer_id, month, sale_amount, accessToken) => {
-  console.log( customer_id, month, sale_amount, accessToken)
   try {
     const response = await axios.post(
       `${BASE_URL}/update_to_user_sales`,
@@ -332,7 +327,6 @@ export const updateToUserSales = async ( customer_id, month, sale_amount, access
 };
 
 export const updateToUserAds = async ( customer_id, month, ads_amount, accessToken) => {
-  console.log( customer_id, month, ads_amount, accessToken)
   try {
     const response = await axios.post(
       `${BASE_URL}/update_to_user_ads`,
@@ -351,7 +345,6 @@ export const updateToUserAds = async ( customer_id, month, ads_amount, accessTok
 };
 
 export const updateToUserSalesUnit = async ( customer_id, month, sale_unit_amount, accessToken) => {
-  console.log( customer_id, month, sale_unit_amount, accessToken)
   try {
     const response = await axios.post(
       `${BASE_URL}/update_to_user_sales_unit`,

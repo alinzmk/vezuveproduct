@@ -43,7 +43,6 @@ function Tasks() {
       };
 
     const handleSetUserTasks = async (taskEditName, columnValue, newValue) => {
-        console.log(taskEditName, columnValue, newValue)
         try {
           const response = await setUserTasks(taskEditName, columnValue, newValue, user_id, accessToken);
           console.log('User tasks updated successfully:', response);
@@ -66,7 +65,6 @@ function Tasks() {
         }
       };
 
-
       const getTasksByStatus = (status) => {
         if (!taskadmin.tasks || !taskadmin.tasks.tasks) {
           return [];
@@ -85,9 +83,7 @@ function Tasks() {
         }
     }, [dispatch, taskadmin]);
     
-
-    
-      if(!taskadmin.tasks){
+    if(!taskadmin.tasks){
         return null
     }
   return (

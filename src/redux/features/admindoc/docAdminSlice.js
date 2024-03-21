@@ -10,7 +10,6 @@ export const getDocAdmin = createAsyncThunk('getDocAdmin', async() => {
   const userID = parseInt(sessionStorage.getItem("selectedCustomer"))
   try {
     const result = await getUserDocuments(accessToken, userID);
-    console.log(result)
     return result.userDocuments
   } catch (error) {
       console.log(error)

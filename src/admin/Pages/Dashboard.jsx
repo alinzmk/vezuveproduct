@@ -68,7 +68,6 @@ function Dashboard() {
         try {
             const sale_amount = parseInt(newValue)
             const response = await updateToUserSales(user_id , monthNames[month], sale_amount, accessToken);
-            console.log('User sales updated successfully:', response);
             dispatch(fetchAdminRedux()) 
             // Handle success
         } catch (error) {
@@ -86,7 +85,6 @@ function Dashboard() {
         try {
             const ads_amount = parseInt(newValue)
             const response = await updateToUserAds(user_id , monthNames[month], ads_amount, accessToken);
-            console.log('User ads updated successfully:', response);
             dispatch(fetchAdminRedux()) 
             // Handle success
         } catch (error) {
@@ -106,7 +104,6 @@ function Dashboard() {
         try {
             const unit_amount = parseInt(newValue)
             const response = await updateToUserSalesUnit(user_id , monthNames[month], unit_amount, accessToken);
-            console.log('User sales updated successfully:', response);
             dispatch(fetchAdminRedux()) 
             // Handle success
         } catch (error) {
@@ -124,7 +121,6 @@ function Dashboard() {
         try {
           // Call the setUserPlan function with input values
           const response = await setUserPlan(accessToken, user_id, column, newValue);
-          console.log('User plan set successfully:', response);
           dispatch(fetchAdminRedux()) 
           setEditable(null);
         } catch (error) {

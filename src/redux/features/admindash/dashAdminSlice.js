@@ -10,7 +10,6 @@ export const getDashAdmin = createAsyncThunk('getDashAdmin', async() => {
   const userID = parseInt(sessionStorage.getItem("selectedCustomer"))
   try {
     const result = await getUserPortfolio(accessToken, userID);
-    console.log(result)
     return result
   } catch (error) {
       console.log(error)

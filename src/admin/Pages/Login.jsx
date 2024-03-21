@@ -35,7 +35,6 @@ function Login() {
       const result = await getAdminToken(username, password);
       
       if (result && result.access_token) {
-        console.log('Login successful!', result)
         sessionStorage.setItem("token", result.access_token)
         successNotification("Başarıyla Giriş Yapıldı")
         dispatch(getUserAdmin())

@@ -10,7 +10,6 @@ export const getPlanAdmin = createAsyncThunk('getPlanAdmin', async() => {
   const userID = parseInt(sessionStorage.getItem("selectedCustomer"))
   try {
     const result = await getUserPlan(accessToken, userID);
-    console.log(result)
     return result
   } catch (error) {
       console.log(error)

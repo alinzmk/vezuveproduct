@@ -38,7 +38,7 @@ const handleRegisterEarlyUser = async () => {
     else if(response.status===403){
       warningNotification("Bu mail adresi sistemimize kayıtlıdır")
     }
-    console.log('Early user registered successfully:', response);
+    console.log('Early user registered successfully:');
     // Handle success
   } catch (error) {
     console.error('Error registering early user:', error);

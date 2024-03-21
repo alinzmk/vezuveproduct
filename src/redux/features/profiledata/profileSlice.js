@@ -9,7 +9,7 @@ const initialState = {
 
 export const getProfileData = createAsyncThunk('getProfileData', async() => {
   const accessToken = (sessionStorage.getItem("token"))
-  console.log(accessToken)
+
   try {
     const result = await getUserData(accessToken);
     return result.userData

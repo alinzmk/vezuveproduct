@@ -16,10 +16,9 @@ function Documents() {
     if(!accessToken) {
         navigate("/");
     }
-       //------------------------------------------------------------------------------   
+    //------------------------------------------------------------------------------   
     const {docadmin} = useSelector((state) => state.docadmin);
 
-    console.log(docadmin)
     
     const dispatch = useDispatch();
    //------------------------------------------------------------------------------   
@@ -43,7 +42,6 @@ function Documents() {
     const handleDownloadDocument = async (fileName) => {
         try {
           const result = await downloadDocument(fileName, customerId, accessToken);
-            console.log("RESULT",result)
           if (result.status === 200) {
             console.log('Document download successful!');
           } else {
@@ -57,7 +55,6 @@ function Documents() {
 
     const handleFileUpload = (event, additionalString) => {
         const file = event.target.files[0];
-        console.log(additionalString ,file)
         handleUploadDocument(additionalString, file);
       };
     

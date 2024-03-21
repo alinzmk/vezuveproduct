@@ -7,7 +7,6 @@ const initialState = {
 
 export const getDashData = createAsyncThunk('getDashData', async() => {
   const accessToken = (sessionStorage.getItem("token"))
-  console.log(accessToken)
   try {
     const result = await getUserPortfolio(accessToken);
     return result

@@ -11,7 +11,6 @@ const initialState = {
 
 export const getDocData = createAsyncThunk('getDocData', async() => {
   const accessToken = (sessionStorage.getItem("token"))
-  console.log(accessToken)
   try {
     const result = await getUserDocuments(accessToken);
     return result.userDocuments

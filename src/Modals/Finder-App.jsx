@@ -50,7 +50,6 @@ export default function App(props) {
           setHasStore(null)
           setDesiInfo(null)
         } else {
-          console.log(result.status)
         }
       } catch (error) {
         setError('Error fetching market finder data. Please try again later.');
@@ -77,7 +76,6 @@ export default function App(props) {
           return;
         }
         if (!sliderRef.current) return;
-        console.log(x)
         sliderRef.current.swiper.slideNext();
     }, []);
 

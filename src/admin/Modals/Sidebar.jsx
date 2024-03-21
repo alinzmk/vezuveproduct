@@ -14,8 +14,6 @@ const Sidebar2 = () => {
     //Javascript split method to get the name of the path in array
     const splitLocation = pathname.split("/");
 
-    console.log(splitLocation)
-
   return (
     <>
     <div className="sidebar2 m-0 p-0">

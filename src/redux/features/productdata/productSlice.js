@@ -7,7 +7,7 @@ const initialState = {
 
 export const getProductData = createAsyncThunk('getProductData', async() => {
   const accessToken = (sessionStorage.getItem("token"))
-  console.log(accessToken)
+
   try {
     const result = await getUserProducts(accessToken);
     return result.userProducts

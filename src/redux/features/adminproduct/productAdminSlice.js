@@ -10,7 +10,6 @@ export const getProductAdmin = createAsyncThunk('getProductAdmin', async() => {
   const userID = parseInt(sessionStorage.getItem("selectedCustomer"))
   try {
     const result = await getUserProducts(accessToken, userID);
-    console.log(result)
     return result
   } catch (error) {
       console.log(error)
