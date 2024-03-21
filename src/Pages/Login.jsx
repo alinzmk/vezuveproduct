@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../App.css';
 import logo from "../Assets/logo-renkli.png";
-import { toast } from 'react-toastify';
 import { loginUser } from '../ApiService';
 import { useDispatch } from 'react-redux';
 import fetchAllRedux from '../redux/fetchAllRedux';
