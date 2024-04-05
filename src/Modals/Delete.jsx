@@ -1,8 +1,24 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Modal from 'react-modal';
 import { useNavigate } from 'react-router-dom';
 
 const ConfirmDeleteModal = ({ isOpen, closeModal, onDelete }) => {
+
+  
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkWidth = () => {
+      setIsMobile(window.innerWidth < 992); // Adjust breakpoint as needed
+    };
+    checkWidth();
+    window.addEventListener('resize', checkWidth);
+  
+    // Cleanup function
+    return () => {
+      window.removeEventListener('resize', checkWidth);
+    };
+  }, []);
 
   const handleDelete = () => {
     onDelete(); 
@@ -16,15 +32,17 @@ const ConfirmDeleteModal = ({ isOpen, closeModal, onDelete }) => {
       contentLabel="Delete Modal"
       style={{
         content: {
-          width: "400px", // Adjust width as needed
-          height: "160px", // Adjust height as needed
+          width: isMobile ? "auto" : "400px", // Adjust width as needed
+          height: isMobile ? "160px" : "160px", // Adjust height as needed
+          inset: "20px",
           overflow: "none",
-          margin: "auto",
+          
           backgroundColor: "transparent", // Set background color to white or any other color
+          margin: "auto",
           border: "none",
         },
         overlay: {
-          backgroundColor: "rgba(0,0,0,0.6)"
+          backgroundColor: "rgba(0,0,0,0.7)"
         }
       }}
     >

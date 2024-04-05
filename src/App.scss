@@ -61,6 +61,10 @@ $white: white;
   
   html{
     height: 100%;
+    scrollbar-width: thin;
+    scrollbar-color: #2e2e2e #0a1119;
+    scroll-behavior: smooth;
+    scroll-padding: 100px;
   }
   body{
     height: 100%;
@@ -110,7 +114,32 @@ $white: white;
     z-index: 1000; /* Ensure it's above other elements */
   }
   
-  
+    
+
+  .right{
+    position: relative;
+    max-width: 90%;
+    margin-left: 7rem;
+  }
+
+  .sidebar-logo{
+    display: flex;
+    max-width: 15rem !important;
+    height: auto;
+    margin: auto 0 auto auto;
+    float: right;
+  }
+
+  .pbg{
+    background-color: $white;
+    border-radius: 10px;
+    border: 1px solid $white;
+  }
+  #sideOpen{
+    font-size: 2rem;
+    background-color: transparent;
+    border: none;
+  }
   
   /** LOGIN REGISTER **/
 
@@ -121,121 +150,118 @@ $white: white;
     background-size: cover;
     min-height: 100vh;
     width: 100vw;
+    .login-container{
+      position: relative;
+      height: 100vh;
+      max-width: 500px;
+      padding: 0 20px;
+      margin:auto;
+      .wrapper{
+        position: absolute;
+        top: 30%;
+        width: 400px;
+        background: none;
+        border-radius: 5px;
+         & .title{
+          height: 90px;
+          background: none;
+          border-radius: 5px 5px 0 0;
+          font-size: 30px;
+          font-weight: 600;
+          display: flex;
+          align-items: center;
+        }
+         & form{
+          padding: 0;
+          & .row{
+            box-shadow: 0px 4px 10px 1px rgba(0,0,0,0.1);
+            height: 45px;
+            margin-bottom: 15px;
+            position: relative;
+            & input{
+              background-color: #E8F0FE;
+              height: 100%;
+              width: 100%;
+              outline: none;
+              padding-left: 60px;
+              border-radius: 5px;
+              border: 1px solid $login;
+              font-size: 16px;
+              transition: all 0.3s ease;
+              &:focus{
+                border-color: $login;
+                box-shadow: inset 0px 0px 2px 2px rgba(26,188,156,0.25);
+              }
+              &::placeholder{
+                color: #999;
+              }
+            }
+            & i{
+              position: absolute;
+              width: 47px;
+              height: 100%;
+              color: #fff;
+              font-size: 18px;
+              background: $login;
+              border: 1px solid $login;
+              border-radius: 5px 0 0 5px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            }
+            & .pass{
+              margin: -8px 0 20px 0;
+              a:hover{
+                text-decoration: underline;
+              }
+            }
+          }
+          .button input{
+            color: #fff;
+            font-size: 20px;
+            font-weight: 500;
+            padding-left: 0px;
+            background: $login;
+            border: 1px solid $login;
+            cursor: pointer;
+            &:hover{
+              background: #D6F2FF;
+              border: none;
+              color: $login;
+            }
+          } 
+          .signup-link{
+            margin-top: 20px;
+            font-size: 17px;
+            color: $login !important;
+            a{
+              color: $login !important;
+              text-decoration: none;
+              &:hover{
+                text-decoration: underline;
+              }
+            }
+          }
+        }
+        .login-logo{
+          width: 15rem;
+        }
+        
+        #togglePassword{
+          color: #001B48;
+          border: none;
+          position: absolute;
+          right: 0;
+          background-color: transparent;
+          cursor: pointer;
+        }
+      }
+    
+    }
+    
   }
 
-  .login-container{
-    position: relative;
-    height: 100vh;
-    max-width: 500px;
-    padding: 0 20px;
-    margin:auto;
-  }
-  .wrapper{
-    position: absolute;
-    top: 30%;
-    width: 400px;
-    background: none;
-    border-radius: 5px;
-  }
-  .wrapper .title{
-    height: 90px;
-    background: none;
-    border-radius: 5px 5px 0 0;
-    font-size: 30px;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-  }
-  .wrapper form{
-    padding: 0;
-  }
-  .wrapper form .row{
-    box-shadow: 0px 4px 10px 1px rgba(0,0,0,0.1);
-    height: 45px;
-    margin-bottom: 15px;
-    position: relative;
-  }
-  .wrapper form .row input{
-    background-color: #E8F0FE;
-    height: 100%;
-    width: 100%;
-    outline: none;
-    padding-left: 60px;
-    border-radius: 5px;
-    border: 1px solid $login;
-    font-size: 16px;
-    transition: all 0.3s ease;
-  }
-  form .row input:focus{
-    border-color: $login;
-    box-shadow: inset 0px 0px 2px 2px rgba(26,188,156,0.25);
-  }
-  form .row input::placeholder{
-    color: #999;
-  }
-  .wrapper form .row i{
-    position: absolute;
-    width: 47px;
-    height: 100%;
-    color: #fff;
-    font-size: 18px;
-    background: $login;
-    border: 1px solid $login;
-    border-radius: 5px 0 0 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .wrapper form .pass{
-    margin: -8px 0 20px 0;
-  }
-  .wrapper form .pass a{
-    color: $login;
-    font-size: 17px;
-    text-decoration: none;
-  }
-  .wrapper form .pass a:hover{
-    text-decoration: underline;
-  }
-  .wrapper form .button input{
-    color: #fff;
-    font-size: 20px;
-    font-weight: 500;
-    padding-left: 0px;
-    background: $login;
-    border: 1px solid $login;
-    cursor: pointer;
-  }
-  form .button input:hover{
-    background: #D6F2FF;
-    border: none;
-    color: $login;
-  }
-  .wrapper form .signup-link{
-    margin-top: 20px;
-    font-size: 17px;
-    color: $login !important;
-  }
-  .wrapper form .signup-link a{
-    color: $login !important;
-    text-decoration: none;
-  }
-  form .signup-link a:hover{
-    text-decoration: underline;
-  }
   
-  .login-logo{
-    width: 15rem;
-  }
-  
-  #togglePassword{
-    color: #001B48;
-    border: none;
-    position: absolute;
-    right: 0;
-    background-color: transparent;
-    cursor: pointer;
-  }
   
   /** LOGIN REGISTER FINISH**/
   
@@ -246,83 +272,168 @@ $white: white;
     position: fixed;
     display: flex;
     max-width: 133px;
-  }
-  
-  .sidebar-wrapper2{
-    position: absolute;
-    z-index: 9;
-    min-height: 100vh;
-    float: left;
-    top: 0;
-    left: 0;
-    margin: 0;
-    padding: 50px 10px 0 0;
-    background-color: $white;
-    border-right: 1px solid rgba(28, 29, 34, 0.2);
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .sidebar-ul2{
-    justify-content: center;
-    text-align: center;
-    padding: 0;
-    list-style: none;
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    flex-grow: 1;
-  }
-  
-  .sidebar-li2{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: auto;
-    padding: 0;
-    margin: 1.5rem 0;
-    transition: 0.5s;
-  }
-  
-  .sidebar-logo{
-    display: flex;
-    max-width: 15rem !important;
-    height: auto;
-    margin: auto 0 auto auto;
-    float: right;
-  }
-  
-  .sidebar-link{
-    color: rgba(28, 29, 34, 0.5);
-    text-decoration: none;
-    font-size: 1.5rem;
-    font-weight: 100;
-    /** 1.3 **/
-  }
-  
-  .sidebar-li2:hover{
-    color: rgba(12, 18, 17, 1);
-  }
-  .small-logo{
-    max-width: 50px;
-  }
-  
-  .side-active {
-    @extend .radius;
-    border: 1px solid $primary10; /* Set the border color and width */
-    background-color: $primary10;
-     /* Create a circular border */
-    margin: 1.5rem auto;
-    width: 36px; /* Set the width of the square */
-    height: 36px; /* Set the height of the square */
-  }
-  .side-active a{
+    .sidebar-wrapper2{
+      position: absolute;
+      z-index: 9;
+      min-height: 100vh;
+      float: left;
+      top: 0;
+      left: 0;
+      margin: 0;
+      padding: 50px 10px 0 0;
+      background-color: $white;
+      border-right: 1px solid rgba(28, 29, 34, 0.2);
+      display: flex;
+      flex-direction: column;
+      .sidebar-ul2{
+        justify-content: center;
+        text-align: center;
+        padding: 0;
+        list-style: none;
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        flex-grow: 1;
+        .sidebar-li2{
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: auto;
+          padding: 0;
+          margin: 1.5rem 0;
+          transition: 0.5s;
+          &:hover{
+            color: rgba(12, 18, 17, 1);
+          }
+          
+          .sidebar-link{
+            color: rgba(28, 29, 34, 0.5);
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: 100;
+            /** 1.3 **/
+          }
+        }
+        .side-active {
+          @extend .radius;
+          border: 1px solid $primary10; /* Set the border color and width */
+          background-color: $primary10;
+           /* Create a circular border */
+          margin: 1.5rem auto;
+          width: 36px; /* Set the width of the square */
+          height: 36px; /* Set the height of the square */
+          a{
+            font-size: 1.2rem;
+            color: $white !important;
+          }
+        }
+      }
+
+      .sidebar-logo{
+        display: flex;
+        max-width: 15rem !important;
+        height: auto;
+        margin: auto 0 auto auto;
+        float: right;
+      }
+      
+      
+      .small-logo{
+        max-width: 50px;
+      }
+      
+    }
     
-    font-size: 1.2rem;
-    color: $white;
+    
+    
   }
   
+
+  .mobilsidebar2{
+      z-index: 9;
+      position: fixed;
+      display: flex;
+      max-width: 100vw;
+      font-size: 1.3rem;
+      .sidebar-wrapper2{
+        width: 104vw;
+        transition: 2.2s cubic-bezier(.36,-0.01,0,.77);
+        position: absolute;
+        min-height: 100vh;
+        float: left;
+        top: 0;
+        left: 0;
+        margin: 0;
+        padding: 50px 0 0 0;
+        background-color: $white;
+        border-right: 1px solid rgba(28, 29, 34, 0.2);
+        display: flex;
+        flex-direction: column;
+        .sidebar-ul2{
+          justify-content: center;
+          text-align: center;
+          padding: 0;
+          list-style: none;
+          list-style-type: none;
+          padding: 0;
+          margin: 0;
+          flex-grow: 1;
+          .sidebar-li2{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: auto;
+            padding: 0;
+            margin: 1.5rem 0;
+            transition: 0.5s;
+            &:hover{
+              color: rgba(12, 18, 17, 1);
+            }
+            
+            .sidebar-link{
+              color: rgba(28, 29, 34, 0.5);
+              text-decoration: none;
+              font-weight: 100;
+              /** 1.3 **/
+            }
+            p{
+              margin: 0;
+            }
+          }
+          .side-active {
+            a{
+              font-size: 2rem;
+            }
+          }
+        }
+        
+        .small-logo{
+          max-width: 50px;
+        }
+        .closeButton{
+          position: absolute;
+          background-color: transparent;
+          border: none;
+          top: 5px;
+          right: 5px;
+        }
+      }
+      .sidebarOverlay{
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+          backdrop-filter: blur(5px); /* Apply a blur effect */
+          z-index: -1; 
+      }
+      
+      
+      
+  }
   
   /** SIDEBAR bitiş**/
   
@@ -332,721 +443,204 @@ $white: white;
     transition: 0.3s;
   }
   .mainhov:hover{
-    scale: 1.1;
-    background-color: transparent !important;
+    scale: 1.03;
+    background-color: transparent ;
     color: #001B48;
   }
   
-  .dashboard{
+  .main{
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
     max-height: 100vh;
-  }
-  
-  %dashboard1{
-    background-color: $white;
-    border-radius: 10px;
-    width: 32%;
-    margin: 0 0rem 0 0;
+    overflow-x: hidden;
   }
 
-  #total-sales{
-    @extend %dashboard1;
-    padding: 1rem 0 1rem  2rem;
+  .dashboard{
+    %dashboard1{
+      background-color: $white;
+      border-radius: 10px;
+      width: 32%;
+      margin: 0 0rem 0 0;
+    }
+  
+    #total-sales{
+      @extend %dashboard1;
+      padding: 1rem 0 1rem  2rem;
+      
+    }
+    #total-purchases{
+      @extend %dashboard1;
+      padding: 1rem 0 1rem 2rem;
+    }
+    #total-orders{
+      @extend %dashboard1;
+      padding: 1rem 0 1rem  2rem;
+    }
+  
+    #total-growth{
+      background-color: $white;
+      border-radius: 10px;
+      width: 100%;
+      margin: 1rem 3rem 1rem 0;
+      padding: 1rem 31% 1rem 31%;
+    }
+    .aylık{
+      font-size: 0.9rem !important;
+      color: rgba(28, 29, 34, 0.7);
+    }
+    .plus{
+      border-radius: 500px;
+      background-color: $positive;
+      width: 50%;
+      padding: 0 0 0 1rem;
+      position: relative;
+      top: 0;
+      margin: 0;
+    }
+    .minus{
+      border-radius: 500px;
+      background-color: $negative;
+      width: 50%;
+      padding: 0 0 0 1rem;
+      position: relative;
+      top: 0;
+      margin: 0;
+    }
+    .plus2{
+      border-radius: 40px;
+      background-color: $positive;
+      width: 50%;
+      padding: 0 0 0 1rem;
+      position: absolute;
+      left: -70%;
+      bottom: 15%;
+      margin: 0;
+      font-size: 2rem;
+    }
+    .minus2{
+      border-radius: 40px;
+      background-color: $negative;
+      width: 50%;
+      padding: 0 0 0 1rem;
+      position: absolute;
+      left: -70%;
+      bottom: 15%;
+      margin: 0;
+      font-size: 2rem;
+    }
     
-  }
-  #total-purchases{
-    @extend %dashboard1;
-    padding: 1rem 0 1rem 2rem;
-  }
-  #total-orders{
-    @extend %dashboard1;
-    padding: 1rem 0 1rem  2rem;
-  }
-
-  #total-growth{
-    background-color: $white;
-    border-radius: 10px;
-    width: 100%;
-    margin: 1rem 3rem 1rem 0;
-    padding: 1rem 31% 1rem 31%;
-  }
-  .aylık{
-    font-size: 0.9rem !important;
-    color: rgba(28, 29, 34, 0.7);
-  }
-  .plus{
-    border-radius: 500px;
-    background-color: $positive;
-    width: 50%;
-    padding: 0 0 0 1rem;
-    position: relative;
-    top: 0;
-    margin: 0;
-  }
-  .minus{
-    border-radius: 500px;
-    background-color: $negative;
-    width: 50%;
-    padding: 0 0 0 1rem;
-    position: relative;
-    top: 0;
-    margin: 0;
-  }
-  .plus2{
-    border-radius: 40px;
-    background-color: $positive;
-    width: 50%;
-    padding: 0 0 0 1rem;
-    position: absolute;
-    left: -70%;
-    bottom: 15%;
-    margin: 0;
-    font-size: 2rem;
-  }
-  .minus2{
-    border-radius: 40px;
-    background-color: $negative;
-    width: 50%;
-    padding: 0 0 0 1rem;
-    position: absolute;
-    left: -70%;
-    bottom: 15%;
-    margin: 0;
-    font-size: 2rem;
-  }
+    
+    #graph{
+      background-color: $white;
+      border-radius: 10px;
+      height: auto;
+    }
   
-  
-  #graph{
-    background-color: $white;
-    border-radius: 10px;
-    height: auto;
+    #status{
+      font-size: 1rem;
+      background-color: $white;
+      border-radius: 10px;
+      height: 23rem;
+    }
+    #customer-info{
+      height: auto;
+      font-size: 1rem;
+      background-color: $white;
+      border-radius: 10px;
+    }
+    .main-info{
+      color: $black06;
+      font-weight: 300;
+      margin: 0.5rem 0 0.5rem 0;
+    
+    }
+    .main-info2{
+      color: $black10;
+      font-size: 1.4rem;
+      font-weight: 300;
+    }
+    
+    .info-hr{
+      margin-right: 40%;
+    }
   }
-
-  #status{
-    font-size: 1rem;
-    background-color: $white;
-    border-radius: 10px;
-    height: 23rem;
-  }
-  #customer-info{
-    height: auto;
-    font-size: 1rem;
-    background-color: $white;
-    border-radius: 10px;
-  }
-  .main-info{
-    color: $black06;
-    font-weight: 300;
-    margin: 0.5rem 0 0.5rem 0;
-  
-  }
-  .main-info2{
-    color: $black10;
-    font-size: 1.4rem;
-    font-weight: 300;
-  }
-  
-  .info-hr{
-    margin-right: 40%;
-  }
-  
-  
   
   /** ana ekran bitiş**/
   
-  /** PROFİL SEKMESİ**/
-  .right{
-      position: relative;
-      max-width: 90%;
-      left: 3rem;
-  }
-  
-  .pbg{
-    background-color: $white;
-    border-radius: 10px;
-    border: 1px solid $white;
-  }
-  
-  .profile-title{
-    font-size: 13px;
-    border-bottom: 1px solid $primary03;
-    padding: 0.7rem 0 0.7rem 0.5rem;
-    margin: 0;
-  }
-  
-  .profile-info{
-    margin: 0;
-    padding: 1rem 0 1rem 1rem;
-  }
-
-  .buton2{
-    padding: 0.7rem;
-    background-color: transparent;
-    border: 1px solid #270082;
-    color: #270082;
-    border-radius: 10px;
-      &:hover{
-        padding: 0.7rem 1rem;
-        background-color: transparent;
-        border: 1px solid #FA58B6;
-        color: #FA58B6;
-        border-radius: 10px;
-      }
-  }
-  .profile-button{
-    @extend .buton2;
-    padding: 0.3rem 0.7rem;
-    &:hover{
-      padding: 0.3rem 0.9rem;
-    }
-  }
-  .profile-input{
-    margin: 0 auto;
-    width: 80%;
-    border: none;
-    border-bottom: 1px solid rgba(85, 112, 241, 0.3);
-  } 
-  
-  
-  #profile-photo{
-      position: relative;
-      display: inline-block;
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      background-color: #FA58B6;
-      background-repeat: no-repeat;
-      background-position: center center;
-      background-size: cover;
-  }
-  
-  #profile-name{
-    position: absolute;
-    top:27px;
-    left: 27px;
-  }
-
- 
-  
-  .add-product{
-    cursor: pointer;
-  }
-
-  .profil-guncelle-buton{
-    margin: 0 0 10px 20px;
-    cursor: pointer;
-    transition: 0.3s;
-    font-size: 1rem;
-    border-radius: 10px;
-    padding: 3px 20px;
-    color: $white;
-    background: rgb(26,33,66);
-    background: -moz-linear-gradient(122deg, rgba(62, 79, 162, 0.9) 12%, rgba(85,112,241,0.9) 75%, rgba(250,88,182, 0.9) 100%);
-    background: -webkit-linear-gradient(122deg, rgba(61, 77, 157, 0.9) 12%, rgba(85,112,241,0.9) 75%, rgba(250,88,182, 0.9) 100%);
-    background: linear-gradient(122deg, rgba(64, 80, 163, 0.9) 12%, rgba(85,112,241,0.9) 75%, rgba(250,88,182, 0.9) 100%);
-    border:none;
-    &:hover{
-      padding: 3px 25px;
-    }
-  }
-  
-
-  
-  /** PROFİL BİTİŞ **/
-  
-  /** MODAL BAŞLANGIÇ**/
-  
-  input[type=button] {
-    border: none;
-    outline: none !important;
-  }
-  
-  .modalContainer {
-    z-index: 50;
-    width: 50vw;
-    height: auto;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    background-color: $white;
-    box-shadow: 0px 0px 18px 0px rgba(0,0, 0, 0.75);
-    border-radius: 20px;
-    padding: 2rem;
-  }
-  
-  .closeBtn, .closeBtn:hover{
-    position: absolute;
-    top: 0;
-    right: 15px;
-    color: rgba(12, 18, 17, 1);
-    background-color: transparent;
-    border: none;
-    outline: none;
-  }
-  
-  .closeBtn:focus{
-    outline: none !important;
-  }
-  
-  .service-img{
-    width: 400px;
-  }
-  .modal-logo{
-    width: 150px;
-    display: flex;
-    justify-content: center;
-  }
-  .purchase-btn{
-    transition: 0.5s;
-    background-color: rgba(85, 112, 241, 0.1);
-    border-radius: 25px;
-    font-size: 1.4rem;
-    padding: 10px 25px;
-  }
-  .purchase-btn:hover{
-    border-radius: 25px;
-    font-size: 1.4rem;
-    padding: 10px 35px;
-  }
-  
-  .modal-info-1{
-    color: $black10;
-    margin: 0 0;
-  }
-  .modal-info-2{
-    font-size: 1.2rem !important;
-    text-decoration: line-through;
-    color: $black08;
-    margin: 13px 0;
-  }
-  .modal-info-4{
-    color: $black10;
-    font-weight: 700;
-    font-size: 2rem;
-    margin: 0 0 13px 0;
-    .month{
-      font-weight: 500;
-      font-size: 1.6rem;
-    }
-  }
-
-  .discount{
-    color: $primary10;
-    vertical-align: middle;
-    margin: auto 0 auto 5px;
-    border: 1px solid $primary10;
-    border-radius: 10px;
-    padding: 2px 7px;
-  }
-
-  .confirm-modal {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .confirm-modal h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
-  }
-  
-  .confirm-modal p {
-    font-size: 18px;
-    margin-bottom: 20px;
-  }
-  
-  .confirm-actions {
-    display: flex;
-    justify-content: center;
-  }
-  
-  .confirm-actions button {
-    padding: 10px 20px;
-    margin: 0 10px;
-    font-size: 16px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .confirm-actions button:nth-child(1) {
-    background-color: $primary10;
-    color: #fff;
-  }
-  
-  .confirm-actions button:nth-child(2) {
-    background-color: $negative;
-    color: #fff;
-  }
-  
-  .confirm-actions button:hover {
-    opacity: 0.8;
-  }
-  
-  
 
 
 
+    /** PROFİL SEKMESİ**/
 
-
-
-
-
-
-
-
-  .info-container{
-    
-      .info-modal {
-        width: auto;
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background-color: #fff;
-        padding: 20px;
-        border-radius: 8px;
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-      }
-      
-      .info-modal h2 {
-        font-size: 24px;
-        margin-bottom: 10px;
-      }
-      
-      .info-modal p {
-        font-size: 18px;
-        margin-bottom: 20px;
-      }
-      
-      .info-actions {
-        display: flex;
-        justify-content: center;
-      }
-
-  }
-  
-  /** modal bitiş**/
-  
-  /** BELGELER **/
-  
-  .buton3{
-    cursor: pointer;
-    transition: ease-in-out 0.3s;
-    margin: 0 2rem;
-    font-size: 1.2rem;
-    padding: 0.5rem 3rem;
-    background-color: transparent;
-    color: $black10;
-    border-radius: 10px;
-    border: none;
-  }
-  .buton4{
-    @extend .buton3;
-    border: 1px solid $black10;
-  }
-
-  .hov{
-    scale: 1;
-  }
-
-  .buton3:hover{
-    scale: 0.95;
-    color: #FA58B6;
-    background-color: $black10;
-  }
-  .buton4:hover{
-    scale: 1.05;
-    color: #FA58B6;
-    background-color: $black10;
-  }
-  
-  .dropdown2:hover .dropdown-menu {
-    display: block;
-    margin-top: 0; 
-  }
-
-  .info-btn{
-    font-size: 1rem;
-    pointer-events: none;
-    background-color: transparent;
-    border: none;
-  }
-
-  .info{
-    padding-left: 10px;
-    padding-right: 10px;
-    inset: auto auto auto auto !important;
-    background-color: rgba(255, 255, 255, 1);
-    border-radius: 10px;
-    max-width: 400px;
-  
-  }
-  
-
-  
-  /** belgeler bitiş**/
-  
-  /** ürünler **/
-  
-  input:focus,
-  select:focus,
-  textarea:focus,
-  button:focus {
-      outline: none;
-  }
-  
-  .product-input{
-    max-width: 70%;
-    border-radius: 20px;
-    padding: 0.1rem 1rem;
-    border: 1px solid $black10;
-    transition: 0.5s;
-  }
-  .product-input:focus, .product-input:focus-visible{
-    max-width: 100%;
-    border-radius: 20px;
-    padding: 0.1rem 1rem;
-  }
-  .p-search{
-    font-size: 1.1rem;
-  }
-  
-  .product-list{
-    list-style: none;
-    padding: 0;
-  }
-  
-  .product-item{
-    cursor: pointer;
-    width: auto;
-    padding: 1rem;
-  }
-  
-  .product-active{
-    background-color: $primary10;
-    color: $white;
-  }
-  
-  #product-image{
-    width: 200px;
-    border-radius: 20px;
-    box-shadow: 0px 0px 10px 1px $black10;
-  }
-  
-  .product-list-container {
-    min-height: 60vh;
-    max-height: 60vh; /* Adjust the height as needed */
-    overflow-y: auto;
-  }
-  #add-product-info{
-    max-width: 800px;
-    max-height: 500px;
-    object-fit: contain;
-  }
-  .product-btn {
-    background-color: transparent;
-    border-radius: 50%;
-    width: 25px;
-    height: 25px;
-    border: 1px solid rgba(12, 18, 17, 1);
-    display: flex; /* Add this to use flexbox */
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
-  }
-  
-  .product-btn i {
-    margin: 0; /* Remove any default margin */
-  }
-  .dropdown-toggle::after {
-    display: none;
-  }
-  
-  .product-dropdown{
-    margin: 10px 0 10px 0px;
-  }
-  
-  .upload{
-    transition: 1s;
-    inset: 3px -200px auto auto !important;
-    width: 400px;
-    border-radius: 10px;
-    background-color: rgba(255, 255, 255, 0.8);
-  }
-  /* ÜRÜNLER BİTİŞ */
-  /* HİZMETLER */
-  
-  .hizmet-wrap{
-    background-color: transparent;
-    padding: 25px 25px 25px 25px;
-    .hizmet{
-      cursor: pointer;
-      overflow: hidden;
-      position: relative;
-      padding: 20px;
-      height: 150px;
-      border: 1px solid rgba(28, 21, 59, 0.5);
-      border-radius: 10px;
-      transition: 0.5s;
-      
-      .info-btn{
-        font-size: 1rem;
-        pointer-events: none;
-        background-color: transparent;
-        border: none;
-      }
-    
-      .info{
-        padding-left: 10px;
-        padding-right: 10px;
-        inset: auto auto auto auto !important;
-        background-color: rgba(255, 255, 255, 1);
-        border-radius: 10px;
-        max-width: 400px;
-      
-      }
-      
+  .profil{
+    .profile-title{
+      font-size: 13px;
+      border-bottom: 1px solid $primary03;
+      padding: 0.7rem 0 0.7rem 0.5rem;
+      margin: 0;
     }
     
-    .amazon{
-      box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.192);
+    .profile-info{
+      margin: 0;
+      padding: 1rem 0 1rem 1rem;
     }
-    .allegro{
-      box-shadow: 0px 0px 10px 1px rgba(172, 123, 0, 0.192);
-    }
-    .walmart{
-      box-shadow: 0px 0px 5px 1px rgba(0, 106, 172, 0.192);
-    }
-    .wayfair{
-      box-shadow: 0px 0px 5px 1px rgba(109, 0, 172, 0.192);
-    }
-    .ozon{
-      box-shadow: 0px 0px 5px 1px rgba(0, 53, 244, 0.192);
-    }
-    .amazon:hover{
-      box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.192);
-    }
-    .allegro:hover{
-      box-shadow: 0px 0px 10px 5px rgba(172, 123, 0, 0.192);
-    }
-    .walmart:hover{
-      box-shadow: 0px 0px 5px 5px rgba(0, 106, 172, 0.192);
-    }
-    .wayfair:hover{
-      box-shadow: 0px 0px 5px 5px rgba(109, 0, 172, 0.192);
-    }
-    .ozon:hover{
-      box-shadow: 0px 0px 5px 3px rgba(0, 72, 255, 0.192);
-    }
-    .hizmet-isim{
-      font-size: 20px;
-      margin-bottom: 5px;
-    }
-    .hizmet-tür{
-      margin-bottom: 5px;
-      color: rgba(28, 29, 34, 0.8)
-    }
-    .hizmet-ücret{
-      color: rgba(28, 29, 34, 0.5)
-    }
-    .hizmet-img{
-      position: absolute;
-      bottom: 0px;
-      right: -30px;
-      opacity: 0.1;
-      rotate: -15deg;
-      max-width: 200px;
-    }
-  }
-  .nav-link{
-    color: rgba(28, 29, 34, 0.6) ;
-  }
-  .nav-tabs .nav-link.active{
-    color: $primary10;
-  }
-  .service-info{
-    background-color: transparent;
-    border: none;
-    position: absolute;
-    top: 10px;
-    right: 15px;
-  }
-  .satin-al{
-    transition: 0.3s;
-    font-size: 1.2rem;
-    border-radius: 10px;
-    padding: 5px 35px;
-    color: $white;
-    background: rgb(26,33,66);
-    background: -moz-linear-gradient(122deg, rgb(62, 79, 162) 12%, rgba(85,112,241,1) 75%, rgba(250,88,182,1) 100%);
-    background: -webkit-linear-gradient(122deg, rgb(61, 77, 157) 12%, rgba(85,112,241,1) 75%, rgba(250,88,182,1) 100%);
-    background: linear-gradient(122deg, rgb(64, 80, 163) 12%, rgba(85,112,241,1) 75%, rgba(250,88,182,1) 100%);
-    border:none;
-    &:hover{
-      padding: 5px 40px;
-  }
-  }
 
-  .hizmet-wrap-vezu{
-    background-color: transparent;
-    padding: 25px 25px 25px 25px;
-    .accordion-header{
-      cursor: pointer;
-    }
-    .accordion-item, .accordion-button, .accordion, .accordion-header, .accordion-button:focus{
+    .buton2{
+      padding: 0.7rem;
       background-color: transparent;
-      box-shadow: none;
+      border: 1px solid #270082;
+      color: #270082;
+      border-radius: 10px;
+        &:hover{
+          padding: 0.7rem 1rem;
+          background-color: transparent;
+          border: 1px solid #FA58B6;
+          color: #FA58B6;
+          border-radius: 10px;
+        }
+    }
+    .profile-button{
+      @extend .buton2;
+      padding: 0.3rem 0.7rem;
+      &:hover{
+        padding: 0.3rem 0.9rem;
+      }
+    }
+    .profile-input{
+      margin: 0 auto;
+      width: 80%;
+      border: none;
+      border-bottom: 1px solid rgba(85, 112, 241, 0.3);
+    } 
+    
+    
+    #profile-photo{
+        position: relative;
+        display: inline-block;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background-color: #FA58B6;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
     }
     
-    .hizmet{
-      overflow: hidden;
-      position: relative;
-      padding: 0px;
-      border: 1px solid rgba(28, 21, 59, 1);
-      border-radius: 10px;
-      transition: 0.5s;
-    }
-    .vezu{
-      box-shadow: 0px 0px 5px 1px rgba(109, 0, 172, 0.192);
-    }
-    .vezu:hover{
-      box-shadow: 0px 0px 5px 5px rgba(109, 0, 172, 0.192);
-    }
-    .hizmet-isim{
-      transition: 1s;
-      color: $black10;
-      font-size: 20px;
-      margin-bottom: 0;
-      &::after{
-      }
-
-    }
-    .hizmet-tür{
-      margin-bottom: 5px;
-      color: $black06;
-    }
-    .hizmet-ücret{
-      color: $black06;
-    }
-    .hizmet-img{
+    #profile-name{
       position: absolute;
-      bottom: 5px;
-      right: -40px;
-      opacity: 0.1;
-      rotate: -10deg;
-      max-width: 250px;
+      top:27px;
+      left: 27px;
     }
-    .hizmet-buton{
+
+  
+    
+    .add-product{
+      cursor: pointer;
+    }
+
+    .profil-guncelle-buton{
       margin: 0 0 10px 20px;
       cursor: pointer;
       transition: 0.3s;
@@ -1062,8 +656,519 @@ $white: white;
       &:hover{
         padding: 3px 25px;
       }
+    }
   }
-}
+  
+  /** PROFİL BİTİŞ **/
+  
+
+  /** MODAL BAŞLANGIÇ**/
+  
+  .overlay{
+    input[type=button] {
+      border: none;
+      outline: none !important;
+    }
+    
+    .modalContainer {
+      z-index: 50;
+      width: 50vw;
+      height: auto;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      background-color: $white;
+      box-shadow: 0px 0px 18px 0px rgba(0,0, 0, 0.75);
+      border-radius: 20px;
+      padding: 2rem;
+    }
+    
+    .closeBtn, .closeBtn:hover{
+      position: absolute;
+      top: 0;
+      right: 15px;
+      color: rgba(12, 18, 17, 1);
+      background-color: transparent;
+      border: none;
+      outline: none;
+    }
+    
+    .closeBtn:focus{
+      outline: none !important;
+    }
+    
+    .service-img{
+      width: 400px;
+    }
+    .modal-logo{
+      width: 150px;
+      display: flex;
+      justify-content: center;
+    }
+    .purchase-btn{
+      transition: 0.5s;
+      background-color: rgba(85, 112, 241, 0.1);
+      border-radius: 25px;
+      font-size: 1.4rem;
+      padding: 10px 25px;
+    }
+    .purchase-btn:hover{
+      border-radius: 25px;
+      font-size: 1.4rem;
+      padding: 10px 35px;
+    }
+    
+    .modal-info-1{
+      color: $black10;
+      margin: 0 0;
+    }
+    .modal-info-2{
+      font-size: 1.2rem !important;
+      text-decoration: line-through;
+      color: $black08;
+      margin: 13px 0;
+    }
+    .modal-info-4{
+      color: $black10;
+      font-weight: 700;
+      font-size: 2rem;
+      margin: 0 0 13px 0;
+      .month{
+        font-weight: 500;
+        font-size: 1.6rem;
+      }
+    }
+  
+    .discount{
+      color: $primary10;
+      vertical-align: middle;
+      margin: auto 0 auto 5px;
+      border: 1px solid $primary10;
+      border-radius: 10px;
+      padding: 2px 7px;
+    }
+    .satin-al{
+      transition: 0.3s;
+      font-size: 1.2rem;
+      border-radius: 10px;
+      padding: 5px 35px;
+      color: $white;
+      background: rgb(26,33,66);
+      background: -moz-linear-gradient(122deg, rgb(62, 79, 162) 12%, rgba(85,112,241,1) 75%, rgba(250,88,182,1) 100%);
+      background: -webkit-linear-gradient(122deg, rgb(61, 77, 157) 12%, rgba(85,112,241,1) 75%, rgba(250,88,182,1) 100%);
+      background: linear-gradient(122deg, rgb(64, 80, 163) 12%, rgba(85,112,241,1) 75%, rgba(250,88,182,1) 100%);
+      border:none;
+      &:hover{
+        padding: 5px 40px;
+      } 
+    }
+  
+  }
+  
+  .confirm-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+    p {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+    .confirm-actions {
+      display: flex;
+      justify-content: center;
+      button {
+        padding: 10px 20px;
+        margin: 0 10px;
+        font-size: 16px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        &:nth-child(1) {
+          background-color: $primary10;
+          color: #fff;
+        }
+        &:nth-child(2) {
+          background-color: $negative;
+          color: #fff;
+        }
+        &:hover {
+          opacity: 0.8;
+        }
+      }
+    }
+  }
+  
+  .info-container{
+      .info-modal {
+        width: auto;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      }
+      .info-modal h2 {
+        font-size: 24px;
+        margin-bottom: 10px;
+      } 
+      .info-modal p {
+        font-size: 18px;
+        margin-bottom: 20px;
+      }
+      .info-actions {
+        display: flex;
+        justify-content: center;
+      }
+  }
+  
+  /** modal bitiş**/
+
+  
+
+  /** BELGELER **/
+
+  .belgeler{
+    .buton3{
+      cursor: pointer;
+      transition: ease-in-out 0.3s;
+      margin: 0 2rem;
+      font-size: 1.2rem;
+      padding: 0.5rem 3rem;
+      background-color: transparent;
+      color: $black10;
+      border-radius: 10px;
+      border: none;
+    }
+    .buton4{
+      @extend .buton3;
+      border: 1px solid $black10;
+    }
+  
+    .hov{
+      scale: 1;
+    }
+  
+    .buton3:hover{
+      scale: 0.95;
+      color: #FA58B6;
+      background-color: $black10;
+    }
+    .buton4:hover{
+      scale: 1.05;
+      color: #FA58B6;
+      background-color: $black10;
+    }
+    
+    .dropdown2:hover .dropdown-menu {
+      display: block;
+      margin-top: 0; 
+    }
+  
+    .info-btn{
+      font-size: 1rem;
+      pointer-events: none;
+      background-color: transparent;
+      border: none;
+    }
+    .info{
+      padding-left: 10px;
+      padding-right: 10px;
+      inset: auto auto auto auto !important;
+      background-color: rgba(255, 255, 255, 1);
+      border-radius: 10px;
+      max-width: 400px;
+    }
+  }
+
+  
+  /** belgeler bitiş**/
+  
+  /** ürünler **/
+  .urunler{
+    input:focus,
+    select:focus,
+    textarea:focus,
+    button:focus {
+        outline: none;
+    }
+    
+    .product-input{
+      max-width: 70%;
+      border-radius: 20px;
+      padding: 0.1rem 1rem;
+      border: 1px solid $black10;
+      transition: 0.5s;
+    }
+    .product-input:focus, .product-input:focus-visible{
+      max-width: 100%;
+      border-radius: 20px;
+      padding: 0.1rem 1rem;
+    }
+    .p-search{
+      font-size: 1.1rem;
+    }
+    
+    .product-list{
+      list-style: none;
+      padding: 0;
+    }
+    
+    .product-item{
+      cursor: pointer;
+      width: auto;
+      padding: 1rem;
+    }
+    
+    .product-active{
+      background-color: $primary10;
+      color: $white;
+    }
+    
+    #product-image{
+      width: 200px;
+      border-radius: 20px;
+      box-shadow: 0px 0px 10px 1px $black10;
+    }
+    
+    .product-list-container {
+      min-height: 60vh;
+      max-height: 60vh; /* Adjust the height as needed */
+      overflow-y: auto;
+    }
+    #add-product-info{
+      max-width: 800px;
+      max-height: 500px;
+      object-fit: contain;
+    }
+    .product-btn {
+      background-color: transparent;
+      border-radius: 50%;
+      width: 25px;
+      height: 25px;
+      border: 1px solid rgba(12, 18, 17, 1);
+      display: flex; /* Add this to use flexbox */
+      justify-content: center; /* Center horizontally */
+      align-items: center; /* Center vertically */
+      i {
+        margin: 0; /* Remove any default margin */
+      }
+    }
+    
+    .dropdown-toggle::after {
+      display: none;
+    }
+    
+    .product-dropdown{
+      margin: 10px 0 10px 0px;
+    }
+    
+    .upload{
+      transition: 1s;
+      inset: 3px -200px auto auto !important;
+      width: 400px;
+      border-radius: 10px;
+      background-color: rgba(255, 255, 255, 0.8);
+    }
+  }
+  
+  /* ÜRÜNLER BİTİŞ */
+  /* HİZMETLER */
+  
+  .hizmetler{
+    .hizmet-wrap{
+      background-color: transparent;
+      padding: 25px 25px 25px 25px;
+      .hizmet{
+        cursor: pointer;
+        overflow: hidden;
+        position: relative;
+        padding: 20px;
+        height: 150px;
+        border: 1px solid rgba(28, 21, 59, 0.5);
+        border-radius: 10px;
+        transition: 0.5s;
+        
+        .info-btn{
+          font-size: 1rem;
+          pointer-events: none;
+          background-color: transparent;
+          border: none;
+        }
+      
+        .info{
+          padding-left: 10px;
+          padding-right: 10px;
+          inset: auto auto auto auto !important;
+          background-color: rgba(255, 255, 255, 1);
+          border-radius: 10px;
+          max-width: 400px;
+        
+        }
+        
+      }
+      
+      .amazon{
+        box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.192);
+        &:hover{
+          box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.192);
+        }
+      }
+      .allegro{
+        box-shadow: 0px 0px 10px 1px rgba(172, 123, 0, 0.192);
+        &:hover{
+          box-shadow: 0px 0px 10px 5px rgba(172, 123, 0, 0.192);
+        }
+      }
+      .walmart{
+        box-shadow: 0px 0px 5px 1px rgba(0, 106, 172, 0.192);
+        &:hover{
+          box-shadow: 0px 0px 5px 5px rgba(0, 106, 172, 0.192);
+        }
+      }
+      .wayfair{
+        box-shadow: 0px 0px 5px 1px rgba(109, 0, 172, 0.192);
+        &:hover{
+          box-shadow: 0px 0px 5px 5px rgba(109, 0, 172, 0.192);
+        }
+      }
+      .ozon{
+        box-shadow: 0px 0px 5px 1px rgba(0, 53, 244, 0.192);
+        &:hover{
+          box-shadow: 0px 0px 5px 3px rgba(0, 72, 255, 0.192);
+        }
+      }
+      .hizmet-isim{
+        font-size: 20px;
+        margin-bottom: 5px;
+      }
+      .hizmet-tür{
+        margin-bottom: 5px;
+        color: rgba(28, 29, 34, 0.8)
+      }
+      .hizmet-ücret{
+        color: rgba(28, 29, 34, 0.5)
+      }
+      .hizmet-img{
+        position: absolute;
+        bottom: 0px;
+        right: -30px;
+        opacity: 0.1;
+        rotate: -15deg;
+        max-width: 200px;
+      }
+    }
+    .nav-link{
+      color: rgba(28, 29, 34, 0.6) ;
+    }
+    .nav-tabs .nav-link.active{
+      color: $primary10;
+    }
+    .service-info{
+      background-color: transparent;
+      border: none;
+      position: absolute;
+      top: 10px;
+      right: 15px;
+    }
+    .satin-al{
+      transition: 0.3s;
+      font-size: 1.2rem;
+      border-radius: 10px;
+      padding: 5px 35px;
+      color: $white;
+      background: rgb(26,33,66);
+      background: -moz-linear-gradient(122deg, rgb(62, 79, 162) 12%, rgba(85,112,241,1) 75%, rgba(250,88,182,1) 100%);
+      background: -webkit-linear-gradient(122deg, rgb(61, 77, 157) 12%, rgba(85,112,241,1) 75%, rgba(250,88,182,1) 100%);
+      background: linear-gradient(122deg, rgb(64, 80, 163) 12%, rgba(85,112,241,1) 75%, rgba(250,88,182,1) 100%);
+      border:none;
+      &:hover{
+        padding: 5px 40px;
+      } 
+    }
+  
+    .hizmet-wrap-vezu{
+      background-color: transparent;
+      padding: 25px 25px 25px 25px;
+      .accordion-header{
+        cursor: pointer;
+      }
+      .accordion-item, .accordion-button, .accordion, .accordion-header, .accordion-button:focus{
+        background-color: transparent;
+        box-shadow: none;
+      }
+      
+      .hizmet{
+        overflow: hidden;
+        position: relative;
+        padding: 0px;
+        border: 1px solid rgba(28, 21, 59, 1);
+        border-radius: 10px;
+        transition: 0.5s;
+      }
+      .vezu{
+        box-shadow: 0px 0px 5px 1px rgba(109, 0, 172, 0.192);
+        &:hover{
+          box-shadow: 0px 0px 5px 5px rgba(109, 0, 172, 0.192);
+        }
+      }
+      .hizmet-isim{
+        transition: 1s;
+        color: $black10;
+        font-size: 20px;
+        margin-bottom: 0;
+        &::after{
+        }
+  
+      }
+      .hizmet-tür{
+        margin-bottom: 5px;
+        color: $black06;
+      }
+      .hizmet-ücret{
+        color: $black06;
+      }
+      .hizmet-img{
+        position: absolute;
+        bottom: 5px;
+        right: -40px;
+        opacity: 0.1;
+        rotate: -10deg;
+        max-width: 250px;
+      }
+      .hizmet-buton{
+        margin: 0 0 10px 20px;
+        cursor: pointer;
+        transition: 0.3s;
+        font-size: 1rem;
+        border-radius: 10px;
+        padding: 3px 20px;
+        color: $white;
+        background: rgb(26,33,66);
+        background: -moz-linear-gradient(122deg, rgba(62, 79, 162, 0.9) 12%, rgba(85,112,241,0.9) 75%, rgba(250,88,182, 0.9) 100%);
+        background: -webkit-linear-gradient(122deg, rgba(61, 77, 157, 0.9) 12%, rgba(85,112,241,0.9) 75%, rgba(250,88,182, 0.9) 100%);
+        background: linear-gradient(122deg, rgba(64, 80, 163, 0.9) 12%, rgba(85,112,241,0.9) 75%, rgba(250,88,182, 0.9) 100%);
+        border:none;
+        &:hover{
+          padding: 3px 25px;
+        }
+    }
+  }
+  }
+  
 
   /* HİZMETLER BİTİŞ */
   
@@ -1078,9 +1183,7 @@ $white: white;
   .map{
     max-width: 400px;
   }
-}
-
-.finder-submit{
+  .finder-submit{
     position: absolute;
     bottom: 0;
     right: 0;
@@ -1100,209 +1203,189 @@ $white: white;
     border:none;
 }
 
-%finder-arrow{
-  cursor: pointer;
-  position: absolute;
-  height: auto;
-  width: auto;
-  font-size: 1.5rem;
-  background: -webkit-linear-gradient(122deg, rgb(61, 77, 157) 2%, rgba(85,112,241,1) 10%, rgba(250,88,182,1) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  bottom: 5px;
-  
-}
-.next-arrow{
-  @extend %finder-arrow;
-  right: 10px;
-}
-
-.prev-arrow{
-  @extend %finder-arrow;
-  left: 10px;
-
-}
-
-.slide{
-  margin-top: 5rem !important;
-  min-height: 10rem;
-}
-
-
-
-.swiper-pagination-progressbar-fill {
-  background-image: -webkit-linear-gradient(122deg, rgb(61, 77, 157) 2%, rgba(85,112,241,1) 10%, rgba(250,88,182,1) 100%) !important; /* Replace with your desired gradient colors */
-}
-
-.custom-radio {
-  display: flex;
-  align-items: center;
-  margin-bottom: 10px;
-}
-
-.custom-radio input[type="radio"] {
-  margin: 0;
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  width: 25px; /* Adjust the size as needed */
-  height: 25px; /* Adjust the size as needed */
-  border: 2px solid rgb(61, 77, 157); /* Border color */
-  border-radius: 50%; /* Make it circular */
-  outline: none;
-  cursor: pointer;
-  position: relative; /* Add relative positioning */
-}
-
-.custom-radio input[type="radio"]::before {
-  content: "";
-  position: absolute;
-  width: 80%; /* Adjust the size of the inner circle */
-  height: 80%; /* Adjust the size of the inner circle */
-  background: -webkit-linear-gradient(122deg, rgb(61, 77, 157) 2%, rgba(85,112,241,1) 10%, rgba(250,88,182,1) 100%); /* Inner circle color */
-  border-radius: 50%; /* Make it circular */
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); /* Center it */
-  opacity: 0; /* Initially hidden */
-}
-
-.custom-radio input[type="radio"]:checked::before {
-  opacity: 1; /* Show inner circle when checked */
-}
-
-.radio-label {
-  cursor: pointer;
-  padding-left: 10px; /* Adjust the spacing between the radio button and label */
-  font-size: 22px; /* Adjust the font size as needed */
-}
-
-.custom-select {
-  padding: 8px;
-  font-size: 18px; /* Adjust the font size as needed */
-  border: none;
-  border-radius: 5px;
-  background-image: -webkit-linear-gradient(122deg, rgb(61, 77, 157) 2%, rgba(85,112,241,1) 10%, rgba(250,88,182,1) 100%); /* Replace with your desired gradient colors */
-  color: white;
-  option{
-    color: $black10;
+  %finder-arrow{
+    cursor: pointer;
+    position: absolute;
+    height: auto;
+    width: auto;
+    font-size: 1.5rem;
+    background: -webkit-linear-gradient(122deg, rgb(61, 77, 157) 2%, rgba(85,112,241,1) 10%, rgba(250,88,182,1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    bottom: 5px;
+    
   }
-}
+  .next-arrow{
+    @extend %finder-arrow;
+    right: 10px;
+  }
 
-.finder-text{
-  height: 450px;
-  font-size: 1.3rem;
-  font-weight: 300;
-}
+  .prev-arrow{
+    @extend %finder-arrow;
+    left: 10px;
 
-.finder-result{
-  height: 450px;
-  font-size: 1rem;
-  font-weight: 300;
+  }
 
+  .slide{
+    margin-top: 5rem !important;
+    min-height: 10rem;
+  }
 
-  .flag{
-    .circle{
-      border: 1px solid $black01;
-      margin:  auto 5px auto 0;
-      border-radius: 50%;
-      aspect-ratio: 1 / 1;
-      overflow: hidden;
-      background-size: cover;
-      background-position: center;
-    }
-    .circle1{
-      @extend .circle;
-      max-width: 60px;
-      max-height: 60px;
-    }
-    .circle2{
-      @extend .circle;
-      max-width: 52px;
-      max-height: 52px;
+  .swiper-pagination-progressbar-fill {
+    background-image: -webkit-linear-gradient(122deg, rgb(61, 77, 157) 2%, rgba(85,112,241,1) 10%, rgba(250,88,182,1) 100%) !important; /* Replace with your desired gradient colors */
+  }
+
+  .custom-radio {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  .custom-radio input[type="radio"] {
+    margin: 0;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 25px; /* Adjust the size as needed */
+    height: 25px; /* Adjust the size as needed */
+    border: 2px solid rgb(61, 77, 157); /* Border color */
+    border-radius: 50%; /* Make it circular */
+    outline: none;
+    cursor: pointer;
+    position: relative; /* Add relative positioning */
+  }
+
+  .custom-radio input[type="radio"]::before {
+    content: "";
+    position: absolute;
+    width: 80%; /* Adjust the size of the inner circle */
+    height: 80%; /* Adjust the size of the inner circle */
+    background: -webkit-linear-gradient(122deg, rgb(61, 77, 157) 2%, rgba(85,112,241,1) 10%, rgba(250,88,182,1) 100%); /* Inner circle color */
+    border-radius: 50%; /* Make it circular */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center it */
+    opacity: 0; /* Initially hidden */
+  }
+
+  .custom-radio input[type="radio"]:checked::before {
+    opacity: 1; /* Show inner circle when checked */
+  }
+
+  .radio-label {
+    cursor: pointer;
+    padding-left: 10px; /* Adjust the spacing between the radio button and label */
+    font-size: 22px; /* Adjust the font size as needed */
+  }
+
+  .custom-select {
+    padding: 8px;
+    font-size: 18px; /* Adjust the font size as needed */
+    border: none;
+    border-radius: 5px;
+    background-image: -webkit-linear-gradient(122deg, rgb(61, 77, 157) 2%, rgba(85,112,241,1) 10%, rgba(250,88,182,1) 100%); /* Replace with your desired gradient colors */
+    color: white;
+    option{
+      color: $black10;
     }
   }
-  
-  
-  .result-logo{
-    max-height: 60px;
-    margin: auto auto 1rem auto;
+
+  .finder-text{
+    height: 450px;
+    font-size: 1.3rem;
+    font-weight: 300;
   }
-  .finder-ul{
+
+  .finder-result{
+    height: 450px;
     font-size: 1rem;
-    .finder-li{
-      
+    font-weight: 300;  
+
+    .result-logo{
+      max-height: 60px;
+      margin: auto auto 1rem auto;
     }
-    p{
-      margin: 0;
+    .finder-ul{
+      font-size: 1rem;
+      .finder-li{
+        
+      }
+      p{
+        margin: 0;
+      }
+    }
+    .satin-al{
+      transition: 0.3s;
+      border-radius: 10px;
+      padding: 5px 15px;
+      color: $white;
+      background: rgb(26,33,66);
+      background: -moz-linear-gradient(122deg, rgb(62, 79, 162) 12%, rgba(85,112,241,1) 75%, rgba(250,88,182,1) 100%);
+      background: -webkit-linear-gradient(122deg, rgb(61, 77, 157) 12%, rgba(85,112,241,1) 75%, rgba(250,88,182,1) 100%);
+      background: linear-gradient(122deg, rgb(64, 80, 163) 12%, rgba(85,112,241,1) 75%, rgba(250,88,182,1) 100%);
+      border:none;
+      &:hover{
+        padding: 5px 20px;
+      }
     }
   }
-  .satin-al{
-    transition: 0.3s;
-    border-radius: 10px;
-    padding: 5px 15px;
-    color: $white;
-    background: rgb(26,33,66);
-    background: -moz-linear-gradient(122deg, rgb(62, 79, 162) 12%, rgba(85,112,241,1) 75%, rgba(250,88,182,1) 100%);
-    background: -webkit-linear-gradient(122deg, rgb(61, 77, 157) 12%, rgba(85,112,241,1) 75%, rgba(250,88,182,1) 100%);
-    background: linear-gradient(122deg, rgb(64, 80, 163) 12%, rgba(85,112,241,1) 75%, rgba(250,88,182,1) 100%);
-    border:none;
-    &:hover{
-      padding: 5px 20px;
-  }
 }
-}
+
+
 
 
 /* MARKETFINDER BİTİŞ */
 /* PROJE ALANI BAŞLANGIC */
 
-.task-wrapper{
-  .task-status{
-    text-align: center;
-    color: $black08;
-    margin: 2rem auto 2rem auto;
-    font-size: 1.4rem;
-  }
-  .task-ul{
-    margin-bottom: 3rem;
-    list-style: none;
-    padding: 0 3rem;
-    .task-li{
-      font-size: 1.1rem;
-      @extend .pbg;
-      position: relative;
-      padding: 0.5rem;
-      margin: 1.5rem auto;
-      .task-title{
-        font-size: 18px;
-        margin: 0;
-        padding: 5px 20px 5px 5px;
-      }
-      .task-description{
-        @extend .task-title;
-        font-size: 13px;
-      }
-      .task-icon{
-        position: absolute;
-        text-align: end;
-        top: 15px;
-        right: 10px;
-      }
-      .task-icon-admin{
-        position: absolute;
-        text-align: end;
-        top: 8px;
-        right: 10px;
+.tasklar{
+  .task-wrapper{
+    .task-status{
+      text-align: center;
+      color: $black08;
+      margin: 2rem auto 2rem auto;
+      font-size: 1.4rem;
+    }
+    .task-ul{
+      margin-bottom: 3rem;
+      list-style: none;
+      padding: 0 3rem;
+      .task-li{
+        font-size: 1.1rem;
+        @extend .pbg;
+        position: relative;
+        padding: 0.5rem;
+        margin: 1.5rem auto;
+        .task-title{
+          font-size: 18px;
+          margin: 0;
+          padding: 5px 20px 5px 5px;
+        }
+        .task-description{
+          @extend .task-title;
+          font-size: 13px;
+        }
+        .task-icon{
+          position: absolute;
+          text-align: end;
+          top: 15px;
+          right: 10px;
+        }
+        .task-icon-admin{
+          position: absolute;
+          text-align: end;
+          top: 8px;
+          right: 10px;
+        }
       }
     }
-  }
-  .task-seperator{
-    min-height: 30vh;
-    max-height: 82vh;
-    overflow: visible;
-  }
+    .task-seperator{
+      min-height: 30vh;
+      max-height: 82vh;
+      overflow: visible;
+    }
+  }  
 }
+
 
 
 /* PROJE ALANI BİTİŞ */
@@ -1376,87 +1459,1101 @@ $white: white;
 .ReactModal__Overlay{
   z-index: 9;
 }
-  
+
+._2qp0Z{
+  z-index: 2;
+}
+
+._1yCVn{
+  z-index: 2;
+}
   
   @media only screen and (max-width: 1200px) {
     body {
   
     }
-    .chart-wrapper{
-      padding: auto;
-    }
-  }
-  @media only screen and (max-width: 768px) {
-    body {
-  
-    }
-    .chart-wrapper{
-      padding: auto;
-    }
-    .finder-result{
-      height: 450px;
-      font-size: 1.3rem;
-      font-weight: 300;
-      .social{
-        margin: auto;
-        width: 45px;
-        height: 45px;
-        border-radius: 50%;
-        overflow: hidden;
-        background-size: cover;
-        background-position: center;
-      }
-      
-      .circle1{
-      }
-      .circle2{
-        max-width: 75px;
-        height: 75px;
-      }
-      .circle3{
-        max-width: 65px;
-        height: 65px;
-      }
-      .circle4{
-        max-width: 55px;
-        height: 55px;
-      }
-      .circle5{
-        max-width: 45px !important;
-        height: 45px !important;
-      }
-      .flag{
-        max-height: 60px;
-      }
-      .result-logo{
-        max-height: 4rem;
-        margin: auto auto 1rem auto;
-      }
-      .finder-ul{
-        font-size: 1rem;
-        .finder-li{
     
-        }
-        p{
-          margin: 0;
-        }
-      }
+  
+    .chart-wrapper{
+      padding: auto;
     }
   }
 
 
   @media only screen and (max-width: 992px) {
+    .right{
+      position: relative;
+      max-width: 90%;
+      margin: 0 auto;
+    }
+
+    .sidebar-logo{
+      display: flex;
+      max-width: 3rem !important;
+      height: auto;
+      margin: auto 0 auto auto;
+      float: right;
+    }
+  
+    .pbg{
+      background-color: $white;
+      border-radius: 10px;
+      border: 1px solid $white;
+    }
+     
     .wrapper{
       width: 300px !important;
       .title{
         justify-content: center;
       }
     }
+
+    .mainhov:hover{
+      scale: 1;
+      background-color: white;
+      color: inherit;
+    }
+
+    .dashboard{
+      %dashboard12{
+        background-color: $white;
+        border-radius: 10px;
+        width: 49%;
+        margin: 0 0rem 1rem 0;
+      }
+    
+      #total-sales{
+        @extend %dashboard12;
+        padding: 1rem 0 1rem  2rem;
+        
+      }
+      #total-purchases{
+        @extend %dashboard12;
+        padding: 1rem 0 1rem 2rem;
+      }
+      #total-orders{
+        @extend %dashboard12;
+        padding: 1rem 0 1rem  2rem;
+      }
+    
+      #total-growth{
+        @extend %dashboard12;
+        padding: 1rem 0 1rem  2rem;
+      }
+      .aylık{
+        font-size: 0.9rem !important;
+        color: rgba(28, 29, 34, 0.7);
+      }
+      .plus{
+        border-radius: 500px;
+        background-color: $positive;
+        width: 50%;
+        padding: 0 0 0 1rem;
+        position: relative;
+        top: 0;
+        margin: 0;
+      }
+      .minus{
+        border-radius: 500px;
+        background-color: $negative;
+        width: 50%;
+        padding: 0 0 0 1rem;
+        position: relative;
+        top: 0;
+        margin: 0;
+      }
+      .plus2{
+        border-radius: 500px;
+        background-color: $positive;
+        width: 50%;
+        padding: 0 0 0 1rem;
+        position: relative;
+        top: 0;
+        left: 0;
+        font-size: 1rem;
+        margin: 0;
+      }
+      .minus2{
+        border-radius: 500px;
+        background-color: $negative;
+        width: 50%;
+        padding: 0 0 0 1rem;
+        position: relative;
+        top: 0;
+        left: 0;
+        font-size: 1rem;
+        margin: 0;
+      }
+      
+      
+      #graph{
+        background-color: $white;
+        border-radius: 10px;
+        height: auto;
+      }
+    
+      #status{
+        font-size: 1rem;
+        background-color: $white;
+        border-radius: 10px;
+        height: 23rem;
+      }
+      #customer-info{
+        height: auto;
+        font-size: 1rem;
+        background-color: $white;
+        border-radius: 10px;
+      }
+      .main-info{
+        font-size: 15px;
+        color: $black06;
+        font-weight: 300;
+        margin: 0.5rem 0 0.5rem 0;
+      
+      }
+      .main-info2{
+        font-size: 15px;
+        color: $black10;
+        font-weight: 300;
+      }
+      
+      .info-hr{
+        margin-right: 40%;
+        margin: 0.6rem 0;
+      }
+    }
+
+    .profil{
+      .profile-title{
+        font-size: 13px;
+        border-bottom: 1px solid $primary03;
+        padding: 0.3rem 0 0.3rem 0.5rem;
+        margin: 0;
+      }
+      
+      .profile-info{
+        margin: 0;
+        padding: 0.5rem 0 0.5rem 1rem;
+      }
+  
+      .buton2{
+        padding: 0.4rem;
+        background-color: transparent;
+        border: 1px solid #270082;
+        color: #270082;
+        border-radius: 10px;
+          &:hover{
+            padding: 0.7rem 1rem;
+            background-color: transparent;
+            border: 1px solid #FA58B6;
+            color: #FA58B6;
+            border-radius: 10px;
+          }
+      }
+      .profile-button{
+        padding: 0.3rem 0.7rem;
+        &:hover{
+          padding: 0.3rem 0.9rem;
+        }
+      }
+      .profile-input{
+        margin: 0 auto;
+        width: 80%;
+        border: none;
+        border-bottom: 1px solid rgba(85, 112, 241, 0.3);
+      } 
+      
+      
+      #profile-photo{
+          position: relative;
+          display: inline-block;
+          width: 100px;
+          height: 100px;
+          border-radius: 50%;
+          background-color: #FA58B6;
+          background-repeat: no-repeat;
+          background-position: center center;
+          background-size: cover;
+      }
+      
+      #profile-name{
+        position: absolute;
+        top:27px;
+        left: 27px;
+      }
+  
+    
+      
+      .add-product{
+        cursor: pointer;
+      }
+  
+      .profil-guncelle-buton{
+        margin: 0 0 10px 20px;
+        cursor: pointer;
+        transition: 0.3s;
+        font-size: 1rem;
+        border-radius: 10px;
+        padding: 3px 20px;
+        color: $white;
+        background: rgb(26,33,66);
+        background: -moz-linear-gradient(122deg, rgba(62, 79, 162, 0.9) 12%, rgba(85,112,241,0.9) 75%, rgba(250,88,182, 0.9) 100%);
+        background: -webkit-linear-gradient(122deg, rgba(61, 77, 157, 0.9) 12%, rgba(85,112,241,0.9) 75%, rgba(250,88,182, 0.9) 100%);
+        background: linear-gradient(122deg, rgba(64, 80, 163, 0.9) 12%, rgba(85,112,241,0.9) 75%, rgba(250,88,182, 0.9) 100%);
+        border:none;
+        &:hover{
+          padding: 3px 25px;
+        }
+      }
+    }
+
+    .belgeler{
+      h5{
+        font-size: 1rem;
+      }
+    .buton3{
+      cursor: pointer;
+      transition: ease-in-out 0.3s;
+      margin: 0 2rem;
+      font-size: 1rem;
+      padding: 0.2rem 1rem;
+      background-color: transparent;
+      color: $black10;
+      border-radius: 10px;
+      border: none;
+    }
+    .buton4{
+      border: 1px solid $black10;
+    }
+  
+    .hov{
+      scale: 1;
+    }
+  
+    .buton3:hover{
+      scale: 0.95;
+      color: #FA58B6;
+      background-color: $black10;
+    }
+    .buton4:hover{
+      scale: 1.05;
+      color: #FA58B6;
+      background-color: $black10;
+    }
+    
+    .dropdown2:hover .dropdown-menu {
+      display: block;
+      margin-top: 0; 
+      left: 0px !important;
+    }
+  
+    .info-btn{
+      font-size: 1rem;
+      pointer-events: none;
+      background-color: transparent;
+      border: none;
+    }
+    .info{
+      left: 0px !important;
+      padding-left: 10px;
+      padding-right: 10px;
+      inset: auto auto auto auto !important;
+      background-color: rgba(255, 255, 255, 1);
+      border-radius: 10px;
+      max-width: 400px;
+    }
+    }
+
+    .urunler{
+      input:focus,
+      select:focus,
+      textarea:focus,
+      button:focus {
+          outline: none;
+      }
+      .buton2{
+        font-size: 1rem;
+        transition: 0.5s;
+        border-radius: 10px;
+        padding: 5px 15px;
+        color: $white;
+        background: rgb(26,33,66);
+        background: -moz-linear-gradient(122deg, rgb(62, 79, 162) 12%, rgba(85,112,241,1) 75%, rgba(250,88,182,1) 100%);
+        background: -webkit-linear-gradient(122deg, rgb(61, 77, 157) 12%, rgba(85,112,241,1) 75%, rgba(250,88,182,1) 100%);
+        background: linear-gradient(122deg, rgb(64, 80, 163) 12%, rgba(85,112,241,1) 75%, rgba(250,88,182,1) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#1a2142",endColorstr="#fa58b6",GradientType=1);
+        border:none;
+    }
+      .product-input{
+        max-width: 70%;
+        border-radius: 20px;
+        padding: 0.1rem 1rem;
+        border: 1px solid $black10;
+        transition: 0.5s;
+      }
+      .product-input:focus, .product-input:focus-visible{
+        max-width: 100%;
+        border-radius: 20px;
+        padding: 0.1rem 1rem;
+      }
+      .p-search{
+        font-size: 1.1rem;
+      }
+      
+      .product-list{
+        list-style: none;
+        padding: 0;
+      }
+      
+      .product-item{
+        cursor: pointer;
+        width: auto;
+        padding: 0.5rem;
+      }
+      
+      .product-active{
+        background-color: $primary10;
+        color: $white;
+      }
+      
+      #product-image{
+        width: 200px;
+        border-radius: 20px;
+        box-shadow: 0px 0px 10px 1px $black10;
+      }
+      
+      .product-list-container {
+        min-height: 60vh;
+        max-height: 60vh; /* Adjust the height as needed */
+        overflow-y: auto;
+      }
+      #add-product-info{
+        max-width: 800px;
+        max-height: 500px;
+        object-fit: contain;
+      }
+      .product-btn {
+        background-color: transparent;
+        border-radius: 50%;
+        width: 25px;
+        height: 25px;
+        border: 1px solid rgba(12, 18, 17, 1);
+        display: flex; /* Add this to use flexbox */
+        justify-content: center; /* Center horizontally */
+        align-items: center; /* Center vertically */
+        i {
+          margin: 0; /* Remove any default margin */
+        }
+      }
+      
+      .dropdown-toggle::after {
+        display: none;
+      }
+      
+      .product-dropdown{
+        margin: 10px 0 10px 0px;
+      }
+      
+      .upload{
+        transition: 1s;
+        inset: 3px -325px auto auto !important;
+        width: 350px;
+        border-radius: 10px;
+        background-color: rgba(255, 255, 255, 0.8);
+      }
+    }
+
+    .finder-wrapper{
+      h5{
+        font-size: 1rem;
+      }
+        height: auto !important;
+      .swiper-slide {
+        height: auto !important;
+      }
+      .map{
+        max-width: 400px;
+      }
+      .finder-submit{
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        font-size: 1rem;
+        transition: 0.5s;
+        border-radius: 10px;
+        padding: 5px 15px;
+        &:hover{
+            padding: 10px 40px ;
+        }
+        color: $white;
+        background: rgb(26,33,66);
+        background: -moz-linear-gradient(122deg, rgb(62, 79, 162) 12%, rgba(85,112,241,1) 75%, rgba(250,88,182,1) 100%);
+        background: -webkit-linear-gradient(122deg, rgb(61, 77, 157) 12%, rgba(85,112,241,1) 75%, rgba(250,88,182,1) 100%);
+        background: linear-gradient(122deg, rgb(64, 80, 163) 12%, rgba(85,112,241,1) 75%, rgba(250,88,182,1) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#1a2142",endColorstr="#fa58b6",GradientType=1);
+        border:none;
+    }
+    
+      %finder-arrow1{
+        cursor: pointer;
+        position: absolute;
+        height: auto;
+        width: auto;
+        font-size: 1.1rem;
+        background: -webkit-linear-gradient(122deg, rgb(61, 77, 157) 2%, rgba(85,112,241,1) 10%, rgba(250,88,182,1) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        bottom: 0px;
+        
+      }
+      .next-arrow{
+        @extend %finder-arrow1;
+        right: 10px;
+      }
+    
+      .prev-arrow{
+        @extend %finder-arrow1;
+        left: 10px;
+    
+      }
+    
+      .slide{
+        margin-top: 5rem !important;
+        min-height: 10rem;
+      }
+    
+      .swiper-pagination-progressbar-fill {
+        background-image: -webkit-linear-gradient(122deg, rgb(61, 77, 157) 2%, rgba(85,112,241,1) 10%, rgba(250,88,182,1) 100%) !important; /* Replace with your desired gradient colors */
+      }
+    
+      .custom-radio {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+      }
+    
+      .custom-radio input[type="radio"] {
+        margin: 0;
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        width: 25px; /* Adjust the size as needed */
+        height: 25px; /* Adjust the size as needed */
+        border: 2px solid rgb(61, 77, 157); /* Border color */
+        border-radius: 50%; /* Make it circular */
+        outline: none;
+        cursor: pointer;
+        position: relative; /* Add relative positioning */
+      }
+    
+      .custom-radio input[type="radio"]::before {
+        content: "";
+        position: absolute;
+        width: 80%; /* Adjust the size of the inner circle */
+        height: 80%; /* Adjust the size of the inner circle */
+        background: -webkit-linear-gradient(122deg, rgb(61, 77, 157) 2%, rgba(85,112,241,1) 10%, rgba(250,88,182,1) 100%); /* Inner circle color */
+        border-radius: 50%; /* Make it circular */
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%); /* Center it */
+        opacity: 0; /* Initially hidden */
+      }
+    
+      .custom-radio input[type="radio"]:checked::before {
+        opacity: 1; /* Show inner circle when checked */
+      }
+    
+      .radio-label {
+        cursor: pointer;
+        padding-left: 10px; /* Adjust the spacing between the radio button and label */
+        font-size: 1.2rem; /* Adjust the font size as needed */
+      }
+    
+      .custom-select {
+        padding: 8px;
+        font-size: 18px; /* Adjust the font size as needed */
+        border: none;
+        border-radius: 5px;
+        background-image: -webkit-linear-gradient(122deg, rgb(61, 77, 157) 2%, rgba(85,112,241,1) 10%, rgba(250,88,182,1) 100%); /* Replace with your desired gradient colors */
+        color: white;
+        option{
+          color: $black10;
+        }
+      }
+    
+      .finder-text{
+        height: 450px;
+        font-size: 1.3rem;
+        font-weight: 300;
+      }
+    
+      .finder-result{
+        font-size: 1rem;
+        font-weight: 300;  
+    
+        .result-logo{
+          max-height: 60px;
+          margin: auto auto 1rem auto;
+        }
+        .finder-ul{
+          font-size: 1rem;
+          .finder-li{
+            
+          }
+          p{
+            margin: 0;
+          }
+        }
+        .satin-al{
+          transition: 0.3s;
+          border-radius: 10px;
+          padding: 5px 15px;
+          color: $white;
+          background: rgb(26,33,66);
+          background: -moz-linear-gradient(122deg, rgb(62, 79, 162) 12%, rgba(85,112,241,1) 75%, rgba(250,88,182,1) 100%);
+          background: -webkit-linear-gradient(122deg, rgb(61, 77, 157) 12%, rgba(85,112,241,1) 75%, rgba(250,88,182,1) 100%);
+          background: linear-gradient(122deg, rgb(64, 80, 163) 12%, rgba(85,112,241,1) 75%, rgba(250,88,182,1) 100%);
+          border:none;
+          &:hover{
+            padding: 5px 20px;
+          }
+        }
+      }
+    }
+
+    .tasklar{
+
+      .accordion-button:focus {
+         z-index: 3; 
+         border: none; 
+         outline: 0; 
+         box-shadow: none; 
+      }
+      .task-wrapper{
+        .task-status{
+          text-align: center;
+          color: $black08;
+          margin:  auto 0;
+          font-size: 1.2rem;
+        }
+        .task-ul{
+          margin-bottom: 3rem;
+          list-style: none;
+          padding: 0 3rem;
+          .task-li{
+            font-size: 1.1rem;
+            position: relative;
+            padding: 0.5rem;
+            margin: 1.5rem auto;
+            .task-title{
+              font-size: 18px;
+              margin: 0;
+              padding: 5px 20px 5px 5px;
+            }
+            .task-description{
+              font-size: 13px;
+            }
+            .task-icon{
+              position: absolute;
+              text-align: end;
+              top: 15px;
+              right: 10px;
+            }
+            .task-icon-admin{
+              position: absolute;
+              text-align: end;
+              top: 8px;
+              right: 10px;
+            }
+          }
+        }
+        .task-seperator{
+          min-height: 30vh;
+          max-height: 82vh;
+          overflow: visible;
+        }
+      }  
+    }
+
+    .overlay{
+      input[type=button] {
+        border: none;
+        outline: none !important;
+      }
+      
+      .modalContainer {
+        z-index: 50;
+        width: 50vw;
+        height: auto;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        background-color: $white;
+        box-shadow: 0px 0px 18px 0px rgba(0,0, 0, 0.75);
+        border-radius: 20px;
+        padding: 2rem;
+      }
+      
+      .closeBtn, .closeBtn:hover{
+        position: absolute;
+        top: 0;
+        right: 15px;
+        color: rgba(12, 18, 17, 1);
+        background-color: transparent;
+        border: none;
+        outline: none;
+      }
+      
+      .closeBtn:focus{
+        outline: none !important;
+      }
+      
+      .service-img{
+        width: 400px;
+      }
+      .modal-logo{
+        width: 150px;
+        display: flex;
+        justify-content: center;
+      }
+      .purchase-btn{
+        transition: 0.5s;
+        background-color: rgba(85, 112, 241, 0.1);
+        border-radius: 25px;
+        font-size: 1.4rem;
+        padding: 10px 25px;
+      }
+      .purchase-btn:hover{
+        border-radius: 25px;
+        font-size: 1.4rem;
+        padding: 10px 35px;
+      }
+      
+      .modal-info-1{
+        color: $black10;
+        margin: 0 0;
+      }
+      .modal-info-2{
+        font-size: 1.2rem !important;
+        text-decoration: line-through;
+        color: $black08;
+        margin: 13px 0;
+      }
+      .modal-info-4{
+        color: $black10;
+        font-weight: 700;
+        font-size: 2rem;
+        margin: 0 0 13px 0;
+        .month{
+          font-weight: 500;
+          font-size: 1.6rem;
+        }
+      }
+    
+      .discount{
+        color: $primary10;
+        vertical-align: middle;
+        margin: auto 0 auto 5px;
+        border: 1px solid $primary10;
+        border-radius: 10px;
+        padding: 2px 7px;
+      }
+    
+      .confirm-modal {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      }
+      
+      .confirm-modal h2 {
+        font-size: 24px;
+        margin-bottom: 10px;
+      }
+      
+      .confirm-modal p {
+        font-size: 18px;
+        margin-bottom: 20px;
+      }
+      
+      .confirm-actions {
+        display: flex;
+        justify-content: center;
+        button {
+          padding: 10px 20px;
+          margin: 0 10px;
+          font-size: 16px;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+          &:nth-child(1) {
+            background-color: $primary10;
+            color: #fff;
+          }
+          &:nth-child(2) {
+            background-color: $negative;
+            color: #fff;
+          }
+          &:hover {
+            opacity: 0.8;
+          }
+        }
+      }
+
+      
+    }
+    
+    .hizmetler{
+      .hizmet-wrap{
+        background-color: transparent;
+        padding: 25px 5px;
+        .hizmet{
+          cursor: pointer;
+          overflow: hidden;
+          position: relative;
+          padding: 20px;
+          height: 150px;
+          border: 1px solid rgba(28, 21, 59, 0.5);
+          border-radius: 10px;
+          transition: 0.5s;
+          
+          .info-btn{
+            font-size: 1rem;
+            pointer-events: none;
+            background-color: transparent;
+            border: none;
+          }
+        
+          .info{
+            padding-left: 10px;
+            padding-right: 10px;
+            inset: auto auto auto auto !important;
+            background-color: rgba(255, 255, 255, 1);
+            border-radius: 10px;
+            max-width: 400px;
+          
+          }
+          
+        }
+        
+        .amazon{
+          box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.192);
+          &:hover{
+            box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.192);
+          }
+        }
+        .allegro{
+          box-shadow: 0px 0px 10px 1px rgba(172, 123, 0, 0.192);
+          &:hover{
+            box-shadow: 0px 0px 10px 5px rgba(172, 123, 0, 0.192);
+          }
+        }
+        .walmart{
+          box-shadow: 0px 0px 5px 1px rgba(0, 106, 172, 0.192);
+          &:hover{
+            box-shadow: 0px 0px 5px 5px rgba(0, 106, 172, 0.192);
+          }
+        }
+        .wayfair{
+          box-shadow: 0px 0px 5px 1px rgba(109, 0, 172, 0.192);
+          &:hover{
+            box-shadow: 0px 0px 5px 5px rgba(109, 0, 172, 0.192);
+          }
+        }
+        .ozon{
+          box-shadow: 0px 0px 5px 1px rgba(0, 53, 244, 0.192);
+          &:hover{
+            box-shadow: 0px 0px 5px 3px rgba(0, 72, 255, 0.192);
+          }
+        }
+        .hizmet-isim{
+          font-size: 20px;
+          margin-bottom: 5px;
+        }
+        .hizmet-tür{
+          margin-bottom: 5px;
+          color: rgba(28, 29, 34, 0.8)
+        }
+        .hizmet-ücret{
+          color: rgba(28, 29, 34, 0.5)
+        }
+        .hizmet-img{
+          position: absolute;
+          bottom: 0px;
+          right: -30px;
+          opacity: 0.1;
+          rotate: -15deg;
+          max-width: 200px;
+        }
+      }
+      .nav-link{
+        color: rgba(28, 29, 34, 0.6) ;
+      }
+      .nav-tabs .nav-link.active{
+        color: $primary10;
+      }
+      .service-info{
+        background-color: transparent;
+        border: none;
+        position: absolute;
+        top: 10px;
+        right: 15px;
+      }
+      .satin-al{
+        transition: 0.3s;
+        font-size: 1.2rem;
+        border-radius: 10px;
+        padding: 5px 35px;
+        color: $white;
+        background: rgb(26,33,66);
+        background: -moz-linear-gradient(122deg, rgb(62, 79, 162) 12%, rgba(85,112,241,1) 75%, rgba(250,88,182,1) 100%);
+        background: -webkit-linear-gradient(122deg, rgb(61, 77, 157) 12%, rgba(85,112,241,1) 75%, rgba(250,88,182,1) 100%);
+        background: linear-gradient(122deg, rgb(64, 80, 163) 12%, rgba(85,112,241,1) 75%, rgba(250,88,182,1) 100%);
+        border:none;
+        &:hover{
+          padding: 5px 40px;
+        } 
+      }
+    
+      .hizmet-wrap-vezu{
+        background-color: transparent;
+        padding: 25px 25px 25px 25px;
+        .accordion-header{
+          cursor: pointer;
+        }
+        .accordion-item, .accordion-button, .accordion, .accordion-header, .accordion-button:focus{
+          background-color: transparent;
+          box-shadow: none;
+        }
+        
+        .hizmet{
+          overflow: hidden;
+          position: relative;
+          padding: 0px;
+          border: 1px solid rgba(28, 21, 59, 1);
+          border-radius: 10px;
+          transition: 0.5s;
+        }
+        .vezu{
+          box-shadow: 0px 0px 5px 1px rgba(109, 0, 172, 0.192);
+          &:hover{
+            box-shadow: 0px 0px 5px 5px rgba(109, 0, 172, 0.192);
+          }
+        }
+        .hizmet-isim{
+          transition: 1s;
+          color: $black10;
+          font-size: 20px;
+          margin-bottom: 0;
+          &::after{
+          }
+    
+        }
+        .hizmet-tür{
+          margin-bottom: 5px;
+          color: $black06;
+        }
+        .hizmet-ücret{
+          color: $black06;
+        }
+        .hizmet-img{
+          position: absolute;
+          bottom: 5px;
+          right: -40px;
+          opacity: 0.1;
+          rotate: -10deg;
+          max-width: 250px;
+        }
+        .hizmet-buton{
+          margin: 0 0 10px 20px;
+          cursor: pointer;
+          transition: 0.3s;
+          font-size: 1rem;
+          border-radius: 10px;
+          padding: 3px 20px;
+          color: $white;
+          background: rgb(26,33,66);
+          background: -moz-linear-gradient(122deg, rgba(62, 79, 162, 1) 12%, rgba(85,112,241,1) 75%, rgba(250,88,182, 1) 100%);
+          background: -webkit-linear-gradient(122deg, rgba(61, 77, 157, 1) 12%, rgba(85,112,241,1) 75%, rgba(250,88,182, 1) 100%);
+          background: linear-gradient(122deg, rgba(64, 80, 163, 1) 12%, rgba(85,112,241,1) 75%, rgba(250,88,182, 1) 100%);
+          border:none;
+          &:hover{
+            padding: 3px 25px;
+          }
+      }
+    }
+    .accordion-button:focus {
+      z-index: 1;
+      border-color: transparent;
+      outline: 0;
+      box-shadow: none;
+    }
+    }
+
+    .confirm-modal {
+      position: fixed;
+      width: 90%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      h2 {
+        font-size: 24px;
+        margin-bottom: 10px;
+      }
+      p {
+        font-size: 18px;
+        margin-bottom: 20px;
+      }
+      .confirm-actions {
+        display: flex;
+        justify-content: center;
+        button {
+          padding: 10px 20px;
+          margin: 0 10px;
+          font-size: 16px;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+          &:nth-child(1) {
+            background-color: $primary10;
+            color: #fff;
+          }
+          &:nth-child(2) {
+            background-color: $negative;
+            color: #fff;
+          }
+          &:hover {
+            opacity: 0.8;
+          }
+        }
+      }
+    }
+
+    .overlay{
+      input[type=button] {
+        border: none;
+        outline: none !important;
+      }
+      
+      .modalContainer {
+        justify-content: center;
+        z-index: 50;
+        width: 90vw;
+        height: auto;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: $white;
+        box-shadow: 0px 0px 18px 0px rgba(0,0, 0, 0.75);
+        border-radius: 20px;
+        padding: 2rem 10px;
+      }
+      
+      .closeBtn, .closeBtn:hover{
+        position: absolute;
+        top: 5px;
+        right: 15px;
+        color: rgba(12, 18, 17, 1);
+        background-color: transparent;
+        border: none;
+        outline: none;
+      }
+      
+      .closeBtn:focus{
+        outline: none !important;
+      }
+      
+      .service-img{
+        padding: 10px 0;
+        width: 300px;
+      }
+      .modal-logo{
+        width: 150px;
+        display: flex;
+        justify-content: center;
+      }
+      .purchase-btn{
+        transition: 0.5s;
+        background-color: rgba(85, 112, 241, 0.1);
+        border-radius: 25px;
+        font-size: 1.4rem;
+        padding: 10px 25px;
+      }
+      .purchase-btn:hover{
+        border-radius: 25px;
+        font-size: 1.4rem;
+        padding: 10px 35px;
+      }
+      
+      .modal-info-1{
+        color: $black10;
+        margin: 0 0;
+      }
+      .modal-info-2{
+        font-size: 1.2rem !important;
+        text-decoration: line-through;
+        color: $black08;
+        margin: 13px 0;
+      }
+      .modal-info-3{
+        font-size: 1rem;
+      }
+      .modal-info-4{
+        color: $black10;
+        font-weight: 700;
+        font-size: 2rem;
+        margin: 0 0 13px 0;
+        .month{
+          font-weight: 500;
+          font-size: 1.6rem;
+        }
+      }
+    
+      .discount{
+        color: $primary10;
+        vertical-align: middle;
+        margin: auto 0 auto 5px;
+        border: 1px solid $primary10;
+        border-radius: 10px;
+        padding: 2px 7px;
+      }
+      .satin-al{
+        transition: 0.3s;
+        border-radius: 10px;
+        padding: 5px 15px;
+        color: $white;
+        background: rgb(26,33,66);
+        background: -moz-linear-gradient(122deg, rgb(62, 79, 162) 12%, rgba(85,112,241,1) 75%, rgba(250,88,182,1) 100%);
+        background: -webkit-linear-gradient(122deg, rgb(61, 77, 157) 12%, rgba(85,112,241,1) 75%, rgba(250,88,182,1) 100%);
+        background: linear-gradient(122deg, rgb(64, 80, 163) 12%, rgba(85,112,241,1) 75%, rgba(250,88,182,1) 100%);
+        border:none;
+        &:hover{
+          padding: 5px 20px;
+        }
+      }
+    
+    }
+    
+
+  }
+
+    @media only screen and (max-width: 768px) {
+   
   }
 
   @media only screen and (max-width: 425px) {
     .info-container{
-
       .info-modal {
         width: 300px;
       }
@@ -1466,7 +2563,5 @@ $white: white;
   @media only screen and (max-width: 320px) {
     .wrapper{
       width: 250px !important;
-      
     }
-    
   }

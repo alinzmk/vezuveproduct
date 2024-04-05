@@ -128,7 +128,7 @@ export default function App(props) {
       >
         <SwiperSlide>
             
-            <div className='col-12 slide mt-5 text-center px-3'>
+            <div className='col-12 slide mt-5 text-center px-3 mb-5 '>
               <div className="col-12">
                   <h5>
                     Türkiye’de veya yurtdışında online satışa açık, Üretimini yaptığınız veya tedarik ettiğiniz ürünlerin bulunduğu, firmanızı anlatan bir web sitesine sahip misiniz ?
@@ -156,7 +156,7 @@ export default function App(props) {
             </div>
         </SwiperSlide>
         <SwiperSlide>
-            <div className='col-12 slide mt-5 text-center px-3'>
+            <div className='col-12 slide mt-5 text-center px-3 mb-5 '>
               <div className="col-12">
                   <h5>
                     Türkiye pazaryerlerinde veya sosyal medya üzerinden (Trendyol, Hepsiburada, Amazon, Pttavm, instagram, Facebook) aktif olaran e-ticaret yapıyor musunuz? 
@@ -185,7 +185,7 @@ export default function App(props) {
             </div>
         </SwiperSlide>
         <SwiperSlide>
-            <div className='col-12 slide mt-5 text-center px-3'>
+            <div className='col-12 slide mt-5 text-center px-3 mb-5 '>
               <div className="col-12">
                   <h5>
                     Yurtdışında online pazarlar da (Amazon, Etsy, E-bay) perakende satış veya toplu ihracat yapıyor musunuz ?                  
@@ -216,7 +216,7 @@ export default function App(props) {
             </div>
         </SwiperSlide>
         <SwiperSlide>
-            <div className='col-12 slide mt-5 text-center px-3'>
+            <div className='col-12 slide mt-5 text-center px-3 mb-5 '>
               <div className="col-12">
                   <h5>
                       Türkiye pazarında online veya geleneksel ticaret ile firmanızın toplam satış geliri ortalaması hangi aralıktadır?
@@ -234,7 +234,7 @@ export default function App(props) {
             </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className='col-12 slide mt-5 text-center px-3'>
+          <div className='col-12 slide mt-5 text-center px-3 mb-5 '>
               <div className="col-12">
                   <h5>
                     Türkiye de veya yurtdışında ürünlerinizi sergilediğiniz aktif satış taptığınız fiziki bir mağazanız bulunuyor mu ?                  
@@ -265,7 +265,7 @@ export default function App(props) {
             </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className='col-12 slide mt-5 text-center px-3'>
+          <div className='col-12 slide mt-5 text-center px-3 mb-5 '>
               <div className="col-12">
                   <h5>
                     Satışını yaptığınız ürün grubunun ana kategorisisi nedir ?
@@ -297,7 +297,7 @@ export default function App(props) {
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className='col-12 slide mt-5 text-center px-3'>
+          <div className='col-12 slide mt-5 text-center px-3 mb-5 '>
               <div className="col-12">
                   <h5>
                     Ürünleriniz ortalama hangi desi aralığındadır ?
@@ -316,7 +316,7 @@ export default function App(props) {
             </div>
         </SwiperSlide>
         <SwiperSlide>
-            <div className='col-12 slide mt-5 text-center px-3'>
+            <div className='col-12 slide mt-5 text-center px-3 mb-5 '>
               <div className="col-12">
                   <h5>
                     Türkiyede ki işletmenizde tüm birimler dahil kaç tam zamanlı çalışana sahipsiniz? 

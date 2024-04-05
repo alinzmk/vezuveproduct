@@ -224,6 +224,7 @@ export const deleteProduct = async (accessToken, productId) => {
     throw error;
   }
 };
+
 export const getUserTasks = async (accessToken) => {
   try {
     const response = await axios.get(`${BASE_URL}/get_user_tasks`, {

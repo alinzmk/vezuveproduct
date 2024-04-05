@@ -17,7 +17,7 @@ class DownloadButton extends React.Component {
   render() {
     return (
       <label onClick={this.handleDownload}>
-        <i class="fa-regular fa-file"></i> Ürün Şablonunu İndirmek İçin Tıklayınız.
+        <i class="fa-regular fa-file"></i> Ürün Şablonunu İndirmek <br/> İçin Tıklayınız.
       </label>
     );
   }

@@ -17,8 +17,23 @@ function Tasks() {
     
     //------------------------------------------------------------------------------   
     const {task} = useSelector((state) => state.task)
+    const [isMobile, setIsMobile] = useState(false);
     const dispatch = useDispatch()
     //------------------------------------------------------------------------------   
+
+    useEffect(() => {
+        const checkWidth = () => {
+            setIsMobile(window.innerWidth < 992); // Adjust breakpoint as needed
+        };
+        checkWidth();
+        window.addEventListener('resize', checkWidth);
+    
+        // Cleanup function
+        return () => {
+            window.removeEventListener('resize', checkWidth);
+        };
+    }, []);
+
     if(task.length === 0){
         dispatch(fetchAllRedux())
     }
@@ -39,57 +54,142 @@ function Tasks() {
         return null
         }
   return (
-    <UserPage>
-      <div className="row slideleft task-wrapper">
-                                <div className="col-12 col-lg-4 pe-3 ps-0 ms-0 mb-3 mb-lg-0">
-                                    <div className="task-seperator pbg ps-3 pe-3">
-                                        <h5 className='task-status'><i class="fa-solid fa-list-check ms-2 my-auto"></i> Planlandı</h5>
-                                        <ul id="plan" className="task-ul">
-                                            {plannedTasks.map((task, index) => (
-                                                <li className="task-li" key={index} style={{ boxShadow: `0px 0px 5px 1px #FA58B6`}}>
-                                                    <p className='task-title' >{task.taskName}</p>
-                                                        <div className='task-icon'>
-                                                            <i class="fa-solid fa-list-check ms-2 my-auto"></i>
-                                                        </div>
-                                                </li>
-                                            ))}
-                                        </ul>
+    <UserPage pageName={"Proje Alanı"}>
+        {isMobile ? (<>
+
+        <section className='tasklar'>
+        <div className="row slideleft task-wrapper">
+            <div class="accordion" id="accordionExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    <h5 className='task-status'><i class="fa-solid fa-list-check ms-2 my-auto"></i> Planlandı</h5>
+                    </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                    <div className="task-seperator pbg ps-3 pe-3">
+
+                    <ul id="plan" className="task-ul">
+                        {plannedTasks.map((task, index) => (
+                            <li className="task-li" key={index} style={{ boxShadow: `0px 0px 5px 1px #FA58B6`}}>
+                                <p className='task-title' >{task.taskName}</p>
+                                    <div className='task-icon'>
+                                        <i class="fa-solid fa-list-check ms-2 my-auto"></i>
                                     </div>
-                                </div>
-                                <div className="col-12 col-lg-4 pe-3 ps-0 ms-0 mb-3 mb-lg-0">
-                                    <div className="task-seperator pbg ps-3 pe-3">
-                                        <h5 className='task-status'><i class="fa-regular fa-clock ms-2 my-auto"></i> Süreç İşliyor</h5>
-                                        <ul id="process" className="task-ul">
-                                            {inProgressTasks.map((task, index) => (
-                                                <li className="task-li" key={index} style={{ boxShadow: `0 0 5px 1px yellow`}}>
-                                                    <p className='task-title' >{task.taskName}</p>
-                                                        <div className='task-icon'>
-                                                            <i class="fa-regular fa-clock ms-2 my-auto"></i>
-                                                        </div>
-                                                </li>
-                                            ))}
-                                        </ul>
+                            </li>
+                        ))}
+                    </ul>
+                    </div>      </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingTwo">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        <h5 className='task-status'><i class="fa-regular fa-clock ms-2 my-auto"></i> Süreç İşliyor</h5>
+                    </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                    <div className="task-seperator pbg ps-3 pe-3">
+
+                    <ul id="plan" className="task-ul">
+                        {inProgressTasks.map((task, index) => (
+                            <li className="task-li" key={index} style={{ boxShadow: `0px 0px 5px 1px #FA58B6`}}>
+                                <p className='task-title' >{task.taskName}</p>
+                                    <div className='task-icon'>
+                                        <i class="fa-solid fa-list-check ms-2 my-auto"></i>
                                     </div>
-                                </div>
-                                <div className="col-12 col-lg-4 pe-3 ps-0 ms-0 mb-3 mb-lg-0">
-                                    <div className="task-seperator pbg ps-3 pe-3">
-                                        <h5 className='task-status'><i class="fa-solid fa-check-double ms-2 my-auto"></i> Tamamlandı</h5>
-                                        <ul id="finished" className="task-ul">
-                                            {finishedTasks.map((task, index) => (
-                                                <li className="task-li" key={index } style={{ boxShadow: `0 0 5px 1px #270082`}}>
-                                                    <p className='task-title' >{task.taskName}</p>
-                                                        <div className='task-icon'>
-                                                            <i class="fa-solid fa-check-double ms-2 my-auto"></i>
-                                                        </div>
-                                                </li>
-                                            ))}
-                                        </ul>
+                            </li>
+                        ))}
+                    </ul>
+                    </div>      </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingThree">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        <h5 className='task-status'><i class="fa-solid fa-check-double ms-2 my-auto"></i> Tamamlandı</h5>
+                    </button>
+                    </h2>
+                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                    <div className="task-seperator pbg ps-3 pe-3">
+
+                    <ul id="plan" className="task-ul">
+                        {finishedTasks.map((task, index) => (
+                            <li className="task-li" key={index} style={{ boxShadow: `0px 0px 5px 1px #FA58B6`}}>
+                                <p className='task-title' >{task.taskName}</p>
+                                    <div className='task-icon'>
+                                        <i class="fa-solid fa-list-check ms-2 my-auto"></i>
                                     </div>
-                                </div>
+                            </li>
+                        ))}
+                    </ul>
+                    </div>      </div>
+                    </div>
+                </div>
+            </div>                
+        </div>
+        </section>
+        </>):(
+            <>
+                <section className='tasklar'>
+                    <div className="row slideleft task-wrapper">
+                        <div className="col-12 col-lg-4 pe-1 pe-lg-3 ps-0 ms-0 mb-3 mb-lg-0">
+                            <div className="task-seperator pbg ps-3 pe-3">
+                                <h5 className='task-status'><i class="fa-solid fa-list-check ms-2 my-auto"></i> Planlandı</h5>
+                                <ul id="plan" className="task-ul">
+                                    {plannedTasks.map((task, index) => (
+                                        <li className="task-li" key={index} style={{ boxShadow: `0px 0px 5px 1px #FA58B6`}}>
+                                            <p className='task-title' >{task.taskName}</p>
+                                                <div className='task-icon'>
+                                                    <i class="fa-solid fa-list-check ms-2 my-auto"></i>
+                                                </div>
+                                        </li>
+                                    ))}
+                                </ul>
                             </div>
+                        </div>
+                        <div className="col-12 col-lg-4 pe-1 pe-lg-3 ps-0 ms-0 mb-3 mb-lg-0">
+                            <div className="task-seperator pbg ps-3 pe-3">
+                                <h5 className='task-status'><i class="fa-regular fa-clock ms-2 my-auto"></i> Süreç İşliyor</h5>
+                                <ul id="process" className="task-ul">
+                                    {inProgressTasks.map((task, index) => (
+                                        <li className="task-li" key={index} style={{ boxShadow: `0 0 5px 1px yellow`}}>
+                                            <p className='task-title' >{task.taskName}</p>
+                                                <div className='task-icon'>
+                                                    <i class="fa-regular fa-clock ms-2 my-auto"></i>
+                                                </div>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        </div>
+                        <div className="col-12 col-lg-4 pe-1 pe-lg-3 ps-0 ms-0 mb-3 mb-lg-0">
+                            <div className="task-seperator pbg ps-3 pe-3">
+                                <h5 className='task-status'><i class="fa-solid fa-check-double ms-2 my-auto"></i> Tamamlandı</h5>
+                                <ul id="finished" className="task-ul">
+                                    {finishedTasks.map((task, index) => (
+                                        <li className="task-li" key={index } style={{ boxShadow: `0 0 5px 1px #270082`}}>
+                                            <p className='task-title' >{task.taskName}</p>
+                                                <div className='task-icon'>
+                                                    <i class="fa-solid fa-check-double ms-2 my-auto"></i>
+                                                </div>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </>
+        )}
     </UserPage>
   );
 }
+
+
 
 export default Tasks;
 

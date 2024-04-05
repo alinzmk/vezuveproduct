@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import '../App.css';
 import { Link, NavLink } from 'react-router-dom';
-import logo from "../Assets/kare-logo.jpg";
+import logo from "../Assets/kare-logo.png";
 import { useLocation } from "react-router-dom";
 
 const Sidebar2 = () => {

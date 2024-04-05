@@ -30,7 +30,6 @@ function Products() {
     //------------------------------------------------------------------------------   
 
     const handleAddProductToUser = async (productsToAdd) => {
-        console.log("handleAddProductToUser",productsToAdd)
         try {
         const result = await addProductToUser(productsToAdd, customerID, accessToken );
         if (result.status === 200) {
@@ -78,7 +77,6 @@ function Products() {
     const handleDownloadUserProductsAsExcel = async () => {
         try {
           await getUserProductsAsExcel(customerID, accessToken);
-            console.log('EXCEL');
         } catch (error) {
             console.error('Error downloading user products as Excel:', error);
           // Handle error

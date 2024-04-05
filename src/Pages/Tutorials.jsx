@@ -55,14 +55,18 @@ function Tutorials() {
             videoId={selectedVideoId}
         />
         
-        <UserPage>
-        <div className="row slideleft">
+        <UserPage pageName={"Dersler"}>
+        <div className="row  justify-content-center justify-content-lg-start slideleft">
             <div style={{overflow:"hidden"}} className='col-11 pbg videoWrapper'>
                 {videos.map((video, index) => (
                     <div className="row mt-3">
                         <h5>{video.name} Eğitim Videoları</h5>
                         <Swiper
-                            slidesPerView={3}
+                            breakpoints={{
+                            992: {
+                                slidesPerView: 4,
+                            },
+                            }}
                             spaceBetween={0}
                             pagination={{
                             clickable: true,

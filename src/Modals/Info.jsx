@@ -12,11 +12,11 @@ const InfoModal = ({ isOpen, closeModal, onDelete }) => {
       contentLabel="Delete Modal"
       style={{
         content: {
-          width: "400px", // Adjust width as needed
-          height: "160px", // Adjust height as needed
+          width: "400px", 
+          height: "160px", 
           overflow: "none",
           margin: "auto",
-          backgroundColor: "transparent", // Set background color to white or any other color
+          backgroundColor: "transparent",
           border: "none",
         },
         overlay: {
