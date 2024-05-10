@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import '../admin.css';
 import { Link, NavLink } from 'react-router-dom';
 import logo from "../Assets/kare-logo.png";
 import { useLocation } from "react-router-dom";

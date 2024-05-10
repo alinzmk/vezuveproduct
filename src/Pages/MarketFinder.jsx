@@ -89,7 +89,6 @@ function MarketFinder() {
                                         items2={selectedData.items2}
                                         buttonText={selectedData.buttonText}
                                         link={selectedData.marketLink}
-
                                         full_2={selectedData2}
                                         name_2={selectedData2.name}
                                         logo_2={selectedData2.logo}
@@ -101,8 +100,6 @@ function MarketFinder() {
                                         items2_2={selectedData2.items2}
                                         buttonText_2={selectedData2.buttonText}
                                         link_2={selectedData2.marketLink}
-
-                                        
                                         handleReset={resetData}
                                         handleClick={handleClick}
                                     />}
@@ -122,12 +119,14 @@ function MarketFinder() {
                         </>
                     ):(
                         <>
+                            {!selectedData && (
                             <div className="col-12 col-lg-4 ps-0 pe-0 pe-lg-4 mb-3 mb-lg-0">
                                 <div className="pbg py-5 px-3">
                                     <Finder onSelectData={handleSelectData}/>
                                 </div>
                             </div>
-                            <div className="col-12 col-lg-8 ps-0 h-120">
+                            )}
+                            <div className={"col-12 ps-0 pe-0 pe-lg-4 mb-3 mb-lg-0" + (selectedData ? ' col-lg-12 ' : ' col-lg-8 ')}>
                                 <div className="pbg p-5">   
                                     <div className={`row finder-text ${selectedData ? 'd-none' : ''}`}>
                                         <div className="col-12 my-auto text-center">
@@ -169,7 +168,7 @@ function MarketFinder() {
                                             items2_2={selectedData2.items2}
                                             buttonText_2={selectedData2.buttonText}
                                             link_2={selectedData2.marketLink}
-
+                                            handleReset={resetData}
                                             handleClick={handleClick}
                                         />}
                                     </div>
@@ -189,7 +188,7 @@ export default MarketFinder;
 
 
 
-const ResultComponent = ({ full,  logo, items,  link, link_2, buttonText, handleClick, full_2, logo_2, items_2, buttonText_2}) => (
+const ResultComponent = ({ handleReset, full,  logo, items,  link, link_2, buttonText, handleClick, full_2, logo_2, items_2, buttonText_2}) => (
     <div className='row finder-result slideUp fadeIn'>
         <div className="col-6 mt-2">
             <img className='result-logo' src={require(`../Assets/${logo}`)} alt="" />
@@ -230,6 +229,9 @@ const ResultComponent = ({ full,  logo, items,  link, link_2, buttonText, handle
                 </p>
                 {buttonText_2 && <button className='satin-al' onClick={() => handleClick(full_2)}>Satışa Başla</button>}
             </div>
+        </div>
+        <div className='col-12 d-flex justify-content-center'>
+            <button onClick={handleReset} className='satin-al me-3'><i class="fa-solid fa-arrow-rotate-left"></i> Ankete Yeniden Başla</button>
         </div>
     </div>
 );

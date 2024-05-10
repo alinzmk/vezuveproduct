@@ -84,18 +84,6 @@ export default function App(props) {
 
   const handleSubmit = (e) => {
       e.preventDefault();
-
-      console.log(
-        "employeeCount: ",employeeCount,
-        "productCategory: ",productCategory,
-        "TurkeySalesVolume: ",TurkeySalesVolume,
-        "hasWebsite: ",hasWebsite,
-        "hasTurkeySales: ",hasTurkeySales,
-        "hasInternationalSales: ",hasInternationalSales,
-        "hasStore: ",hasStore,
-        "desiInfo: ",desiInfo,)
-
-
       handleGetMarketFinder()
       
 
@@ -127,7 +115,6 @@ export default function App(props) {
         className="mySwiper"
       >
         <SwiperSlide>
-            
             <div className='col-12 slide mt-5 text-center px-3 mb-5 '>
               <div className="col-12">
                   <h5>
@@ -343,6 +330,24 @@ export default function App(props) {
 const data = 
 [
   {   
+    name: "Trendyol",
+    logo: 'trendyol.png',
+    items: [
+      "TRENDYOL INFO"
+    ],
+    city: 0 ,
+    items2: [
+      {"ŞİRKET KURULUMU": "200-250 dolar"},
+      {"Amazon aylık kira bedeli"	: "40 DOLAR"},
+      {"GS1 Uluslararası barkod":	"1750-5000 tl"},
+      {"Lojistik":	"50X60X60 Amazon standarlarında 10 koli 750 dolar"},
+      {"Günlük reklam maliyeti	Minimum": "35-50 dolar"},
+      {"Lansman Maliyeti": "Ürün fiyatlarına bağlı olarak 15-35 dolar ürün fiyatı aralığı için 500-750 dolar"},
+    ],
+    buttonText: "Uzman Ekibimiz ile Hemen Amazon'da",
+    marketLink: "https://drive.google.com/file/d/1R7fn5dOonJ_Xlwf9bm2pmmEM_t6wYvmx/view?usp=sharing"
+  },
+  {   
     name: "Amazon",
     logo: 'amazon.png',
     items: [
@@ -362,7 +367,7 @@ const data =
       {"Lansman Maliyeti": "Ürün fiyatlarına bağlı olarak 15-35 dolar ürün fiyatı aralığı için 500-750 dolar"},
     ],
     buttonText: "Uzman Ekibimiz ile Hemen Amazon'da",
-    marketLink: "https://drive.google.com/file/d/1R7fn5dOonJ_Xlwf9bm2pmmEM_t6wYvmx/view?usp=sharing"
+    marketLink: "https://drive.google.com/file/d/17tOe3LEG25FDvk7BUNg4hHQV2TozYD1J/view?usp=sharing"
   },
   {
       name: "Etsy",
@@ -383,7 +388,7 @@ const data =
         {"Günlük reklam maliyeti	Minimum": "15-45 dolar"},
       ],
       buttonText: "Uzman Ekibimiz ile Hemen Etsy'de",
-      marketLink: "https://drive.google.com/file/d/10iMVmWYO_N8J7peoViC-ImhtedmBtL7O/view?usp=drive_link"
+      marketLink: "https://drive.google.com/file/d/17QsQMzwgWVDoSCqRzVFl5lnP-RG6bfKv/view?usp=sharing"
     },
     {   
       name: "Emag",
@@ -406,7 +411,7 @@ const data =
         {"Lansman Maliyeti": "Ürün fiyatlarına bağlı olarak 15-35 LEİ ürün fiyatı aralığı için 500-750 LEİ"},
       ],
       buttonText: "Uzman Ekibimiz ile Hemen Emag'de",
-      marketLink: ""
+      marketLink: "https://drive.google.com/file/d/1cGBHNNjs015UotQbtexgwuzuq_ukj6If/view?usp=sharing"
     },
     {   
       name: "Allegro",
@@ -430,7 +435,7 @@ const data =
         {"Lansman Maliyeti": "Ürün fiyatlarına bağlı olarak 15-35 ZLOTİ ürün fiyatı aralığı için 500-750 ZLOTİ"},
       ],
       buttonText: "Uzman Ekibimiz ile Hemen Allegro'da",
-      marketLink: "https://drive.google.com/file/d/1KX-S83D7XOaFncb0iZ3uDEdyMSc2hZl2/view?usp=drive_link"
+      marketLink: "https://drive.google.com/file/d/1CIHxsPZawKGUd0M-R_BQ_gHwBcIrMZY4/view?usp=sharing"
     },
     {
       name: "Wayfair",
@@ -453,7 +458,7 @@ const data =
         {"Ara depo": "teklif almak için hizmetler sayfasına geçiş yapınız. (mobilya ürün grubunda stok miktarına göre maliyetleri oldukça değişkendir.)"},
       ],
       buttonText: "Uzman Ekibimiz ile Hemen Wayfair'de",
-      marketLink: "https://drive.google.com/file/d/1iGG382U2wtaU-SCC1-0Nn4Sw-CB_H3RE/view?usp=drive_link"
+      marketLink: "https://drive.google.com/file/d/1YfzqbmL61RL6QE_4cbQnsxbkC9owBH-Y/view?usp=sharing"
     },
     {
       name: "Zalando",
@@ -487,7 +492,7 @@ const data =
       items2: [
         {"Bulunamadı": ""} ],
       buttonText: "Uzman Ekibimiz ile Hemen Bol.com'da",
-      marketLink: ""
+      marketLink: "https://drive.google.com/file/d/1d2bzYV7i4-_c8yioAemnOuCCDthVlgv3/view?usp=sharing"
     },
     {
       name: "Ozon",
@@ -508,7 +513,7 @@ const data =
         {"Günlük reklam maliyeti	Minimum": "5-7 dolar "}
       ],
       buttonText: "Uzman Ekibimiz ile Hemen Ozon'da",
-      marketLink: "https://drive.google.com/file/d/1xRuH9ejSnvk6KpT_F2cIrtiC0cXlEtmx/view?usp=drive_link"
+      marketLink: "https://drive.google.com/file/d/14YL5puy57vbk0RKTT1UIWQqU4RohLPrq/view?usp=sharing"
     },
     {
       name: "Fruugo",
@@ -528,9 +533,7 @@ const data =
         {"Lansman Maliyeti": "Ürün fiyatlarına bağlı olarak 15-35 Dolar ürün fiyatı aralığı için 250-300 dolar"},
       ],
       buttonText: "Uzman Ekibimiz ile Hemen Fruugo'da",
-      marketLink: "https://drive.google.com/file/d/1EawMEif_htoo4Upi4nlsaePpCDHwJxWF/view?usp=drive_link"
+      marketLink: "https://drive.google.com/file/d/1BSESgKR-6rImdagaVk8Ir_EyLCKjtzmJ/view?usp=sharing"
     }
-
-
 ];
 

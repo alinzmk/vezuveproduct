@@ -29,6 +29,8 @@ import AdminMarketFinder from './admin/Pages/MarketFinder.jsx';
 import AdminTask from './admin/Pages/Tasks.jsx';
 import AdminTutorials from './admin/Pages/Tutorials.jsx';
 
+import Stripe from './Pages/Stripe.jsx';
+
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -134,6 +136,10 @@ const router = createBrowserRouter([
   {
     path: "/admin/Dersler",
     element: <AdminTutorials />, 
+  },
+  {
+    path: "/stripe_payment_return",
+    element: <Stripe />, 
   },
 ]);
 

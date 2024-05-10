@@ -1,4 +1,3 @@
-import '../admin.css';
 import { useEffect, useState } from 'react';
 import Modal from "../Modals/Product-Modal";
 import info from "../Assets/ürün.jpg";
@@ -111,90 +110,98 @@ function Products() {
   return (
     <>
     <AdminPage  pageName={"Ürünler"}>
-    <div className="row slideleft">
-                <div className="col-3 pe-3 ps-0 ms-0">
-                    <div className="pbg ps-3 pe-3">
+        <section className='urunler'>
+            <div className="row slideleft">
+                    <div className="col-3 pe-3 ps-0 ms-0">
+                        <div className="pbg ps-3 pe-3">
 
-                    <div class="row p-search mx-auto mt-4 mb-0 align-items-center">
-    <div class="col-1 my-auto p-0">
-        <i class="fa-solid fa-magnifying-glass"></i>
-    </div>
-    <div class="col-6 p-0">
-        <input type="text" class='product-input form-control' value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} placeholder='Ürün Arayın'/>
-    </div>
-    <div class="col-5 d-flex justify-content-end">
-        <button onClick={handleDownloadUserProductsAsExcel} class="product-btn mx-1">
-            <i class="fa-solid fa-cloud-arrow-down"></i>
-        </button>
-        <button class="product-btn mx-1" data-bs-toggle="dropdown" aria-expanded="false">
-            <i class="fa-solid fa-plus"></i>
-        </button>
-        <div class="dropdown-menu upload" aria-labelledby="dropdownMenuButton">
-            <div class="dropdown-item">
-                <form>
-                    <label for="file-upload" class="add-product">
-                        <i class="fa-solid fa-plus"></i> Dosya Yüklemek İçin Tıklayınız
-                    </label>
-                    <input id="file-upload" class="d-none" type="file" onchange={handleFileUpload}/>
-                </form>
-            </div>
-            <hr class='dropdown-divider'/>
-            <div class="dropdown-item">
-                <Modal/>
-            </div>
+                        <div class="row p-search mx-auto mt-4 mb-0 align-items-center">
+        <div class="col-1 my-auto p-0">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+        <div class="col-6 p-0">
+            <input type="text" class='product-input form-control' value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} placeholder='Ürün Arayın'/>
+        </div>
+        <div class="col-5 d-flex justify-content-end">
+            <button onClick={handleDownloadUserProductsAsExcel} class="product-btn mx-1">
+                <i class="fa-solid fa-cloud-arrow-down"></i>
+            </button>
+            <div class="dropdown d-inline">
+                                <button class="product-btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fa-solid fa-plus "></i>
+                                </button>
+                                <div class="dropdown-menu upload" aria-labelledby="dropdownMenuButton">
+                                    <div className="row product-dropdown">
+                                        <div className="col-12 dropdown-item m-0">
+                                            <form>
+                                                <label htmlFor="file-upload" className="add-product">
+                                                    <i className="fa-solid fa-plus"></i> Dosya Yüklemek İçin Tıklayınız
+                                                </label>
+                                                <input id="file-upload" className="d-none" type="file" onChange={handleFileUpload} />
+                                            </form>
+                                        </div>
+
+                                        <hr className='dropdown-divider' />
+                                        
+                                        <div className="col-12 dropdown-item m-0">
+                                            <Modal/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
         </div>
     </div>
-</div>
 
-                    <hr />
-                    <div className="row">
-                        <div className="col-12 p-0 product-list-container">
-                            <ul className='product-list'>
-                                {filteredProducts.map((product, index) => (
-                                    <li
-                                        key={product[1]} // Assuming index 1 contains the product ID
-                                        className={`product-item ${selectedProduct === index ? 'product-active' : ''}`}
-                                        onClick={() => setSelectedProduct(index)}
-                                    >
-                                        {product[5]} {/* Assuming index 5 contains the product name */}
-                                    </li>
-                                ))}
-                            </ul>
+                        <hr />
+                        <div className="row">
+                            <div className="col-12 p-0 product-list-container">
+                                <ul className='product-list'>
+                                    {filteredProducts.map((product, index) => (
+                                        <li
+                                            key={product[1]} // Assuming index 1 contains the product ID
+                                            className={`product-item ${selectedProduct === index ? 'product-active' : ''}`}
+                                            onClick={() => setSelectedProduct(index)}
+                                        >
+                                            {product[5]} {/* Assuming index 5 contains the product name */}
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-                <div className="col-8 pbg ps-2">
-                {productadmin.userProducts?.length === 0 && <img src={info} alt="" className='fadeIn' id='add-product-info'/>}
-                {(selectedProduct !== null && selectedProduct >= 0 && selectedProduct < filteredProducts.length) && (
-                    <div className='slideleft'>
-                        <p className='profile-title'>Firma Stok Kodu: {filteredProducts[selectedProduct][4]}</p>
-                        <div className="row ps-3 mt-4">
-                            <div className="col-3 image-wrap">
-                                <img id="product-image" src={filteredProducts[selectedProduct][13]} alt="" />
-                            </div>
-                            <div className="col-9 ps-5">
-                            <div>
-                                <h4 className='mb-1' > {filteredProducts[selectedProduct][5]}</h4>
-                                <h5 className='my-3'>{filteredProducts[selectedProduct][12]}₺</h5>
-                                <hr style={{margin:"0 15rem 1rem 0"}}/>
-                                <h6 className='my-4'>{filteredProducts[selectedProduct][6]}</h6>
-                            </div>
-                            <div className='d-flex justify-content-end pe-4'>
-                                <button className='buton2' onClick={handleClick} >Bu Ürünü Sil</button>
-                            </div>
-                            <ConfirmDeleteModal
-                              isOpen={modalIsOpen}
-                              closeModal={closeModal}
-                              onDelete={() => handleProductDelete(filteredProducts[selectedProduct][1])} // Ensure it's a function
-                            />
+                    <div className="col-8 pbg ps-2">
+                    {productadmin.userProducts?.length === 0 && <img src={info} alt="" className='fadeIn' id='add-product-info'/>}
+                    {(selectedProduct !== null && selectedProduct >= 0 && selectedProduct < filteredProducts.length) && (
+                        <div className='slideleft'>
+                            <p className='profile-title'>Firma Stok Kodu: {filteredProducts[selectedProduct][4]}</p>
+                            <div className="row ps-3 mt-4">
+                                <div className="col-3 image-wrap">
+                                    <img id="product-image" src={filteredProducts[selectedProduct][13]} alt="" />
+                                </div>
+                                <div className="col-9 ps-5">
+                                <div>
+                                    <h4 className='mb-1' > {filteredProducts[selectedProduct][5]}</h4>
+                                    <h5 className='my-3'>{filteredProducts[selectedProduct][12]}₺</h5>
+                                    <hr style={{margin:"0 15rem 1rem 0"}}/>
+                                    <h6 className='my-4'>{filteredProducts[selectedProduct][6]}</h6>
+                                </div>
+                                <div className='d-flex justify-content-end pe-4'>
+                                    <button className='buton2' onClick={handleClick} >Bu Ürünü Sil</button>
+                                </div>
+                                <ConfirmDeleteModal
+                                isOpen={modalIsOpen}
+                                closeModal={closeModal}
+                                onDelete={() => handleProductDelete(filteredProducts[selectedProduct][1])} // Ensure it's a function
+                                />
 
+                            </div>
+                            </div>
                         </div>
-                        </div>
-                    </div>
-                )}
+                    )}
+                </div>
             </div>
-        </div>
+        </section>
     </AdminPage>
     </>
   );

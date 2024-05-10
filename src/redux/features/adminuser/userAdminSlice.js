@@ -13,6 +13,7 @@ export const getUserAdmin = createAsyncThunk('getUserAdmin', async() => {
     const combineData=(
       data1
     )
+    console.log(result)
     return combineData
   } catch (error) {
       console.log(error)

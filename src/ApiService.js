@@ -275,3 +275,140 @@ export const createPaymentLink = async (accessToken, productId) => {
     throw error;
   }
 };
+
+export const getAllPartnerData = async (accessToken) => {
+  try {
+    const response = await axios.get(
+      `${BASE_URL}/get_all_partner_data`,
+      {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      }
+    );
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching all partner data:', error);
+    throw error;
+  }
+};
+
+export const sendPartnerMail = async (accessToken, toId) => {
+  toId = parseInt(toId)
+  try {
+    const response = await axios.post(
+      `${BASE_URL}/send_partner_mail`,
+      { to_id: toId },
+      {
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${accessToken}`,
+        },
+      }
+    );
+    return response.data;
+  } catch (error) {
+    console.error('Error sending partner mail:', error);
+    throw error;
+  }
+};
+
+export const getAllPackages = async (accessToken) => {
+  try {
+    const response = await axios.get(
+      `${BASE_URL}/get_all_packages`,
+      {
+        headers: {
+          'Authorization': `Bearer ${accessToken}`,
+        },
+      }
+    );
+    return response.data;
+  } catch (error) {
+    console.error('Error getting all packages:', error);
+    throw error;
+  }
+};
+
+export const stripePaymentReturn = async (accessToken, cameFrom, newPackageProductID) => {
+  try {
+    const response = await axios.get(
+      `${BASE_URL}/stripe_payment_return?cameFrom=${cameFrom}&newPackageProductID=${newPackageProductID}`,
+      {
+        headers: {
+          'Authorization': `Bearer ${accessToken}`,
+          'Content-Type': 'application/json',
+        },
+      }
+    );
+    return response.data;
+  } catch (error) {
+    console.error('Error processing stripe payment return:', error);
+    throw error;
+  }
+};
+
+export const getDefaultProductList = async () => {
+  try {
+    const response = await axios.get(
+      `${BASE_URL}/get_default_product_list`,
+      { responseType: 'blob' } // Set responseType to 'blob' to handle binary data
+    );
+    
+    // Create a blob URL for the downloaded file
+    const url = window.URL.createObjectURL(new Blob([response.data]));
+    // Create a link element to trigger the download
+    const link = document.createElement('a');
+    link.href = url;
+    link.setAttribute('download', 'default_product_list.xlsx'); // Set the filename
+    document.body.appendChild(link);
+    link.click();
+    // Clean up
+    window.URL.revokeObjectURL(url);
+  } catch (error) {
+    console.error('Error downloading default product list:', error);
+    // Handle error
+  }
+};
+
+export const getMarketRequirements = async (accessToken) => {
+  try {
+    const response = await axios.get(`${BASE_URL}/get_market_requirements`, {
+      headers: {
+        'Authorization': `Bearer ${accessToken}`,
+        'Content-Type': 'application/json',
+      },
+    });
+      return response.data
+    
+  } catch (error) {
+    console.error('Error fetching market requirements:', error);
+    // Handle error
+  }
+};
+
+export const setMarketRequirements = async (accessToken, requirement, isAdded) => {
+  try {
+    const response = await axios.post(
+      `${BASE_URL}/set_market_requirements`,
+      {
+        requirement: requirement,
+        isAdded: isAdded
+      },
+      {
+        headers: {
+          'Authorization': `Bearer ${accessToken}`, 
+          'Content-Type': 'application/json',
+        },
+      }
+    );
+
+    if (response.status === 200) {
+      console.log('Market requirement successfully set');
+    } else {
+      console.error('Failed to set market requirement:', response.statusText);
+    }
+  } catch (error) {
+    console.error('Error setting market requirement:', error);
+  }
+};

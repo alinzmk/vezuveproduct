@@ -18,7 +18,7 @@ const Sidebar2 = () => {
      <div className="sidebar2 m-0 p-0 d-none d-lg-block">
           <div className="sidebar-wrapper2">
                <div className="col-12 mt-0 ms-2 ps-2 text-center">
-                    <img style={{maxWidth:"4rem"}} className='small-logo' src={logo} alt="" />
+                    <img  className='small-logo' src={logo} alt="" />
                     <ul className='sidebar-ul2'>
                          <li className={splitLocation[1] === "Panel" || !splitLocation[1] ? "side-active sidebar-li2" : "sidebar-li2"}>
                               <NavLink exact to={"/Panel"} className='sidebar-link' activeClassName="side-active" >
@@ -59,6 +59,11 @@ const Sidebar2 = () => {
                               <NavLink to={"/Dersler"} className='sidebar-link' activeClassName="side-active">
                                    <i class="fa-brands fa-youtube"></i>
                               </NavLink>
+                         </li>
+                         <li className={"sidebar-li2"}>
+                              <a href='https://calendly.com/info-ff2w' target='_blank' className='sidebar-link' activeClassName="side-active">
+                                   <i class="fa-solid fa-calendar-days"></i>
+                              </a>
                          </li>
                          <li className="sidebar-li2">
                               <NavLink to={"/"} className='sidebar-link' activeClassName="side-active" onClick={()=> sessionStorage.removeItem("token")}>

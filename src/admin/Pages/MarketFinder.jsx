@@ -1,4 +1,3 @@
-import '../admin.css';
 import logo from "../Assets/logo-renkli.png"
 import { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';

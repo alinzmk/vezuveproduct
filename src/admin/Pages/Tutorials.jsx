@@ -1,4 +1,3 @@
-import '../admin.css';
 import { useState } from 'react';
 import logo from "../Assets/logo-renkli.png"
 import Sidebar2 from '../Modals/Sidebar2.jsx';

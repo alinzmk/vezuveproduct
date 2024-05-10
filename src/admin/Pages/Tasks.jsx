@@ -1,4 +1,3 @@
-import '../admin.css';
 import { useState, useEffect } from 'react';
 import logo from "../Assets/logo-renkli.png"
 import Sidebar2 from '../Modals/Sidebar2';
@@ -35,7 +34,6 @@ function Tasks() {
     const handleCreateUserTask = async () => {
         try {
             const response = await createUserTask( user_id, taskName, accessToken);
-            console.log('User task created successfully:', response);
             dispatch(getTaskAdmin())
         } catch (error) {
           console.error('Error creating user task:', error);
@@ -89,56 +87,33 @@ function Tasks() {
   return (
     <>
         <AdminPage>
-
-            <div className="row slideleft task-wrapper">
-                <form onSubmit={(e) => e.preventDefault()}>
-                    <div className="">
-                            <input 
-                                type="text" 
-                                className='product-input me-3' 
-                                value={taskName} 
-                                onChange={(e) => setTaskName(e.target.value)} 
-                                placeholder='Eklemek İstediğiniz Taskı Giriniz'>
-                            </input>
-                        <button className="profile-button ms-auto trans me-3 my-2" onClick={handleCreateUserTask}>
-                            Ekle
-                        </button>
-                    </div>
-                </form>
-                    
-                <div className="col-12 col-lg-4 pb-4 pb-lg-0 pe-3 ps-0 ms-0">
-                    <div className="task-seperator pbg ps-3 pe-3">
-                        <h5 className='task-status'><i class="fa-solid fa-list-check ms-2 my-auto"></i> Planlandı</h5>
-                        <ul id="plan" className="task-ul">
-                            {plannedTasks.map((task, index) => (
-                                <li className="task-li" key={index} style={{ boxShadow: `0px 0px 5px 1px #FA58B6`}}>
-                                    <p className='task-title' >{task.taskName}</p>
-                                    <div className='task-icon-admin dropdown'>                
-                                        <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                        <i class="fa-solid fa-list-check my-auto"></i>
-                                        </button>
-                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                            <li onClick={()=>handleSetUserTasks(task.taskName, "taskStatus", "Planned" )} ><a class="dropdown-item" href="#">Plan</a></li>
-                                            <li onClick={()=>handleSetUserTasks(task.taskName, "taskStatus", "In Progress" )} ><a class="dropdown-item" href="#">Process</a></li>
-                                            <li onClick={()=>handleSetUserTasks(task.taskName, "taskStatus", "Finished" )} ><a class="dropdown-item" href="#">Finished</a></li>
-                                            <li onClick={()=>handleDeleteUserTask(task.taskName)} ><a class="dropdown-item" href="#">Delete</a></li>
-                                        </ul>
-                                    </div>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-                </div>
-                <div className="col-12 col-lg-4 pb-4 pb-lg-0 pe-3 ps-0 ms-0">
-                    <div className="task-seperator pbg ps-3 pe-3">
-                        <h5 className='task-status'><i class="fa-regular fa-clock ms-2 my-auto"></i> Süreç İşliyor</h5>
-                        <ul id="process" className="task-ul">
-                            {inProgressTasks.map((task, index) => (
-                                <li className="task-li" key={index} style={{ boxShadow: `0 0 5px 1px yellow`}}>
-                                    <p className='task-title' >{task.taskName}</p>
-                                    <div className='task-icon-admin dropdown'>                
+            <section className='tasklar'>
+                <div className="row slideleft task-wrapper">
+                    <form onSubmit={(e) => e.preventDefault()}>
+                        <div className="">
+                                <input 
+                                    type="text" 
+                                    className='product-input me-3' 
+                                    value={taskName} 
+                                    onChange={(e) => setTaskName(e.target.value)} 
+                                    placeholder='Eklemek İstediğiniz Taskı Giriniz'>
+                                </input>
+                            <button className="profile-button ms-auto trans me-3 my-2" onClick={handleCreateUserTask}>
+                                Ekle
+                            </button>
+                        </div>
+                    </form>
+                        
+                    <div className="col-12 col-lg-4 pb-4 pb-lg-0 pe-3 ps-0 ms-0">
+                        <div className="task-seperator pbg ps-3 pe-3">
+                            <h5 className='task-status'><i class="fa-solid fa-list-check ms-2 my-auto"></i> Planlandı</h5>
+                            <ul id="plan" className="task-ul">
+                                {plannedTasks.map((task, index) => (
+                                    <li className="task-li" key={index} style={{ boxShadow: `0px 0px 5px 1px #FA58B6`}}>
+                                        <p className='task-title' >{task.taskName}</p>
+                                        <div className='task-icon-admin dropdown'>                
                                             <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                            <i class="fa-regular fa-clock my-auto"></i>
+                                            <i class="fa-solid fa-list-check my-auto"></i>
                                             </button>
                                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                                 <li onClick={()=>handleSetUserTasks(task.taskName, "taskStatus", "Planned" )} ><a class="dropdown-item" href="#">Plan</a></li>
@@ -146,36 +121,60 @@ function Tasks() {
                                                 <li onClick={()=>handleSetUserTasks(task.taskName, "taskStatus", "Finished" )} ><a class="dropdown-item" href="#">Finished</a></li>
                                                 <li onClick={()=>handleDeleteUserTask(task.taskName)} ><a class="dropdown-item" href="#">Delete</a></li>
                                             </ul>
-                                    </div>
-                                </li>
-                            ))}
-                        </ul>
+                                        </div>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    </div>
+                    <div className="col-12 col-lg-4 pb-4 pb-lg-0 pe-3 ps-0 ms-0">
+                        <div className="task-seperator pbg ps-3 pe-3">
+                            <h5 className='task-status'><i class="fa-regular fa-clock ms-2 my-auto"></i> Süreç İşliyor</h5>
+                            <ul id="process" className="task-ul">
+                                {inProgressTasks.map((task, index) => (
+                                    <li className="task-li" key={index} style={{ boxShadow: `0 0 5px 1px yellow`}}>
+                                        <p className='task-title' >{task.taskName}</p>
+                                        <div className='task-icon-admin dropdown'>                
+                                                <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                                <i class="fa-regular fa-clock my-auto"></i>
+                                                </button>
+                                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                                    <li onClick={()=>handleSetUserTasks(task.taskName, "taskStatus", "Planned" )} ><a class="dropdown-item" href="#">Plan</a></li>
+                                                    <li onClick={()=>handleSetUserTasks(task.taskName, "taskStatus", "In Progress" )} ><a class="dropdown-item" href="#">Process</a></li>
+                                                    <li onClick={()=>handleSetUserTasks(task.taskName, "taskStatus", "Finished" )} ><a class="dropdown-item" href="#">Finished</a></li>
+                                                    <li onClick={()=>handleDeleteUserTask(task.taskName)} ><a class="dropdown-item" href="#">Delete</a></li>
+                                                </ul>
+                                        </div>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    </div>
+                    <div className="col-12 col-lg-4 pb-4 pb-lg-0 pe-3 ps-0 ms-0">
+                        <div className="task-seperator pbg ps-3 pe-3">
+                            <h5 className='task-status'><i class="fa-solid fa-check-double ms-2 my-auto"></i> Tamamlandı</h5>
+                            <ul id="finished" className="task-ul">
+                                {finishedTasks.map((task, index) => (
+                                    <li className="task-li" key={index } style={{ boxShadow: `0 0 5px 1px #270082`}}>
+                                        <p className='task-title' >{task.taskName}</p>
+                                        <div className='task-icon-admin dropdown'>                
+                                                <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                                <i class="fa-solid fa-check-double  my-auto"></i>
+                                                </button>
+                                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                                    <li onClick={()=>handleSetUserTasks(task.taskName, "taskStatus", "Planned" )} ><a class="dropdown-item" href="#">Plan</a></li>
+                                                    <li onClick={()=>handleSetUserTasks(task.taskName, "taskStatus", "In Progress" )} ><a class="dropdown-item" href="#">Process</a></li>
+                                                    <li onClick={()=>handleSetUserTasks(task.taskName, "taskStatus", "Finished" )} ><a class="dropdown-item" href="#">Finished</a></li>
+                                                    <li onClick={()=>handleDeleteUserTask(task.taskName)} ><a class="dropdown-item" href="#">Delete</a></li>
+                                                </ul>
+                                        </div>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
                     </div>
                 </div>
-                <div className="col-12 col-lg-4 pb-4 pb-lg-0 pe-3 ps-0 ms-0">
-                    <div className="task-seperator pbg ps-3 pe-3">
-                        <h5 className='task-status'><i class="fa-solid fa-check-double ms-2 my-auto"></i> Tamamlandı</h5>
-                        <ul id="finished" className="task-ul">
-                            {finishedTasks.map((task, index) => (
-                                <li className="task-li" key={index } style={{ boxShadow: `0 0 5px 1px #270082`}}>
-                                    <p className='task-title' >{task.taskName}</p>
-                                    <div className='task-icon-admin dropdown'>                
-                                            <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                            <i class="fa-solid fa-check-double  my-auto"></i>
-                                            </button>
-                                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                                <li onClick={()=>handleSetUserTasks(task.taskName, "taskStatus", "Planned" )} ><a class="dropdown-item" href="#">Plan</a></li>
-                                                <li onClick={()=>handleSetUserTasks(task.taskName, "taskStatus", "In Progress" )} ><a class="dropdown-item" href="#">Process</a></li>
-                                                <li onClick={()=>handleSetUserTasks(task.taskName, "taskStatus", "Finished" )} ><a class="dropdown-item" href="#">Finished</a></li>
-                                                <li onClick={()=>handleDeleteUserTask(task.taskName)} ><a class="dropdown-item" href="#">Delete</a></li>
-                                            </ul>
-                                    </div>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-                </div>
-            </div>
+            </section>
         </AdminPage>
         
     </>

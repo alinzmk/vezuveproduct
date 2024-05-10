@@ -1,4 +1,3 @@
-import '../admin.css';
 import { useState, useEffect } from 'react';
 import logo from "../Assets/logo-renkli.png"
 import { useNavigate } from 'react-router-dom';
@@ -58,6 +57,7 @@ function Profile() {
   return (
     <>
         <AdminPage pageName={"Profil"}>
+            <section className='profil'>
             <form>
             <div className="col-9 mb-4">
                 <div className="row ps-0 my-3 slideup ">
@@ -325,6 +325,7 @@ function Profile() {
                 </div>
             </div>
             </form>
+            </section>
         </AdminPage>
     </>
   );

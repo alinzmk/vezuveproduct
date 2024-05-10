@@ -390,3 +390,55 @@ export const getUserProductsAsExcel = async (customerId, accessToken) => {
     // Handle error
   }
 };
+
+
+export const getMarketRequirements = async (accessToken, customerId) => {
+  try {
+    const response = await axios.get(`${BASE_URL}/get_market_requirements`, {
+      params: {
+        customer_id: customerId,
+      },
+      headers: {
+        Authorization: `Bearer ${accessToken}`, // Replace accessToken with your actual access token
+      },
+    });
+
+    // Check if the request was successful
+    if (response.status === 200) {
+      return response.data;
+    } else {
+      console.error('Failed to fetch market requirements:', response.statusText);
+      return null; // Or handle error accordingly
+    }
+  } catch (error) {
+    console.error('Error fetching market requirements:', error);
+    return null; // Or handle error accordingly
+  }
+};
+
+export const setMarketRequirements = async (accessToken, requirement, isAdded, customerId) => {
+  try {
+    const response = await axios.post(`${BASE_URL}/set_market_requirements`, {
+      requirement: requirement,
+      isAdded: isAdded,
+      customer_id: customerId,
+    }, {
+      headers: {
+        'Authorization': `Bearer ${accessToken}`, 
+        'Content-Type': 'application/json',
+      },
+    });
+    console.log("SET REQ")
+    console.log(response)
+    // Check if the request was successful
+    if (response.status === 200) {
+      return true;
+    } else {
+      console.error('Failed to set market requirements:', response.statusText);
+      return false; // Or handle error accordingly
+    }
+  } catch (error) {
+    console.error('Error setting market requirements:', error);
+    return false; // Or handle error accordingly
+  }
+};

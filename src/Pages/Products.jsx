@@ -4,7 +4,7 @@ import logo from "../Assets/logo-renkli.png"
 import Sidebar2 from '../Modals/Sidebar2';
 import Modal from "../Modals/Product-Modal";
 import info from "../Assets/ürün.jpg";
-import { addProductToUser, deleteProduct } from '../ApiService';
+import { addProductToUser, deleteProduct, getDefaultProductList } from '../ApiService';
 import { useDispatch, useSelector } from 'react-redux';
 import { getProductData } from '../redux/features/productdata/productSlice';
 import fetchAllRedux from '../redux/fetchAllRedux';
@@ -20,14 +20,19 @@ function Products() {
     if(!accessToken) {
         navigate("/");
     }
-   //------------------------------------------------------------------------------
+    //------------------------------------------------------------------------------
     const [modalIsOpen, setModalIsOpen] = useState(false); 
     const [selectedProduct, setSelectedProduct] = useState(null);
     const [searchQuery, setSearchQuery] = useState('');
     const [isMobile, setIsMobile] = useState(false);
     const dispatch = useDispatch();
     const {product} = useSelector((state) => state.product);
-   //------------------------------------------------------------------------------
+    
+    if(product.length === 0){
+        dispatch(fetchAllRedux())
+    }
+
+    //------------------------------------------------------------------------------
 
     useEffect(() => {
       const checkWidth = () => {
@@ -42,7 +47,7 @@ function Products() {
       };
     }, []);
 
-   //------------------------------------------------------------------------------
+    //------------------------------------------------------------------------------
 
     const handleAddProductToUser = async (productsToAdd) => {
         console.log("handleAddProductToUser",productsToAdd)
@@ -91,6 +96,8 @@ function Products() {
       console.error('Error deleting product:', error);
     }
   };
+
+
   
 
     const filteredProducts = product.filter(product =>

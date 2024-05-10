@@ -35,7 +35,7 @@ function Login() {
       const result = await loginUser(username, password);
       
       if (result && result.access_token) {
-        console.log('Login successful!', result);
+        console.log('Login successful!');
         sessionStorage.setItem("token", result.access_token);
         dispatch(fetchAllRedux())
         successNotification("BAŞARIYLA GİRİŞ YAPILDI!")

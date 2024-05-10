@@ -1,5 +1,5 @@
 import {React, useRef, useState} from 'react';
-import '../admin.css';
+
 import { Link, NavLink, useHistory, useNavigate} from 'react-router-dom';
 
 const Plan1 = ({isOpen,onClose,selectedItem, serviceItems }) => {

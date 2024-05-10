@@ -48,7 +48,7 @@ const UserPage = ({ pageName, children }) => {
                           <div className="row mb-3 me-0 me-lg-5 align-items-center">
                               <div className="col-auto p-0 d-flex">
                                   <button id='sideOpen' className='d-block d-lg-none me-2' onClick={()=>setNavOpen(true)} ><i class="fa-solid fa-bars"></i></button>
-                                  <h2 className='purple w-auto m-auto'>{pageName}</h2>
+                                  <h4 className='purple w-auto m-auto'>{pageName}</h4>
                               </div>
                               <div className="col text-end p-0">
                                   {isMobile ? (

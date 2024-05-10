@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../admin.css';
+
 import logo from "../Assets/logo-renkli.png";
 import { useDispatch } from 'react-redux';
 import { getAdminToken } from '../AdminApiService';

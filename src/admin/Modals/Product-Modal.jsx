@@ -1,23 +1,21 @@
 import React from 'react';
+import { getDefaultProductList } from '../../ApiService';
+
 
 class DownloadButton extends React.Component {
-  handleDownload = () => {
-        // Define the path to the Excel file
-        const filePath = process.env.PUBLIC_URL + "../../public/files.xlsx";
-    
-        // Create an anchor element to trigger the download
-        const a = document.createElement('a');
-        a.href = filePath;
-        a.download = 'example.xlsx'; // Specify the filename here
-    
-        // Trigger a click event to download the file
-        a.click();
-      };
-
+   downloadDefaultProductList = async () => {
+    try {
+      await getDefaultProductList();
+      console.log('Default product list downloaded successfully');
+    } catch (error) {
+      console.error('Error downloading default product list:', error);
+      // Handle error
+    }
+  };
   render() {
     return (
-      <label onClick={this.handleDownload}>
-        <i class="fa-regular fa-file"></i> Ürün Şablonunu İndirmek İçin Tıklayınız.
+      <label onClick={this.downloadDefaultProductList}>
+        <i class="fa-regular fa-file"></i> Ürün Şablonunu İndirmek <br/> İçin Tıklayınız.
       </label>
     );
   }
