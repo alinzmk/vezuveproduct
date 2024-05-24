@@ -86,7 +86,7 @@ function Tasks() {
     }
   return (
     <>
-        <AdminPage>
+        <AdminPage pageName={"Task"}>
             <section className='tasklar'>
                 <div className="row slideleft task-wrapper">
                     <form onSubmit={(e) => e.preventDefault()}>

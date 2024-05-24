@@ -28,6 +28,7 @@ import AdminServices from './admin/Pages/Services.jsx';
 import AdminMarketFinder from './admin/Pages/MarketFinder.jsx';
 import AdminTask from './admin/Pages/Tasks.jsx';
 import AdminTutorials from './admin/Pages/Tutorials.jsx';
+import AdminAnnouncements from './admin/Pages/Announcements.jsx';
 
 import Stripe from './Pages/Stripe.jsx';
 
@@ -130,12 +131,16 @@ const router = createBrowserRouter([
     element: <AdminMarketFinder />, 
   },
   {
-    path: "/admin/Proje",
+    path: "/admin/proje",
     element: <AdminTask />, 
   },
   {
-    path: "/admin/Dersler",
+    path: "/admin/dersler",
     element: <AdminTutorials />, 
+  },
+  {
+    path: "/admin/duyurular",
+    element: <AdminAnnouncements />, 
   },
   {
     path: "/stripe_payment_return",

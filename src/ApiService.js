@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { warningNotification } from './Modals/Notification';
+import { SHA256 } from 'crypto-js';
 const BASE_URL = 'https://userapi.vezuport.com';
 
 
@@ -25,11 +26,20 @@ export const loginUser = async (username, password) => {
   }
 };
 
-export const registerEarlyUser = async (mail, name, phone) => {
+export const registerUser = async (mail, password, phone, name, companyname) => {
+  
+    let hash = SHA256(password).toString();
+    console.log("API SERVICE HASH "+hash)
   try {
     const response = await axios.post(
-      `${BASE_URL}/register_early_user?mail=${mail}&name=${name}&phone=${phone}`,
-      // No need to send data in the request body
+      `${BASE_URL}/register_new_user`,
+      {
+        mail: mail,
+        password: hash,
+        phone: phone,
+        name: name,
+        companyName: companyname
+      },
       {
         headers: {
           'Content-Type': 'application/json', // Specify the content type if needed
@@ -410,5 +420,27 @@ export const setMarketRequirements = async (accessToken, requirement, isAdded) =
     }
   } catch (error) {
     console.error('Error setting market requirement:', error);
+  }
+};
+
+
+export const getAnnouncements = async (accessToken) => {
+  try {
+    const response = await axios.get(`${BASE_URL}/get_announcements`, {
+      headers: {
+        Authorization: `Bearer ${accessToken}`, // Replace accessToken with your actual access token
+      },
+    });
+
+    // Check if the request was successful
+    if (response.status === 200) {
+      return response.data.data;
+    } else {
+      console.error('Failed to fetch announcements:', response.statusText);
+      return null; // Or handle error accordingly
+    }
+  } catch (error) {
+    console.error('Error fetching announcements:', error);
+    return null; // Or handle error accordingly
   }
 };

@@ -30,7 +30,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Poppins',sans-serif; }
+  font-family: "Poppins", sans-serif; }
 
 html {
   height: 100%;
@@ -57,7 +57,8 @@ img {
   user-select: none;
   -webkit-user-drag: none; }
 
-a, a:hover {
+a,
+a:hover {
   text-decoration: none;
   color: inherit; }
 
@@ -142,7 +143,7 @@ a, a:hover {
           margin-bottom: 15px;
           position: relative; }
           .App .login-container .wrapper form .row input {
-            background-color: #E8F0FE;
+            background-color: #e8f0fe;
             height: 100%;
             width: 100%;
             outline: none;
@@ -181,7 +182,7 @@ a, a:hover {
           border: 1px solid #323377;
           cursor: pointer; }
           .App .login-container .wrapper form .button input:hover {
-            background: #D6F2FF;
+            background: #d6f2ff;
             border: none;
             color: #323377; }
         .App .login-container .wrapper form .signup-link {
@@ -196,7 +197,7 @@ a, a:hover {
       .App .login-container .wrapper .login-logo {
         width: 15rem; }
       .App .login-container .wrapper #togglePassword {
-        color: #001B48;
+        color: #001b48;
         border: none;
         position: absolute;
         right: 0;
@@ -348,7 +349,7 @@ a, a:hover {
 .mainhov:hover {
   scale: 1.03;
   background-color: transparent;
-  color: #001B48; }
+  color: #001b48; }
 
 .main {
   background-position: center;
@@ -369,8 +370,8 @@ a, a:hover {
     .dashboard .profile-button:hover {
       padding: 0.3rem 0.9rem;
       background-color: transparent;
-      border: 1px solid #FA58B6;
-      color: #FA58B6;
+      border: 1px solid #fa58b6;
+      color: #fa58b6;
       border-radius: 10px; }
   .dashboard #total-sales, .dashboard #total-purchases, .dashboard #total-orders {
     background-color: white;
@@ -378,11 +379,11 @@ a, a:hover {
     width: 32%;
     margin: 0 0rem 0 0; }
   .dashboard #total-sales {
-    padding: 1rem 0 1rem  2rem; }
+    padding: 1rem 0 1rem 2rem; }
   .dashboard #total-purchases {
     padding: 1rem 0 1rem 2rem; }
   .dashboard #total-orders {
-    padding: 1rem 0 1rem  2rem; }
+    padding: 1rem 0 1rem 2rem; }
   .dashboard #total-growth {
     background-color: white;
     border-radius: 10px;
@@ -472,8 +473,8 @@ a, a:hover {
   .profil .buton2:hover, .profil .profile-button:hover {
     padding: 0.7rem 1rem;
     background-color: transparent;
-    border: 1px solid #FA58B6;
-    color: #FA58B6;
+    border: 1px solid #fa58b6;
+    color: #fa58b6;
     border-radius: 10px; }
 .profil .profile-button {
   padding: 0.3rem 0.7rem; }
@@ -490,7 +491,7 @@ a, a:hover {
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  background-color: #FA58B6;
+  background-color: #fa58b6;
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover; }
@@ -518,7 +519,7 @@ a, a:hover {
 
 /** PROFİL BİTİŞ **/
 /** MODAL BAŞLANGIÇ**/
-.overlay input[type=button] {
+.overlay input[type="button"] {
   border: none;
   outline: none !important; }
 .overlay .modalContainer {
@@ -534,7 +535,8 @@ a, a:hover {
   box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, 0.75);
   border-radius: 20px;
   padding: 2rem; }
-.overlay .closeBtn, .overlay .closeBtn:hover {
+.overlay .closeBtn,
+.overlay .closeBtn:hover {
   position: absolute;
   top: 0;
   right: 15px;
@@ -669,11 +671,11 @@ a, a:hover {
   scale: 1; }
 .belgeler .buton3:hover, .belgeler .buton4:hover {
   scale: 0.95;
-  color: #FA58B6;
+  color: #fa58b6;
   background-color: #1c1d22; }
 .belgeler .buton4:hover {
   scale: 1.05;
-  color: #FA58B6;
+  color: #fa58b6;
   background-color: #1c1d22; }
 .belgeler .dropdown2:hover .dropdown-menu {
   display: block;
@@ -704,7 +706,8 @@ a, a:hover {
   padding: 0.1rem 1rem;
   border: 1px solid #1c1d22;
   transition: 0.5s; }
-.urunler .product-input:focus, .urunler .product-input:focus-visible {
+.urunler .product-input:focus,
+.urunler .product-input:focus-visible {
   max-width: 100%;
   border-radius: 20px;
   padding: 0.1rem 1rem; }
@@ -759,7 +762,7 @@ a, a:hover {
   border-radius: 10px;
   background-color: rgba(255, 255, 255, 0.8); }
 .urunler .buton2, .urunler .profil .profile-button, .profil .urunler .profile-button {
-  transition: .5s;
+  transition: 0.5s;
   padding: 0.4rem;
   background-color: transparent;
   border: 1px solid #270082;
@@ -768,8 +771,8 @@ a, a:hover {
   .urunler .buton2:hover, .urunler .profil .profile-button:hover, .profil .urunler .profile-button:hover {
     padding: 0.4rem 1rem;
     background-color: transparent;
-    border: 1px solid #FA58B6;
-    color: #FA58B6;
+    border: 1px solid #fa58b6;
+    color: #fa58b6;
     border-radius: 10px; }
 
 /* ÜRÜNLER BİTİŞ */
@@ -861,7 +864,11 @@ a, a:hover {
   padding: 25px 25px 25px 25px; }
   .hizmetler .hizmet-wrap-vezu .accordion-header {
     cursor: pointer; }
-  .hizmetler .hizmet-wrap-vezu .accordion-item, .hizmetler .hizmet-wrap-vezu .accordion-button, .hizmetler .hizmet-wrap-vezu .accordion, .hizmetler .hizmet-wrap-vezu .accordion-header, .hizmetler .hizmet-wrap-vezu .accordion-button:focus {
+  .hizmetler .hizmet-wrap-vezu .accordion-item,
+  .hizmetler .hizmet-wrap-vezu .accordion-button,
+  .hizmetler .hizmet-wrap-vezu .accordion,
+  .hizmetler .hizmet-wrap-vezu .accordion-header,
+  .hizmetler .hizmet-wrap-vezu .accordion-button:focus {
     background-color: transparent;
     box-shadow: none; }
   .hizmetler .hizmet-wrap-vezu .hizmet {
@@ -1164,6 +1171,17 @@ a, a:hover {
 ._1yCVn {
   z-index: 2; }
 
+#announcement {
+  color: white;
+  padding-top: 5px;
+  margin-bottom: 10px;
+  background: #1a2142;
+  background: -moz-linear-gradient(122deg, rgba(62, 79, 162, 0.9) 12%, rgba(85, 112, 241, 0.9) 75%, rgba(250, 88, 182, 0.9) 100%);
+  background: -webkit-linear-gradient(122deg, rgba(61, 77, 157, 0.9) 12%, rgba(85, 112, 241, 0.9) 75%, rgba(250, 88, 182, 0.9) 100%);
+  background: linear-gradient(122deg, rgba(64, 80, 163, 0.9) 12%, rgba(85, 112, 241, 0.9) 75%, rgba(250, 88, 182, 0.9) 100%); }
+  #announcement .mySwiper1 .swiper-slide {
+    margin: auto; }
+
 @media only screen and (max-width: 1200px) {
   .chart-wrapper {
     padding: auto; } }
@@ -1201,13 +1219,13 @@ a, a:hover {
     width: 49%;
     margin: 0 0rem 1rem 0; }
   .dashboard #total-sales {
-    padding: 1rem 0 1rem  2rem; }
+    padding: 1rem 0 1rem 2rem; }
   .dashboard #total-purchases {
     padding: 1rem 0 1rem 2rem; }
   .dashboard #total-orders {
-    padding: 1rem 0 1rem  2rem; }
+    padding: 1rem 0 1rem 2rem; }
   .dashboard #total-growth {
-    padding: 1rem 0 1rem  2rem; }
+    padding: 1rem 0 1rem 2rem; }
   .dashboard .aylık {
     font-size: 0.9rem !important;
     color: rgba(28, 29, 34, 0.7); }
@@ -1291,8 +1309,8 @@ a, a:hover {
     .profil .buton2:hover, .profil .profile-button:hover {
       padding: 0.7rem 1rem;
       background-color: transparent;
-      border: 1px solid #FA58B6;
-      color: #FA58B6;
+      border: 1px solid #fa58b6;
+      color: #fa58b6;
       border-radius: 10px; }
   .profil .profile-button {
     padding: 0.3rem 0.7rem; }
@@ -1309,7 +1327,7 @@ a, a:hover {
     width: 100px;
     height: 100px;
     border-radius: 50%;
-    background-color: #FA58B6;
+    background-color: #fa58b6;
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover; }
@@ -1353,11 +1371,11 @@ a, a:hover {
     scale: 1; }
   .belgeler .buton3:hover, .belgeler .buton4:hover {
     scale: 0.95;
-    color: #FA58B6;
+    color: #fa58b6;
     background-color: #1c1d22; }
   .belgeler .buton4:hover {
     scale: 1.05;
-    color: #FA58B6;
+    color: #fa58b6;
     background-color: #1c1d22; }
   .belgeler .dropdown2:hover .dropdown-menu {
     display: block;
@@ -1400,7 +1418,8 @@ a, a:hover {
     padding: 0.1rem 1rem;
     border: 1px solid #1c1d22;
     transition: 0.5s; }
-  .urunler .product-input:focus, .urunler .product-input:focus-visible {
+  .urunler .product-input:focus,
+  .urunler .product-input:focus-visible {
     max-width: 100%;
     border-radius: 20px;
     padding: 0.1rem 1rem; }
@@ -1625,7 +1644,7 @@ a, a:hover {
     max-height: 82vh;
     overflow: visible; }
 
-  .overlay input[type=button] {
+  .overlay input[type="button"] {
     border: none;
     outline: none !important; }
   .overlay .modalContainer {
@@ -1641,7 +1660,8 @@ a, a:hover {
     box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, 0.75);
     border-radius: 20px;
     padding: 2rem; }
-  .overlay .closeBtn, .overlay .closeBtn:hover {
+  .overlay .closeBtn,
+  .overlay .closeBtn:hover {
     position: absolute;
     top: 0;
     right: 15px;
@@ -1811,7 +1831,11 @@ a, a:hover {
     padding: 25px 25px 25px 25px; }
     .hizmetler .hizmet-wrap-vezu .accordion-header {
       cursor: pointer; }
-    .hizmetler .hizmet-wrap-vezu .accordion-item, .hizmetler .hizmet-wrap-vezu .accordion-button, .hizmetler .hizmet-wrap-vezu .accordion, .hizmetler .hizmet-wrap-vezu .accordion-header, .hizmetler .hizmet-wrap-vezu .accordion-button:focus {
+    .hizmetler .hizmet-wrap-vezu .accordion-item,
+    .hizmetler .hizmet-wrap-vezu .accordion-button,
+    .hizmetler .hizmet-wrap-vezu .accordion,
+    .hizmetler .hizmet-wrap-vezu .accordion-header,
+    .hizmetler .hizmet-wrap-vezu .accordion-button:focus {
       background-color: transparent;
       box-shadow: none; }
     .hizmetler .hizmet-wrap-vezu .hizmet {
@@ -1883,7 +1907,7 @@ a, a:hover {
         .confirm-modal .confirm-actions button:hover {
           opacity: 0.8; }
 
-  .overlay input[type=button] {
+  .overlay input[type="button"] {
     border: none;
     outline: none !important; }
   .overlay .modalContainer {
@@ -1899,7 +1923,8 @@ a, a:hover {
     box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, 0.75);
     border-radius: 20px;
     padding: 2rem 10px; }
-  .overlay .closeBtn, .overlay .closeBtn:hover {
+  .overlay .closeBtn,
+  .overlay .closeBtn:hover {
     position: absolute;
     top: 5px;
     right: 15px;

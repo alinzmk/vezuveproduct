@@ -1,3 +1,4 @@
+import { getAnnouncementAdmin } from "./features/adminannaouncement/announcementAdminSlice"
 import { getDashAdmin } from "./features/admindash/dashAdminSlice"
 import { getDocAdmin } from "./features/admindoc/docAdminSlice"
 import { getMarketReqAdmin } from "./features/adminmarketreq/marketreqAdminSlice"
@@ -13,6 +14,7 @@ export const fetchAdminRedux = () => {
         dispatch(getTaskAdmin())
         dispatch(getDocAdmin())
         dispatch(getMarketReqAdmin())
+        dispatch(getAnnouncementAdmin())
     }
 }
 
