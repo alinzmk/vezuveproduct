@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import "../App.css";
 import logo from "../Assets/logo-renkli.png";
 import { registerEarlyUser, registerUser } from "../ApiService";
-import { warningNotification } from "../Modals/Notification";
+import { successNotification, warningNotification } from "../Modals/Notification";
 import Lottie from "lottie-react";
 import check from "../Assets/animations/check.json";
 import sha256 from "crypto-js/sha256";
+import { useNavigate } from "react-router-dom";
 
 function Register() {
   /* mail (str)
@@ -23,6 +24,8 @@ function Register() {
   const [hashedPassword, setHashedPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [isRegister, setIsRegister] = useState(false);
+
+  const navigate = useNavigate();
 
   const handleUsername = (event) => {
     setUsername(event.target.value);
@@ -61,7 +64,8 @@ function Register() {
         companyname
       );
       if (response.status === 200) {
-        setIsRegister(true);
+        navigate("/");
+        successNotification("Kaydınız başarıyla oluşturuldu!")
       } else if (response.status === 403) {
         warningNotification("Bu mail adresi sistemimize kayıtlıdır");
       }
