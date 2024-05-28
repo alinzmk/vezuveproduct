@@ -83,7 +83,7 @@ function Login() {
             <form action="#">
               <div className="row">
                 <i className="fas fa-user"></i>
-                <input value={username} onChange={handleUsername} type="email" placeholder="E-posta veya Telefon*" required />
+                <input value={username} onChange={handleUsername} type="email" placeholder="E-posta*" required />
               </div>
               <div className="row">
                 <i className="fas fa-lock"></i>
@@ -100,11 +100,11 @@ function Login() {
                   onClick={handleTogglePassword}
                 ></i>
               </div>
-              <div className="pass"><a href="#">Şifremi Unuttum</a></div>
+              {/* <div className="pass"><a href="#">Şifremi Unuttum</a></div> */}
               <div className="row button">
                 <input onClick={handleSubmit} type="submit" value="Giriş Yap" />
               </div>
-              <div className="pass" onClick={()=>navigate("/kayit")}><a href="">Hala VezüPort ile tanışmadın mı? Buraya tıklayarak erken kayıt olabilirsin.</a></div>
+              <div className="pass" onClick={()=>navigate("/kayit")}><a href="">Yeni kayıt oluşturmak için tıklayınız</a></div>
             </form>
           </div>
         </div>

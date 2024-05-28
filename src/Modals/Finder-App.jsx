@@ -146,7 +146,7 @@ export default function App(props) {
             <div className='col-12 slide mt-5 text-center px-3 mb-5 '>
               <div className="col-12">
                   <h5>
-                    Türkiye pazaryerlerinde veya sosyal medya üzerinden (Trendyol, Hepsiburada, Amazon, Pttavm, instagram, Facebook) aktif olaran e-ticaret yapıyor musunuz? 
+                    Türkiye pazaryerlerinde veya sosyal medya üzerinden (Trendyol, Hepsiburada, Amazon, Pttavm, instagram, Facebook) aktif olarak e-ticaret yapıyor musunuz? 
                   </h5>
                   <label className="custom-radio d-flex justify-content-center mt-5">
                     <input
@@ -175,7 +175,7 @@ export default function App(props) {
             <div className='col-12 slide mt-5 text-center px-3 mb-5 '>
               <div className="col-12">
                   <h5>
-                    Yurtdışında online pazarlar da (Amazon, Etsy, E-bay) perakende satış veya toplu ihracat yapıyor musunuz ?                  
+                    Yurtdışında online pazarlarda (Amazon, Etsy, E-bay) perakende satış veya toplu ihracat yapıyor musunuz ?                  
                   </h5>
                   <label className="custom-radio d-flex justify-content-center mt-5">
                     <input
@@ -224,7 +224,7 @@ export default function App(props) {
           <div className='col-12 slide mt-5 text-center px-3 mb-5 '>
               <div className="col-12">
                   <h5>
-                    Türkiye de veya yurtdışında ürünlerinizi sergilediğiniz aktif satış taptığınız fiziki bir mağazanız bulunuyor mu ?                  
+                    Türkiye de veya yurtdışında ürünlerinizi sergilediğiniz aktif satış yaptığınız fiziki bir mağazanız bulunuyor mu ?                  
                   </h5>
                   <label className="custom-radio d-flex justify-content-center mt-5">
                     <input
@@ -255,7 +255,7 @@ export default function App(props) {
           <div className='col-12 slide mt-5 text-center px-3 mb-5 '>
               <div className="col-12">
                   <h5>
-                    Satışını yaptığınız ürün grubunun ana kategorisisi nedir ?
+                    Satışını yaptığınız ürün grubunun ana kategorisi nedir ?
                   </h5>
                     <select className='custom-select text-center mt-3' defaultValue="Lütfen Seçiniz" value={productCategory} onChange={(e) => setProductCategory(e.target.value)}>
                       <option value="">{defaultOption}</option>
@@ -287,7 +287,7 @@ export default function App(props) {
           <div className='col-12 slide mt-5 text-center px-3 mb-5 '>
               <div className="col-12">
                   <h5>
-                    Ürünleriniz ortalama hangi desi aralığındadır ?
+                    Ürünleriniz ortalama hangi desi aralığındadır?
                   </h5>
                     <select className='custom-select text-center mt-3' value={desiInfo} onChange={(e) => setDesiInfo(parseInt(e.target.value))}>
                       <option value="">{defaultOption}</option>
@@ -329,7 +329,7 @@ export default function App(props) {
 
 const data = 
 [
-  {   
+  {
     name: "Trendyol",
     logo: 'trendyol.png',
     items: [
@@ -345,9 +345,9 @@ const data =
       {"Lansman Maliyeti": "Ürün fiyatlarına bağlı olarak 15-35 dolar ürün fiyatı aralığı için 500-750 dolar"},
     ],
     buttonText: "Uzman Ekibimiz ile Hemen Amazon'da",
-    marketLink: "https://drive.google.com/file/d/1R7fn5dOonJ_Xlwf9bm2pmmEM_t6wYvmx/view?usp=sharing"
+    marketLink: "https://drive.google.com/drive/u/1/folders/1rr9O5JK2F8FDRMz6uG4nGhxpVkABBfsI"
   },
-  {   
+  { 
     name: "Amazon",
     logo: 'amazon.png',
     items: [
@@ -369,7 +369,7 @@ const data =
     buttonText: "Uzman Ekibimiz ile Hemen Amazon'da",
     marketLink: "https://drive.google.com/file/d/17tOe3LEG25FDvk7BUNg4hHQV2TozYD1J/view?usp=sharing"
   },
-  {
+  { 
       name: "Etsy",
       logo: 'etsy.png',
       items: [
@@ -422,7 +422,7 @@ const data =
         "Yıllık Satış: 8.5 milyar dolar",
         "Yeni başlayan satıcılara 0 komisyon desteği sunmaktadır.",
         "Popüler Pazaryerleri: YouTube, Facebook"
-
+      
       ],
       
       city: 0 ,
@@ -468,7 +468,7 @@ const data =
         '50 MİLYON AKTİF MÜŞTERİ',
         "360 MİLYAR DOLAR ORTALAMA GELİR",
         "Popüler Pazaryerleri: YouTube"
-
+    
       ],
       
       city: 0 ,
