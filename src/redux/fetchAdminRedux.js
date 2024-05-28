@@ -5,9 +5,11 @@ import { getMarketReqAdmin } from "./features/adminmarketreq/marketreqAdminSlice
 import { getPlanAdmin } from "./features/adminplan/planAdminSlice"
 import { getProductAdmin } from "./features/adminproduct/productAdminSlice"
 import { getTaskAdmin } from "./features/admintask/taskAdminSlice"
+import { getUserAdmin } from "./features/adminuser/userAdminSlice"
 
 export const fetchAdminRedux = () => {
     return dispatch => {
+        dispatch(getUserAdmin())
         dispatch(getPlanAdmin())
         dispatch(getDashAdmin())
         dispatch(getProductAdmin())

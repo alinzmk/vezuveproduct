@@ -26,9 +26,6 @@ function Stripe() {
     useEffect(() => {
       // This useEffect will run every time 'source' changes
       if (source !== null) {
-        console.log("STRIPE")
-        console.log(source)
-        console.log(newPackageProductID)
         processStripePaymentReturn();
 
       }

@@ -12,24 +12,39 @@ import fetchAdminRedux from '../../redux/fetchAdminRedux';
 
 function Profile() {
 
-    const accessToken = sessionStorage.getItem("token")
-    const user_id = (sessionStorage.getItem("selectedCustomer"))
+    const accessToken = sessionStorage.getItem("token");
+    const user_id1 = sessionStorage.getItem("selectedCustomer");
     const navigate = useNavigate();
-    if(!accessToken) {
+
+    if (!accessToken) {
         navigate("/");
     }
+
     const [editable, setEditable] = useState("");
     const [newValue, setNewValue] = useState('');   
-    //-----------------------------------------------------------------------------    
-    const {useradmin} = useSelector((state) => state.useradmin);
-    const {planadmin} = useSelector((state) => state.planadmin);
+    const [selectedUser, setSelectedUser] = useState(null);
+
+    const { useradmin } = useSelector((state) => state.useradmin);
+    const { planadmin } = useSelector((state) => state.planadmin);
     const dispatch = useDispatch();
-    //------------------------------------------------------------------------------   
-   
+
+    //------------------------------------------------------------------------------
+    useEffect(() => {
+        console.log('user_id1:', user_id1);
+        console.log(useradmin);
+    
+        if (useradmin && user_id1) {
+            const user = useradmin.find((user) => user.user_id === Number(user_id1));
+            console.log('Found user:', user);
+            setSelectedUser(user);
+        }
+    }, [useradmin, user_id1]);
+    
+
     // SET PROFILE DATA
     const handleSetUserData = async (column) => {
         try {
-        const result = await setUserData(column, newValue, user_id, accessToken);
+        const result = await setUserData(column, newValue, user_id1, accessToken);
         if (result.status === 200) {
             console.log('User data set successfully!');
             successNotification('BAŞARIYLA DEĞİŞTİRİLDİ');
@@ -46,12 +61,13 @@ function Profile() {
         handleSetUserData(state);
         setEditable(null);
     }
+
     useEffect(() => {
         if (useradmin.length===0 || planadmin.length===0) {
             dispatch(getUserAdmin())
             dispatch(fetchAdminRedux());
         }
-      }, [dispatch, useradmin, planadmin]);
+        }, [dispatch, useradmin, planadmin]);
     
 
   return (
@@ -63,8 +79,8 @@ function Profile() {
                 <div className="row ps-0 my-3 slideup ">
                     <div className="col-9 my-auto">
                         <div className="col-12">
-                            <h3 className='ms-4 purple'>Hoş geldiniz<i class="fa-solid fa-hands"></i>, Sayın {useradmin[user_id-1] ? (
-                                <>{useradmin[user_id-1].name}</>
+                            <h3 className='ms-4 purple'>Hoş geldiniz<i class="fa-solid fa-hands"></i>, Sayın {selectedUser ? (
+                                <>{selectedUser.name}</>
                                 ) : (
                                 <>Müşterimiz</>
                             )}.</h3>
@@ -91,10 +107,10 @@ function Profile() {
                                         <button class="profile-button ms-auto trans me-3 my-2" onClick={()=>updateUserData("accountName")} ><i class="fa-solid fa-floppy-disk"></i></button>
                                     </div>
                             ) : (
-                                useradmin[user_id-1] ? (
+                                selectedUser ? (
                                     <form onSubmit={(e) => e.preventDefault()}>
                                         <div className="d-flex align-items-center">
-                                            <h6 className='profile-info'>{useradmin[user_id-1].accountName}</h6>
+                                            <h6 className='profile-info'>{selectedUser.accountName}</h6>
                                             <button type='button' className="profile-button ms-auto trans me-3 my-2" onClick={()=>setEditable("accountName")}>
                                                 <i className="fa-solid fa-pen-to-square"></i>
                                             </button>
@@ -116,10 +132,10 @@ function Profile() {
                                         <button class="profile-button ms-auto trans me-3 my-2" onClick={()=>updateUserData("email")} ><i class="fa-solid fa-floppy-disk"></i></button>
                                     </div>
                             ) : (
-                                useradmin[user_id-1] ? (
+                                selectedUser ? (
                                     <form onSubmit={(e) => e.preventDefault()}>
                                         <div className="d-flex align-items-center">
-                                            <h6 className='profile-info'>{useradmin[user_id-1].email}</h6>
+                                            <h6 className='profile-info'>{selectedUser.email}</h6>
                                             <button type='button' className="profile-button ms-auto trans me-3 my-2" onClick={()=>setEditable("email")}>
                                                 <i className="fa-solid fa-pen-to-square"></i>
                                             </button>
@@ -143,10 +159,10 @@ function Profile() {
                                     <button class="profile-button ms-auto trans me-3 my-2" onClick={()=>updateUserData("phone")} ><i class="fa-solid fa-floppy-disk"></i></button>
                                     </div>
                                 ) : (
-                                    useradmin[user_id-1] ? (
+                                    selectedUser ? (
                                         <form onSubmit={(e) => e.preventDefault()}>
                                         <div className="d-flex align-items-center">
-                                            <h6 className='profile-info'>{useradmin[user_id-1].phone}</h6>
+                                            <h6 className='profile-info'>{selectedUser.phone}</h6>
                                             <button type='button' className="profile-button ms-auto trans me-3 my-2" onClick={()=>setEditable("phone")}>
                                                 <i className="fa-solid fa-pen-to-square"></i>
                                             </button>
@@ -172,11 +188,11 @@ function Profile() {
                                         <button class="profile-button ms-auto trans me-3 my-2" onClick={()=>updateUserData("companyTitle")} ><i class="fa-solid fa-floppy-disk"></i></button>
                                     </div>
                                 ) : (
-                                    useradmin[user_id-1] ? (
+                                    selectedUser ? (
                                         // Display user address if userData exists
                                         <form onSubmit={(e) => e.preventDefault()}>
                                             <div className="d-flex align-items-center">
-                                                <h6 className='profile-info'>{useradmin[user_id-1].companyTitle}</h6>
+                                                <h6 className='profile-info'>{selectedUser.companyTitle}</h6>
                                                 <button type='button' className="profile-button ms-auto trans me-3 my-2" onClick={()=>setEditable("companyTitle")}>
                                                     <i className="fa-solid fa-pen-to-square"></i>
                                                 </button>
@@ -206,10 +222,10 @@ function Profile() {
                                         <button class="profile-button ms-auto trans me-3 my-2" onClick={()=>updateUserData("taxAdmin")} ><i class="fa-solid fa-floppy-disk"></i></button>
                                     </div>
                                 ) : (
-                                    useradmin[user_id-1] ? (
+                                    selectedUser ? (
                                         <form onSubmit={(e) => e.preventDefault()}>
                                         <div className="d-flex align-items-center">
-                                            <h6 className='profile-info'>{useradmin[user_id-1].taxAdmin}</h6>
+                                            <h6 className='profile-info'>{selectedUser.taxAdmin}</h6>
                                             <button className="profile-button ms-auto trans me-3 my-2" onClick={() => setEditable("taxAdmin")}>
                                                 <i className="fa-solid fa-pen-to-square"></i>
                                             </button>
@@ -237,10 +253,10 @@ function Profile() {
                                         <button class="profile-button ms-auto trans me-3 my-2" onClick={()=>updateUserData("taxNumber")} ><i class="fa-solid fa-floppy-disk"></i></button>
                                     </div>
                             ) : (
-                                useradmin[user_id-1] ? (
+                                selectedUser ? (
                                     <form onSubmit={(e) => e.preventDefault()}>
                                         <div className="d-flex align-items-center">
-                                            <h6 className='profile-info'>{useradmin[user_id-1].taxNumber}</h6>
+                                            <h6 className='profile-info'>{selectedUser.taxNumber}</h6>
                                             <button type='button' className="profile-button ms-auto trans me-3 my-2" onClick={()=>setEditable("taxNumber")}>
                                                 <i className="fa-solid fa-pen-to-square"></i>
                                             </button>
@@ -265,10 +281,10 @@ function Profile() {
                                         <button class="profile-button ms-auto trans me-3 my-2" onClick={()=>updateUserData("city")} ><i class="fa-solid fa-floppy-disk"></i></button>
                                     </div>
                                 ) : (
-                                    useradmin[user_id-1] ? (
+                                    selectedUser ? (
                                         <form onSubmit={(e) => e.preventDefault()}>
                                         <div className="d-flex align-items-center">
-                                            <h6 className='profile-info'>{useradmin[user_id-1].city}</h6>
+                                            <h6 className='profile-info'>{selectedUser.city}</h6>
                                             <button className="profile-button ms-auto trans me-3 my-2" onClick={() => setEditable("city")}>
                                                 <i className="fa-solid fa-pen-to-square"></i>
                                             </button>
@@ -298,11 +314,11 @@ function Profile() {
                                         <button class="profile-button ms-auto trans me-3 my-2" onClick={()=>updateUserData("address")} ><i class="fa-solid fa-floppy-disk"></i></button>
                                     </div>
                                 ) : (
-                                    useradmin[user_id-1] ? (
+                                    selectedUser ? (
                                         <form onSubmit={(e) => e.preventDefault()}>
                                         
                                             <div className="d-flex align-items-center">
-                                                <h6 className='profile-info'>{useradmin[user_id-1].address}</h6>
+                                                <h6 className='profile-info'>{selectedUser.address}</h6>
                                                 <button className="profile-button ms-auto trans me-3 my-2" onClick={() => setEditable("address")}>
                                                     <i className="fa-solid fa-pen-to-square"></i>
                                                 </button>

@@ -31,7 +31,7 @@ export const getAllUserData = async (accessToken) => {
         Authorization: `Bearer ${accessToken}`,
       },
     });
-
+    console.log(response.data)
     return response.data;
   } catch (error) {
     console.error("Error fetching all user data:", error);
@@ -490,8 +490,6 @@ export const setMarketRequirements = async (
         },
       }
     );
-    console.log("SET REQ");
-    console.log(response);
     // Check if the request was successful
     if (response.status === 200) {
       return true;

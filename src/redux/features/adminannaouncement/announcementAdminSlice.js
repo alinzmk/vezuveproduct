@@ -9,8 +9,6 @@ export const getAnnouncementAdmin = createAsyncThunk("getAnnouncementAdmin", asy
   const accessToken = sessionStorage.getItem("token");
   try {
     const result = await getAnnouncements(accessToken);
-    console.log("slice")
-    console.log(result)
     return result.data;
   } catch (error) {
     console.log(error);

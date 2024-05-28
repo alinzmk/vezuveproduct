@@ -17,11 +17,19 @@ function SelectCustomer() {
     const [selectedCustomer, setSelectedCustomer] = useState(null); // Define selectedCustomer state
 
     const selectCustomer = (id) =>{
-        sessionStorage.setItem("selectedCustomer", id);
-        sessionStorage.setItem("customerMail", useradmin[id-1].email);
-        setSelectedCustomer(id); // Update selectedCustomer state
-        dispatch(fetchAdminRedux())
-    };  
+
+        const selectedUser = useradmin.find(user => user.user_id === id);
+
+        if (selectedUser) {
+            sessionStorage.setItem("selectedCustomer", id);
+            sessionStorage.setItem("customerMail", selectedUser.email); // Assuming you want to store the user_id in customerMail
+            setSelectedCustomer(id); // Update selectedCustomer state
+            dispatch(fetchAdminRedux());
+        } else {
+            // Handle the case where no matching user is found (optional)
+            console.error('User not found');
+        }
+    };
     
     useEffect(() => {
         if(useradmin.length === 0){
@@ -40,11 +48,8 @@ function SelectCustomer() {
                                 <div className="col-12 p-0 product-list-container">
                                     <ul className='product-list' >
                                         {useradmin && useradmin.map(user => (
-                                            <li key={user.user_id}
-                                                onClick={() => selectCustomer(user.user_id)}
-                                                className={selectedCustomer === user.user_id ? 'product-active' : ''}
-                                            >
-                                                {user.name}/{user.email}
+                                            <li key={user.user_id} onClick={() => selectCustomer(user.user_id)} className={selectedCustomer === user.user_id ? 'product-active' : ''}>
+                                                {user.user_id}/{user.name}/{user.email}
                                             </li>
                                         ))}
                                     </ul>
