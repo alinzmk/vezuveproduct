@@ -26,7 +26,6 @@ const videoid = "https://www.youtube.com/embed/"+videoId
         <div className='videoModal '>
           <div className='row'>
             <div className='col-12 text-center position-relative'>
-              <button onClick={closeModal} class="closeBtn"><i class="fa-solid fa-x"></i></button>
               <iframe width="1000" height="600" src={videoid}
                   title="Yaşam Standardını Düşüren Şey Nedir?"
                   frameborder="0"

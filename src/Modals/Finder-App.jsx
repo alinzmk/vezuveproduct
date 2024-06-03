@@ -338,7 +338,6 @@ const data =
     city: 0 ,
     items2: [
       {"ŞİRKET KURULUMU": "200-250 dolar"},
-      {"Amazon aylık kira bedeli"	: "40 DOLAR"},
       {"GS1 Uluslararası barkod":	"1750-5000 tl"},
       {"Lojistik":	"50X60X60 Amazon standarlarında 10 koli 750 dolar"},
       {"Günlük reklam maliyeti	Minimum": "35-50 dolar"},
@@ -404,7 +403,6 @@ const data =
       city: 0 ,
       items2: [
         {"ŞİRKET KURULUMU": "200-250 dolar"},
-        {"Amazon aylık kira bedeli"	: "40 DOLAR"},
         {"GS1 Uluslararası barkod":	"1750-5000 tl"},
         {"Lojistik":	"karayolu kargo; 50X60X60 standarlarında 10 koli 400-500 euro"},
         {"Günlük reklam maliyeti	Minimum": "35-50 LEİ "},

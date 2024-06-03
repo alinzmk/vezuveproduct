@@ -24,30 +24,27 @@ function Tutorials() {
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const [selectedVideoId, setSelectedVideoId] = useState("");
     const {plan} = useSelector((state) => state.plan);
-    //------------------------------------------------------------------------------   
-
+    //------------------------------------------------------------------------------       
+    
     const videos = [
-        { id: 1, name: "Amazon", url: ['17tn4nXVc3k', "17tn4nXVc3k", "17tn4nXVc3k", '17tn4nXVc3k', "17tn4nXVc3k", "17tn4nXVc3k"] },
-        { id: 2, name: "Etsy", url: ['6yaY3bdKqVU', "6yaY3bdKqVU", "6yaY3bdKqVU", '6yaY3bdKqVU', "6yaY3bdKqVU", "6yaY3bdKqVU"] },
-        { id: 3, name: "Emag", url: ['fwzoQ27Lsyc', "fwzoQ27Lsyc", "fwzoQ27Lsyc", 'fwzoQ27Lsyc', "fwzoQ27Lsyc", "fwzoQ27Lsyc"] },
-        { id: 4, name: "Allegro", url: ['Vp-sFmZqumI', "Vp-sFmZqumI", "Vp-sFmZqumI", 'Vp-sFmZqumI', "Vp-sFmZqumI", "Vp-sFmZqumI"] },
-        { id: 5, name: "Ozon Global", url: ['NZiD_X_K570', "NZiD_X_K570", "NZiD_X_K570", 'NZiD_X_K570', "NZiD_X_K570", "NZiD_X_K570"] },
-      ];
+        { id: 1, name: "Amazon", url: ['gZED_Ehgu2c', "vDdmETZVX8s", "yyvtELyoh6c", 'Z4YpjvZIRek', "ezK2qr2dheU", "jD4OF4IOy-o", "QDvr3cduQns", "kKNqAMrSsJg", "w80OpwLGLZY"] },
+        { id: 2, name: "Etsy", url: ['pM02q3fRlwU', "tNQrhuAdfw4", "aH_xrT5A1wY", 'bboCtvJW_58', "a1lr8ETZrUU"] },
+        { id: 3, name: "Emag", url: ['83hpX65gV3o', "2XQmUWuRGv4", "1M-rMT_dDLk", 'L2l16ydrTjM', "u4CH9Q6byhM", "h6ru47d7LVU"] },
+        { id: 4, name: "Allegro", url: ['l6UwOGvl1ps', "ijSIDYY4ceE", "zd0-cFxV3UA", 'RLTpYwHROTU', "WU7ZGiaKfQA"] },
+        { id: 5, name: "Ozon Global", url: ['fKvUuYLDbus', "ff2ZaAmzHXk", "K1AAQ04mjHE"] },
+        { id: 6, name: "Wayfair", url: ['SPfXR48elnI', "AUWvB1xqzx0", "7JWg33NdamE"] },
+    ];
     const openModal = (videoId) => {
         setSelectedVideoId(videoId);
         setModalIsOpen(true);
     };
-    
     const closeModal = () => {
         setSelectedVideoId(null);
         setModalIsOpen(false);
     };
-    
     const getThumbnail = (link) =>{
         return "url('https://img.youtube.com/vi/"+link+"/sddefault.jpg')";
     }
-
-
 
   return (
     <>
