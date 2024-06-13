@@ -136,7 +136,7 @@ function Register() {
                       type="text"
                       placeholder="E-postanız"
                       title="E-postanız"
-                      maxLength={30}
+                      maxLength={60}
                       required
                     />
                   </div>

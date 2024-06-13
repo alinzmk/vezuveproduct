@@ -31,7 +31,7 @@ function Tutorials() {
         { id: 2, name: "Etsy", url: ['pM02q3fRlwU', "tNQrhuAdfw4", "aH_xrT5A1wY", 'bboCtvJW_58', "a1lr8ETZrUU"] },
         { id: 3, name: "Emag", url: ['83hpX65gV3o', "2XQmUWuRGv4", "1M-rMT_dDLk", 'L2l16ydrTjM', "u4CH9Q6byhM", "h6ru47d7LVU"] },
         { id: 4, name: "Allegro", url: ['l6UwOGvl1ps', "ijSIDYY4ceE", "zd0-cFxV3UA", 'RLTpYwHROTU', "WU7ZGiaKfQA"] },
-        { id: 5, name: "Ozon Global", url: ['fKvUuYLDbus', "ff2ZaAmzHXk", "K1AAQ04mjHE"] },
+        { id: 5, name: "Ozon Global", url: ['fKvUuYLDbus', "ff2ZaAmzHXk", "K1AAQ04mjHE", 'z9yalh91RRE', "SUCbatqLXbc", "lTwIwfLXnWk", 'LmEXF5OmLP4', "BRAwbtFfYJA"] },
         { id: 6, name: "Wayfair", url: ['SPfXR48elnI', "AUWvB1xqzx0", "7JWg33NdamE"] },
     ];
     const openModal = (videoId) => {

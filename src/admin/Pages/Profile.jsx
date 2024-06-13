@@ -249,7 +249,7 @@ function Profile() {
                             <p className='profile-title'>Vergi Numarası</p>
                             {editable ==="taxNumber" ?(
                                     <div className="d-flex align-items-center">
-                                        <input type='text' className='profile-input' placeholder="E-Postanız" onChange={(e) => setNewValue(e.target.value)}></input>
+                                        <input type='text' className='profile-input' placeholder="Vergi Numaranız" onChange={(e) => setNewValue(e.target.value)}></input>
                                         <button class="profile-button ms-auto trans me-3 my-2" onClick={()=>updateUserData("taxNumber")} ><i class="fa-solid fa-floppy-disk"></i></button>
                                     </div>
                             ) : (
