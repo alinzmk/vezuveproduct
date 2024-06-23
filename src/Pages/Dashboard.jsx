@@ -104,8 +104,11 @@ function Dashboard() {
 
     if (!isNaN(current) && !isNaN(previous)) {
       const change = parseInt(((current - previous) / previous) * 100);
-
-      return <p className={change < 0 ? "minus" : "plus"}>%{change}</p>;
+      if (isNaN(change)) {
+        return <p className={"plus"}>%{0}</p>;
+      } else {
+        return <p className={change < 0 ? "minus" : "plus"}>%{change}</p>;
+      }
     } else {
       return "no data";
     }
@@ -123,8 +126,11 @@ function Dashboard() {
 
     if (!isNaN(current) && !isNaN(previous)) {
       const change = parseInt(((current - previous) / previous) * 100);
-
-      return <p className={change < 0 ? "minus2" : "plus2"}>%{change}</p>;
+      if (isNaN(change)) {
+        return <p className={"plus"}>%{0}</p>;
+      } else {
+        return <p className={change < 0 ? "minus2" : "plus2"}>%{change}</p>;
+      }
     } else {
       return "no data";
     }
@@ -157,7 +163,10 @@ function Dashboard() {
                   )}
                 </div>
               </div>
-              <div className="col-lg-3 col-12  trans mainhov" id="total-purchases" >
+              <div
+                className="col-lg-3 col-12  trans mainhov"
+                id="total-purchases"
+              >
                 <div className="col-12 slideup">
                   <h6>Toplam Reklam Harcaması</h6>
                   {dash.ads ? (

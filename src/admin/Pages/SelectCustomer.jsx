@@ -4,14 +4,11 @@ import Sidebar2 from '../Modals/Sidebar2';
 import { getAllUserData, getUserPlan } from '../AdminApiService';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUserAdmin } from '../../redux/features/adminuser/userAdminSlice';
-import { getPlanAdmin } from '../../redux/features/adminplan/planAdminSlice';
-import { getDashAdmin } from '../../redux/features/admindash/dashAdminSlice';
-import { getProductAdmin } from '../../redux/features/adminproduct/productAdminSlice';
-import { getTaskAdmin } from '../../redux/features/admintask/taskAdminSlice';
 import fetchAdminRedux from '../../redux/fetchAdminRedux';
 import AdminPage from '../Modals/AdminPage';
 
 function SelectCustomer() {
+
     const { useradmin } = useSelector((state) => state.useradmin);
     const accessToken = sessionStorage.getItem("token");
     const dispatch = useDispatch();
@@ -20,9 +17,7 @@ function SelectCustomer() {
     const [searchQuery, setSearchQuery] = useState(""); // State for search query
 
     const selectCustomer = (id) =>{
-
         const selectedUser = useradmin.find(user => user.user_id === id);
-
         if (selectedUser) {
             sessionStorage.setItem("selectedCustomer", id);
             sessionStorage.setItem("customerMail", selectedUser.email); // Assuming you want to store the user_id in customerMail
@@ -53,7 +48,7 @@ function SelectCustomer() {
 
     // Filter users based on search query
     const filteredUsers = useradmin.filter(user =>
-        user.email.toLowerCase().includes(searchQuery.toLowerCase())
+        user.name.toLowerCase().includes(searchQuery.toLowerCase())
     );
 
     return (
@@ -68,7 +63,7 @@ function SelectCustomer() {
                                 <div className="col-12 mb-3">
                                     <input
                                         type="text"
-                                        placeholder="E-MAIL SEARCHBAR"
+                                        placeholder="NAME SEARCHBAR"
                                         value={searchQuery}
                                         onChange={(e) => setSearchQuery(e.target.value)}
                                     />

@@ -9,6 +9,7 @@ import sha256 from "crypto-js/sha256";
 import { useNavigate } from "react-router-dom";
 
 function Register() {
+
   /* mail (str)
   şifre (str hashli sha256)
   telefon (str)
@@ -47,15 +48,11 @@ function Register() {
 
   const handlePhone = (event) => {
     const value = event.target.value.trim();
-    // Validate if the input is a number
-    if (!isNaN(value) || value === "") {
-      setPhone(value);
-    }
+    setPhone(value);
   };
-
+  
   const handleRegisterUser = async () => {
     try {
-      // Call the registerEarlyUser function with the user's data
       const response = await registerUser(
         mail,
         registerpassword,
@@ -65,30 +62,36 @@ function Register() {
       );
       if (response.status === 200) {
         navigate("/");
-        successNotification("Kaydınız başarıyla oluşturuldu!")
+        successNotification("Kaydınız başarıyla oluşturuldu!");
       } else if (response.status === 403) {
         warningNotification("Bu mail adresi sistemimize kayıtlıdır");
       }
       console.log("QQQQerror user registered successfully:");
-      // Handle success
     } catch (error) {
       console.error("QQQQerror registering early user:", error);
-      // Handle error
     }
   };
-
+  
   const handleSubmit = (e) => {
     e.preventDefault();
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-    //GEREKLİ USERNAME PASSWORD CONSTRAINTS
+    const phoneRegex = /^[1-9][0-9]{9}$/;
+  
+    // Validate email
     if (!emailRegex.test(mail)) {
       warningNotification("Lütfen geçerli bir e-posta adresi giriniz.");
       return;
     }
+  
+    // Validate phone number
+    if (!phoneRegex.test(phone)) {
+      warningNotification("Lütfen geçerli bir telefon numarası giriniz. Telefon numarası 0 ile başlamamalı ve 10 haneli olmalıdır.");
+      return;
+    }
+  
     handleRegisterUser();
   };
-
+  
   return (
     <div className="App row m-0">
       <div className="col-12 col-lg-5 ">
@@ -179,6 +182,9 @@ function Register() {
                     onClick={handleTogglePassword}
                   ></i>
                 </div>
+                <div className="">
+                  <p onClick={()=>navigate("/")} style={{cursor:"pointer"}}>Kaydınız varsa, buradan giriş yapabilirsiniz</p>
+                </div>
                   <div className="row button">
                     <input type="submit" value="Kayıt Ol" />
                   </div>
@@ -194,3 +200,4 @@ function Register() {
 }
 
 export default Register;
+

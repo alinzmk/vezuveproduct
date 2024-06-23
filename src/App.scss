@@ -2847,3 +2847,36 @@ a:hover {
     }
   }
 }
+
+
+/* VideoModal.css */
+
+/* Default style */
+.videoModal iframe {
+  width: 300px;
+  height: 300px;
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .videoModal iframe {
+    width: 720px;
+    height: 405px;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .videoModal iframe {
+    width: 700px;
+    height: 540px;
+  }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .videoModal iframe {
+    width: 900px;
+    height: 550px;
+  }
+}

@@ -1,8 +1,21 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Modal from 'react-modal';
 
 const VideoModal = ({ isOpen, closeModal, videoId }) => {
-const videoid = "https://www.youtube.com/embed/"+videoId
+  const videoid = "https://www.youtube.com/embed/"+videoId
+
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 760);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 760);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    // Clean up the event listener on component unmount
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   return (
     <Modal
@@ -11,7 +24,7 @@ const videoid = "https://www.youtube.com/embed/"+videoId
       contentLabel="Video Modal"
       style={
         {content: {
-          width: "1020px",
+          width: isMobile ? "300px" : "1020px",
           height: "650px",
           margin: "auto",
           backgroundColor: "transparent",
@@ -27,7 +40,6 @@ const videoid = "https://www.youtube.com/embed/"+videoId
           <div className='row'>
             <div className='col-12 text-center position-relative'>
               <iframe width="1000" height="600" src={videoid}
-                  title="Yaşam Standardını Düşüren Şey Nedir?"
                   frameborder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                   allowfullscreen></iframe>
