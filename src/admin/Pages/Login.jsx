@@ -12,6 +12,7 @@ function Login() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [username, setUsername] = useState('');
+  const [twoFA, setTwoFA] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   sessionStorage.clear("selectedCustomer")
@@ -21,6 +22,14 @@ function Login() {
   const handleUsername = (event) => {
     setUsername(event.target.value);
   }
+
+  const handleTwoFA = (event) => {
+    const input = event.target.value;
+    if (/^\d*$/.test(input)) {
+      setTwoFA(input);
+    }
+  };
+  
   
   const handlePasswordChange = (event) => {
     setPassword(event.target.value);
@@ -32,8 +41,8 @@ function Login() {
 
   const handleLogin = async () => { 
     try {
-      const result = await getAdminToken(username, password);
-      
+      const result = await getAdminToken(username, password, twoFA);
+      console.log(result)
       if (result && result.access_token) {
         sessionStorage.setItem("token", result.access_token)
         successNotification("Başarıyla Giriş Yapıldı")
@@ -84,6 +93,7 @@ function Login() {
                 <i className="fas fa-user"></i>
                 <input value={username} onChange={handleUsername} type="email" placeholder="E-posta veya Telefon*" required />
               </div>
+              
               <div className="row">
                 <i className="fas fa-lock"></i>
                 <input
@@ -99,7 +109,11 @@ function Login() {
                   onClick={handleTogglePassword}
                 ></i>
               </div>
-              <div className="pass"><a href="#">Şifremi Unuttum</a></div>
+              <div className="row">
+                <i className="fa-solid fa-key"></i>
+                <input value={twoFA} onChange={handleTwoFA} type="text" placeholder="2FA Kodu*" required />
+              </div>
+              {/* <div className="pass"><a href="#">Şifremi Unuttum</a></div> */}
               <div className="row button">
                 <input onClick={handleSubmit} type="submit" value="Giriş Yap" />
               </div>

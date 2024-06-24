@@ -28,10 +28,10 @@ function Tutorials() {
     
     const videos = [
         { id: 1, name: "Amazon", url: ['gZED_Ehgu2c', "vDdmETZVX8s", "yyvtELyoh6c", 'Z4YpjvZIRek', "ezK2qr2dheU", "jD4OF4IOy-o", "QDvr3cduQns", "kKNqAMrSsJg", "w80OpwLGLZY"] },
-        { id: 2, name: "Etsy", url: ['pM02q3fRlwU', "tNQrhuAdfw4", "aH_xrT5A1wY", 'bboCtvJW_58', "a1lr8ETZrUU"] },
-        { id: 3, name: "Emag", url: ['83hpX65gV3o', "2XQmUWuRGv4", "1M-rMT_dDLk", 'L2l16ydrTjM', "u4CH9Q6byhM", "h6ru47d7LVU"] },
+        { id: 2, name: "Etsy", url: ['pM02q3fRlwU', "tNQrhuAdfw4", "aH_xrT5A1wY", 'bboCtvJW_58', "a1lr8ETZrUU", "yOPB_cxZXeg", "z_iXf2YCb28", "VA0MXistifw"] },
+        { id: 3, name: "Emag", url: ['83hpX65gV3o', "2XQmUWuRGv4", "1M-rMT_dDLk", 'L2l16ydrTjM', "u4CH9Q6byhM", "h6ru47d7LVU", "5cSjyGOn648","Dr_S-KUKYG0","fyBokcop5xo", "wYgEYUZ040w", "jWMPBl2Mvk8"] },
         { id: 4, name: "Allegro", url: ['l6UwOGvl1ps', "ijSIDYY4ceE", "zd0-cFxV3UA", 'RLTpYwHROTU', "WU7ZGiaKfQA"] },
-        { id: 5, name: "Ozon Global", url: ['fKvUuYLDbus', "ff2ZaAmzHXk", "K1AAQ04mjHE", 'z9yalh91RRE', "SUCbatqLXbc", "lTwIwfLXnWk", 'LmEXF5OmLP4', "BRAwbtFfYJA"] },
+        { id: 5, name: "Ozon Global", url: ['fKvUuYLDbus', "ff2ZaAmzHXk", "K1AAQ04mjHE", 'z9yalh91RRE', "SUCbatqLXbc", "lTwIwfLXnWk", 'LmEXF5OmLP4', "BRAwbtFfYJA", "eB3FFtXBgdI", "yfmcwEUyOLE", "qr-Sa5B_v_s", "n8wlcTtUC60"] },
         { id: 6, name: "Wayfair", url: ['SPfXR48elnI', "AUWvB1xqzx0", "7JWg33NdamE"] },
     ];
     const openModal = (videoId) => {

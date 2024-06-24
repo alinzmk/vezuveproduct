@@ -2,27 +2,33 @@ import axios from "axios";
 import { warningNotification } from "../Modals/Notification";
 const BASE_URL = "https://adminapi.vezuport.com";
 
-export const getAdminToken = async (username, password) => {
+export const getAdminToken = async (username, password, totpCode) => {
   try {
-    const response = await axios.post(
-      `${BASE_URL}/admin_token`,
-      {
-        username,
-        password,
-      },
-      {
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-      }
+    const params = new URLSearchParams();
+    params.append('username', username);
+    params.append('password', password);
+    params.append('scope', totpCode);
+    
+    const response = await axios.post(`${BASE_URL}/admin_token`,params,
+      { headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      }}
     );
-    return response.data;
+    console.log(response)
+    
+    if (response.status === 200) {
+      return response.data;
+    } else {
+      console.error('Failed to login:', response.statusText);
+      return null;
+    }
   } catch (error) {
     warningNotification("GİRİŞ BAŞARISIZ");
-    console.error("Error getting admin token:", error);
-    throw error;
+    console.error('Error during login:', error);
+    return null;
   }
 };
+
 
 export const getAllUserData = async (accessToken) => {
   try {

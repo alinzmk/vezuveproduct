@@ -44,7 +44,7 @@ function SelectCustomer() {
         if(useradmin.length === 0){
             dispatch(getUserAdmin())
         }
-    }, [dispatch, useradmin.length]);
+    }, [dispatch, useradmin]);
 
     // Filter users based on search query
     const filteredUsers = useradmin.filter(user =>

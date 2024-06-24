@@ -37,6 +37,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import { Provider } from 'react-redux';
 import { store } from "./redux/app/store.js";
+import Forgot from './Pages/Forgot.jsx';
 
 const router = createBrowserRouter([
   {
@@ -47,6 +48,11 @@ const router = createBrowserRouter([
   {
     path: "/kayit",
     element: <Register/>,
+    errorElement: <ErrorPage />
+  },
+  {
+    path: "/reset_password",
+    element: <Forgot/>,
     errorElement: <ErrorPage />
   },
   {

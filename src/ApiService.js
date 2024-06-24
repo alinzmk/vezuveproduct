@@ -29,7 +29,6 @@ export const loginUser = async (username, password) => {
 export const registerUser = async (mail, password, phone, name, companyname) => {
   
     let hash = SHA256(password).toString();
-    console.log("API SERVICE HASH "+hash)
   try {
     const response = await axios.post(
       `${BASE_URL}/register_new_user`,
@@ -442,5 +441,45 @@ export const getAnnouncements = async (accessToken) => {
   } catch (error) {
     console.error('Error fetching announcements:', error);
     return null; // Or handle error accordingly
+  }
+};
+
+
+export const forgotPassword = async (userMail) => {
+  try {
+    const response = await axios.post(`${BASE_URL}/forgot_password`, {
+      user_mail: userMail,
+    });
+
+    if (response.status === 200) {
+      return response.data;
+    } else {
+      console.error('Failed to send password reset email:', response.statusText);
+      return null;
+    }
+  } catch (error) {
+    console.error('Error sending password reset email:', error);
+    return null;
+  }
+};
+
+
+export const resetPassword = async (token, newPassword) => {
+  let hash = SHA256(newPassword).toString();
+  try {
+    const response = await axios.post(`${BASE_URL}/reset_password`, {
+      token: token,
+      new_password: hash,
+    });
+
+    if (response.status === 200) {
+      return response.data;
+    } else {
+      console.error('Failed to reset password:', response.statusText);
+      return null;
+    }
+  } catch (error) {
+    console.error('Error resetting password:', error);
+    return null;
   }
 };
