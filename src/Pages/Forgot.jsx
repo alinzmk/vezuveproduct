@@ -4,7 +4,6 @@ import '../App.css';
 import logo from "../Assets/logo-renkli.png";
 import { forgotPassword, loginUser, resetPassword } from '../ApiService';
 import { useDispatch } from 'react-redux';
-import fetchAllRedux from '../redux/fetchAllRedux';
 import { successNotification, warningNotification } from '../Modals/Notification';
 
 function Forgot() {

@@ -98,10 +98,6 @@ function Login() {
       alert('Please enter a valid email address');
       return;
     }
-    if (password.length < 1) {
-      alert('Password should be at least 8 characters long');
-      return;
-    }
     
     handleForgotPassword();
   };
