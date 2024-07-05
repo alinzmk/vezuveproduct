@@ -26,8 +26,14 @@ function Tutorials() {
     const {plan} = useSelector((state) => state.plan);
     //------------------------------------------------------------------------------       
     
+    
+
+
+
+
     const videos = [
-        { id: 1, name: "Amazon", url: ['gZED_Ehgu2c', "vDdmETZVX8s", "yyvtELyoh6c", 'Z4YpjvZIRek', "ezK2qr2dheU", "jD4OF4IOy-o", "QDvr3cduQns", "kKNqAMrSsJg", "w80OpwLGLZY"] },
+        { id: 1, name: "Amazon", url: ['gZED_Ehgu2c', "vDdmETZVX8s", "yyvtELyoh6c", 'Z4YpjvZIRek', "ezK2qr2dheU", "jD4OF4IOy-o", 
+            "QDvr3cduQns", "kKNqAMrSsJg", "w80OpwLGLZY", "HceHTsNY3XA",  "s6ng27mH1IU", "BlhlSoohC1c", "21lqRNz0veM", "-hYtcVgFeC4",] },
         { id: 2, name: "Etsy", url: ['pM02q3fRlwU', "tNQrhuAdfw4", "aH_xrT5A1wY", 'bboCtvJW_58', "a1lr8ETZrUU", "yOPB_cxZXeg", "z_iXf2YCb28", "VA0MXistifw"] },
         { id: 3, name: "Emag", url: ['83hpX65gV3o', "2XQmUWuRGv4", "1M-rMT_dDLk", 'L2l16ydrTjM', "u4CH9Q6byhM", "h6ru47d7LVU", "5cSjyGOn648","Dr_S-KUKYG0","fyBokcop5xo", "wYgEYUZ040w", "jWMPBl2Mvk8"] },
         { id: 4, name: "Allegro", url: ['l6UwOGvl1ps', "ijSIDYY4ceE", "zd0-cFxV3UA", 'RLTpYwHROTU', "WU7ZGiaKfQA"] },
