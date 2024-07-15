@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import fetchAllRedux from "../redux/fetchAllRedux";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFlip, Navigation, Pagination } from "swiper/modules";
+import VideoModal from '../Modals/VideoModal.jsx';
 
 const UserPage = ({ pageName, children }) => {
   
@@ -35,15 +36,39 @@ const UserPage = ({ pageName, children }) => {
   };
 
 
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [selectedVideoId, setSelectedVideoId] = useState("");
+
+  const openModal = () => {
+    const videoId = videos[pageName]
+    console.log(videoId)
+    setSelectedVideoId(videoId)
+    setModalIsOpen(true)
+  };
+
+  const closeModal = () => {
+      setSelectedVideoId(null);
+      setModalIsOpen(false);
+  };
+
+  const videos = { "Market Finder": "MKS9jc0xk1s", "Proje Alanı": "WCPdkYrHLp8", "Ürünler": "SD7RcGUP2ek", "Panel": "Khcjboo_Gmo", "Profil": "9lDFJbaoKEI", "Belgeler": "S9o6UepsYOg", "Hizmetler": "UH-Ly21ftJs", "Dersler":"CVG6W7ywjAg",  }
+ ;
+
+
   return (
     <>
+      <VideoModal
+            isOpen={modalIsOpen}
+            closeModal={closeModal}
+            videoId={selectedVideoId}
+        />
       <Whatsapp/>
       <div className="main m-0">
         <div className="slideup"></div>
           <div className="row">
             <div className="p-0">
               {isMobile ? (
-                <MobilSidebar2 isOpen={navOpen} toggleSidebar={toggleSidebar} />
+                <MobilSidebar2 isOpen={navOpen} toggleSidebar={toggleSidebar}/>
               ) : (
                 <Sidebar2 />
               )}
@@ -52,17 +77,7 @@ const UserPage = ({ pageName, children }) => {
               <div className="row justify-content-center justify-content-lg-start">
                 <div className="col-12 mb-0 p-0">
                   <div id="announcement">
-                  <Swiper
-                    loop={true}
-                    speed={8000}
-                    autoplay={{
-                      delay: 5000,
-                      disableOnInteraction: false,
-                    }}
-                    navigation={false}
-                    modules={[Autoplay]}
-                    className="mySwiper1"
-                  >
+                  <Swiper loop={true} speed={8000} autoplay={{ delay: 5000, disableOnInteraction: false,}} navigation={false} modules={[Autoplay]} className="mySwiper1">
                       {announcement && announcement.map((announ, index)=>
                         <SwiperSlide>
                             <h5 className="d-flex justify-content-center ps-3 p-1">{announcement[index].announcement}</h5>
@@ -106,6 +121,7 @@ const UserPage = ({ pageName, children }) => {
                     <div className="col text-end p-0">
                       {isMobile ? (
                         <>
+                          <i onClick={() => openModal()} class="fa-solid fa-graduation-cap" style={{margin:"10px 10px auto auto", fontSize:"24px", color:"#1c1d22", cursor:"pointer"}}></i>
                           <img
                             src={mobilelogo}
                             style={{ maxWidth: "4rem" }}
@@ -115,6 +131,7 @@ const UserPage = ({ pageName, children }) => {
                         </>
                       ) : (
                         <>
+                          <i onClick={() => openModal()} class="fa-solid fa-graduation-cap" style={{margin:"3px 10px auto auto ", fontSize:"24px", color:"#1c1d22", cursor:"pointer"}}></i>
                           <img src={logo} className="sidebar-logo" alt="" />
                         </>
                       )}

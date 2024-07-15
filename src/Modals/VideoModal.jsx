@@ -40,9 +40,9 @@ const VideoModal = ({ isOpen, closeModal, videoId }) => {
           <div className='row'>
             <div className='col-12 text-center position-relative'>
               <iframe width="1000" height="600" src={videoid}
-                  frameborder="0"
+                  frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                  allowfullscreen></iframe>
+                  allowFullScreen></iframe>
             </div>
           </div>
         </div>

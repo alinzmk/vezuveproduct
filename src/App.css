@@ -1133,6 +1133,11 @@ a:hover {
     scale: 1.1;
     box-shadow: 0px 0px 20px 15px rgba(109, 0, 172, 0.3); }
 
+.fa-graduation-cap {
+  transition: 0.5s ease-in-out; }
+  .fa-graduation-cap:hover {
+    transform: scale(0.9); }
+
 /* video modal BİTİŞ" */
 .reqModal {
   display: flex;

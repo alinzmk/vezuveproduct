@@ -25,11 +25,6 @@ function Tutorials() {
     const [selectedVideoId, setSelectedVideoId] = useState("");
     const {plan} = useSelector((state) => state.plan);
     //------------------------------------------------------------------------------       
-    
-    
-
-
-
 
     const videos = [
         { id: 1, name: "Amazon", url: ['gZED_Ehgu2c', "vDdmETZVX8s", "yyvtELyoh6c", 'Z4YpjvZIRek', "ezK2qr2dheU", "jD4OF4IOy-o", 
