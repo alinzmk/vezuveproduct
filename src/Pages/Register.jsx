@@ -144,18 +144,6 @@ function Register() {
                     />
                   </div>
                   <div className="row">
-                    <i class="fa-solid fa-building"></i>
-                    <input
-                      value={companyname}
-                      onChange={handleCompanyname}
-                      type="text"
-                      placeholder="Şirket İsmi"
-                      title="Şirket İsmi"
-                      maxLength={30}
-                      required
-                    />
-                  </div>
-                  <div className="row">
                     <i class="fa-solid fa-phone"></i>
                     <input
                       value={phone}
