@@ -27,8 +27,7 @@ export const loginUser = async (username, password) => {
 };
 
 export const registerUser = async (mail, password, phone, name, companyname) => {
-  
-    let hash = SHA256(password).toString();
+  let hash = SHA256(password).toString();
   try {
     const response = await axios.post(
       `${BASE_URL}/register_new_user`,
@@ -45,6 +44,7 @@ export const registerUser = async (mail, password, phone, name, companyname) => 
         },
       }
     );
+    console.log(response)
     return response.data;
   } catch (error) {
     console.error('Error registering early user:', error);

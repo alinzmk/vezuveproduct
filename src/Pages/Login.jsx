@@ -35,7 +35,6 @@ function Login() {
   const handleLogin = async () => {
     try {
       const result = await loginUser(username, password); 
-      
       if (result && result.access_token) {
         console.log('Login successful!');
         sessionStorage.setItem("token", result.access_token);

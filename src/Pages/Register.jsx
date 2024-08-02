@@ -31,9 +31,6 @@ function Register() {
   const handleUsername = (event) => {
     setUsername(event.target.value);
   };
-  const handleCompanyname = (event) => {
-    setCompanyname(event.target.value);
-  };
   const handlePassword = (event) => {
     setPassword(event.target.value);
   };
@@ -60,6 +57,7 @@ function Register() {
         username,
         companyname
       );
+      console.log(response)
       if (response.status === 200) {
         navigate("/");
         successNotification("Kaydınız başarıyla oluşturuldu!");

@@ -24,8 +24,6 @@ function Documents() {
   const { doc } = useSelector((state) => state.doc);
   const { marketreq } = useSelector((state) => state.marketreq);
   const dispatch = useDispatch();
-  console.log(doc);
-  console.log(marketreq);
   //------------------------------------------------------------------------------
   if (doc.length === 0) {
     dispatch(fetchAllRedux());
@@ -921,6 +919,130 @@ function Documents() {
                         ) : (
                           <button
                             onClick={() => handleDownloadDocument("bill")}
+                            className="buton3 m-0"
+                          >
+                            Yüklendi<i class="fa-solid fa-cloud-arrow-down"></i>
+                          </button>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="col-12 col-lg-10 p-0 slideup">
+                <div className="col-12 w-auto pb-3">
+                  <div className="pbg">
+                    <div className="row justify-content-between p-3">
+                      <div className="col-1 ms-0 ms-lg-5 my-auto">
+                        <h2 className="my-auto mx-0">
+                          <i class="fa-regular fa-file"></i>
+                        </h2>
+                      </div>
+                      <div className="col-7 my-auto text-left">
+                        <h5 className="m-0 d-flex align-items-center">
+                          Sözleşme
+                          <div class="dropdown2 ms-3">
+                            <button
+                              class="d-flex info-btn"
+                              type="button"
+                              id="dropdownMenuButton2"
+                              data-bs-toggle="dropdown"
+                              aria-expanded="false"
+                            >
+                              <i class="fa-solid fa-circle-info"></i>
+                            </button>
+                            <div
+                              class="dropdown-menu info"
+                              aria-labelledby="dropdownMenuButton2"
+                            >
+                              Sözleşme
+                            </div>
+                          </div>
+                        </h5>
+                      </div>
+                      <div className="col-3 my-auto p-0 justify-content-center d-flex">
+                        {doc.agreement === false ? (
+                          <form>
+                            <label for="agreement-file-upload" class="buton4">
+                              Yükle <i class="fa-solid fa-cloud-arrow-up"></i>
+                            </label>
+                            <input
+                              id="agreement-file-upload"
+                              className="d-none"
+                              type="file"
+                              onChange={(e) => handleFileUpload(e, "agreement")}
+                            />
+                            <button
+                              type="submit"
+                              style={{ display: "none" }}
+                              class="agreement"
+                            ></button>
+                          </form>
+                        ) : (
+                          <button
+                            onClick={() => handleDownloadDocument("agreement")}
+                            className="buton3 m-0"
+                          >
+                            Yüklendi<i class="fa-solid fa-cloud-arrow-down"></i>
+                          </button>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="col-12 col-lg-10 p-0 slideup">
+                <div className="col-12 w-auto pb-3">
+                  <div className="pbg">
+                    <div className="row justify-content-between p-3">
+                      <div className="col-1 ms-0 ms-lg-5 my-auto">
+                        <h2 className="my-auto mx-0">
+                          <i class="fa-regular fa-file"></i>
+                        </h2>
+                      </div>
+                      <div className="col-7 my-auto text-left">
+                        <h5 className="m-0 d-flex align-items-center">
+                          İkametgah Belgesi
+                          <div class="dropdown2 ms-3">
+                            <button
+                              class="d-flex info-btn"
+                              type="button"
+                              id="dropdownMenuButton2"
+                              data-bs-toggle="dropdown"
+                              aria-expanded="false"
+                            >
+                              <i class="fa-solid fa-circle-info"></i>
+                            </button>
+                            <div
+                              class="dropdown-menu info"
+                              aria-labelledby="dropdownMenuButton2"
+                            >
+                              İkametgah Belgesi
+                            </div>
+                          </div>
+                        </h5>
+                      </div>
+                      <div className="col-3 my-auto p-0 justify-content-center d-flex">
+                        {doc.residence === false ? (
+                          <form>
+                            <label for="residence-file-upload" class="buton4">
+                              Yükle <i class="fa-solid fa-cloud-arrow-up"></i>
+                            </label>
+                            <input
+                              id="residence-file-upload"
+                              className="d-none"
+                              type="file"
+                              onChange={(e) => handleFileUpload(e, "residence")}
+                            />
+                            <button
+                              type="submit"
+                              style={{ display: "none" }}
+                              class="residence"
+                            ></button>
+                          </form>
+                        ) : (
+                          <button
+                            onClick={() => handleDownloadDocument("residence")}
                             className="buton3 m-0"
                           >
                             Yüklendi<i class="fa-solid fa-cloud-arrow-down"></i>
