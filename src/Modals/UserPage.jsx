@@ -131,7 +131,10 @@ const UserPage = ({ pageName, children }) => {
                         </>
                       ) : (
                         <>
-                          <i onClick={() => openModal()} class="fa-solid fa-graduation-cap" style={{margin:"3px 10px auto auto ", fontSize:"24px", color:"#1c1d22", cursor:"pointer"}}></i>
+                          <span onClick={() => openModal()}  className="howto p-1 me-4" style={{display:"inline-block" ,margin:"auto ", fontSize:"15px", color:"rgba(28, 29, 34, 0.7)", cursor:"pointer", border:"1px solid rgba(28, 29, 34, 0.7)", borderRadius:"10px"}}>
+                            Paneli Öğren
+                            <i class="fa-solid fa-graduation-cap ms-1"></i>
+                          </span>
                           <img src={logo} className="sidebar-logo" alt="" />
                         </>
                       )}
