@@ -6,6 +6,7 @@ import { getPlanAdmin } from "./features/adminplan/planAdminSlice"
 import { getProductAdmin } from "./features/adminproduct/productAdminSlice"
 import { getTaskAdmin } from "./features/admintask/taskAdminSlice"
 import { getUserAdmin } from "./features/adminuser/userAdminSlice"
+import { getProductDetailAdmin } from "./features/adminproductdetail/productdetailAdminSlice"
 
 export const fetchAdminRedux = () => {
     return dispatch => {
@@ -17,6 +18,7 @@ export const fetchAdminRedux = () => {
         dispatch(getDocAdmin())
         dispatch(getMarketReqAdmin())
         dispatch(getAnnouncementAdmin())
+        dispatch(getProductDetailAdmin())
     }
 }
 

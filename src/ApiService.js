@@ -483,3 +483,24 @@ export const resetPassword = async (token, newPassword) => {
     return null;
   }
 };
+
+
+export const getProductDetailLink = async (accessToken) => {
+  try {
+    const response = await axios.get(`${BASE_URL}/get_product_detail_link`, {
+      headers: {
+        'Authorization': `Bearer ${accessToken}`,
+        'Content-Type': 'application/json',
+      },
+    });
+    if (response.status === 200) {
+      return response.data;
+    } else {
+      console.error('Failed to get product detail link:', response.statusText);
+      return null;
+    }
+  } catch (error) {
+    console.error('Error getting product detail link:', error);
+    return null;
+  }
+};

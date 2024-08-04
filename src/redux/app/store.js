@@ -17,6 +17,7 @@ import taskAdminReducer from "../features/admintask/taskAdminSlice";
 import docAdminReducer from "../features/admindoc/docAdminSlice";
 import marketreqAdminReducer from "../features/adminmarketreq/marketreqAdminSlice";
 import announcementAdminReducer from "../features/adminannaouncement/announcementAdminSlice";
+import productdetailAdminReducer from "../features/adminproductdetail/productdetailAdminSlice";
 
 export const store = configureStore({
   reducer: {
@@ -38,6 +39,7 @@ export const store = configureStore({
     docadmin: docAdminReducer,
     marketreqadmin: marketreqAdminReducer,
     announcementadmin: announcementAdminReducer,
+    productdetailadmin: productdetailAdminReducer,
 
   },
   devTools: process.env.NODE_ENV !== "production",

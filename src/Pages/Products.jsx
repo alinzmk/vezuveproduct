@@ -4,7 +4,7 @@ import logo from "../Assets/logo-renkli.png"
 import Sidebar2 from '../Modals/Sidebar2';
 import Modal from "../Modals/Product-Modal";
 import info from "../Assets/ürün.jpg";
-import { addProductToUser, deleteProduct, getDefaultProductList } from '../ApiService';
+import { addProductToUser, deleteProduct, getDefaultProductList, getProductDetailLink } from '../ApiService';
 import { useDispatch, useSelector } from 'react-redux';
 import { getProductData } from '../redux/features/productdata/productSlice';
 import fetchAllRedux from '../redux/fetchAllRedux';
@@ -97,6 +97,20 @@ function Products() {
     }
   };
 
+  const handleGetProductDetailLink = async () => {
+    try {
+      const data = await getProductDetailLink(accessToken);
+      if (data.status===200) {
+        window.open(data.data, '_blank', 'noopener, noreferrer');
+        console.log('Product detail link retrieved successfully');
+      } else {
+        console.log('Failed to retrieve product detail link');
+      }
+    } catch (error) {
+      console.error('Error retrieving product detail link:', error);
+    }
+  };
+
 
   
 
@@ -180,12 +194,17 @@ function Products() {
                                                 <input id="file-upload" className="d-none" type="file" onChange={handleFileUpload} />
                                             </form>
                                         </div>
-
                                         <hr className='dropdown-divider' />
-                                        
                                         <div className="col-12 dropdown-item m-0">
                                             <Modal/>
                                         </div>
+                                        <hr className='dropdown-divider' />
+                                            
+                                            <div className="col-12 dropdown-item m-0">
+                                                <div onClick={()=>handleGetProductDetailLink()}>
+                                                    Ürün Detay Dosyası
+                                                </div>
+                                            </div>
                                     </div>
                                 </div>
                             </div>
@@ -249,6 +268,14 @@ function Products() {
                                             
                                             <div className="col-12 dropdown-item m-0">
                                                 <Modal/>
+                                            </div>
+
+                                            <hr className='dropdown-divider' />
+                                            
+                                            <div className="col-12 dropdown-item m-0">
+                                                <div onClick={()=>handleGetProductDetailLink()}>
+                                                    Ürün Detay Dosyası
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

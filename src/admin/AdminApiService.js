@@ -37,7 +37,6 @@ export const getAllUserData = async (accessToken) => {
         Authorization: `Bearer ${accessToken}`,
       },
     });
-    console.log(response.data)
     return response.data;
   } catch (error) {
     console.error("Error fetching all user data:", error);
@@ -519,7 +518,6 @@ export const getAnnouncements = async (accessToken) => {
 
     // Check if the request was successful
     if (response.status === 200) {
-      console.log(response)
       return response.data;
     } else {
       console.error('Failed to fetch announcements:', response.statusText);
@@ -571,5 +569,76 @@ export const deleteAnnouncement = async (accessToken, announcementId) => {
   } catch (error) {
     console.error('Error deleting announcement:', error);
     return false; // Handle error accordingly
+  }
+};
+
+export const addProductDetailLink = async (token, customerId, link) => {
+  try {
+    const response = await axios.post(`${BASE_URL}/add_product_detail_link`, 
+      {
+        customer_id: customerId,
+        link: link,
+      }
+      ,
+      {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      }
+    },
+    );
+
+    if (response.status === 200) {
+      return response.data;
+    } else {
+      console.error('Failed to add product detail link:', response.statusText);
+      return null;
+    }
+  } catch (error) {
+    console.error('Error adding product detail link:', error);
+    return null;
+  }
+};
+
+export const getProductDetailLink = async (token, customerId) => {
+  try {
+    const response = await axios.get(`${BASE_URL}/get_product_detail_link?customer_id=${customerId}`,
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      }
+    },);
+
+    if (response.status === 200) {
+      return response.data;
+    } else {
+      console.error('Failed to get product detail link:', response.statusText);
+      return null;
+    }
+  } catch (error) {
+    console.error('Error getting product detail link:', error);
+    return null;
+  }
+};
+
+
+export const deleteProductDetailLink = async (accessToken, customerId) => {
+  console.log()
+  try {
+    const response = await axios.delete(`${BASE_URL}/delete_product_detail_link?customer_id=${customerId}`, 
+      {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        }
+      },);
+
+    if (response.status === 200) {
+      return response.data;
+    } else {
+      console.error('Failed to delete product detail link:', response.statusText);
+      return null;
+    }
+  } catch (error) {
+    console.error('Error deleting product detail link:', error);
+    return null;
   }
 };
