@@ -12,7 +12,7 @@ import { useEffect } from "react";
 import fetchAllRedux from "../redux/fetchAllRedux";
 import { useNavigate } from "react-router-dom";
 import UserPage from "../Modals/UserPage";
-import { successNotification } from "../Modals/Notification";
+import { successNotification, warningNotification } from "../Modals/Notification";
 
 function Documents() {
   const accessToken = sessionStorage.getItem("token");
@@ -22,6 +22,8 @@ function Documents() {
   }
   //------------------------------------------------------------------------------
   const { doc } = useSelector((state) => state.doc);
+  
+  const {plan} = useSelector((state) => state.plan);
   const { marketreq } = useSelector((state) => state.marketreq);
   const dispatch = useDispatch();
   //------------------------------------------------------------------------------
@@ -142,6 +144,811 @@ function Documents() {
   return (
     <UserPage pageName={"Belgeler"}>
       <section className="belgeler">
+      {plan.currentPlan === "" || plan.currentPlan === " " || plan.currentPlan === null  ? (<>
+
+        <div className="slideleft pbg p-3">
+          <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link active"
+                id="doc-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#doc"
+                type="button"
+                role="tab"
+                aria-controls="home"
+                aria-selected="true"
+              >
+                Belgeler
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link"
+                id="req-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#req"
+                type="button"
+                role="tab"
+                aria-controls="req"
+                aria-selected="false"
+              >
+                Gereklilikler
+              </button>
+            </li>
+          </ul>
+          <div class="tab-content" id="myTabContent">
+            <div
+              class="tab-pane fade show active"
+              id="doc"
+              role="tabpanel"
+              aria-labelledby="doc-tab"
+            >
+              <div className="col-12 col-lg-10 p-0">
+                <div className="col-12 w-auto pb-3">
+                  <div className="pbg">
+                    <div className="row justify-content-between p-3">
+                      <div className="col-1 ms-0 ms-lg-5 my-auto">
+                        <h2 className="my-auto mx-0 slideup">
+                          <i class="fa-regular fa-file"></i>
+                        </h2>
+                      </div>
+                      <div className="col-7 my-auto text-left">
+                        <h5 className="m-0 slideup d-flex align-items-center">
+                          Banka Hesap Özeti
+                          <div class="dropdown2 ms-3">
+                            <button
+                              class="d-flex info-btn"
+                              type="button"
+                              id="dropdownMenuButton2"
+                              data-bs-toggle="dropdown"
+                              aria-expanded="false"
+                            >
+                              <i class="fa-solid fa-circle-info"></i>
+                            </button>
+                            <div
+                              class="dropdown-menu info"
+                              aria-labelledby="dropdownMenuButton2"
+                            >
+                              Türkiye bankaları için Banka hesap özetinizi Mobil
+                              bankacılık üzerinden veya Banka şubenizden
+                              alabilirsiniz. Wise, Paypal gibi hesaplar için
+                              mobil bankacılık veya internet bankacılığı
+                              kullanılabilir.
+                            </div>
+                          </div>
+                        </h5>
+                      </div>
+                      <div className="col-3 my-auto p-0 justify-content-center d-flex">
+                          <form>
+                            <label
+                              htmlFor="bankInfo-file-upload"
+                              class="buton4 slideup"
+                            >
+                              Yükle <i class="fa-solid fa-cloud-arrow-up"></i>
+                            </label>
+                            <input
+                              id="bankInfo-file-upload"
+                              className="d-none"
+                              type="file"
+                              onChange={(e) => warningNotification("Belge yüklemeden önce hizmetler sayfasından paket satın almanız gerekmektedir")}
+                            />
+                          </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="col-12 col-lg-10 p-0 slideup">
+                <div className="col-12 w-auto pb-3">
+                  <div className="pbg">
+                    <div className="row justify-content-between p-3">
+                      <div className="col-1 ms-0 ms-lg-5 my-auto">
+                        <h2 className="my-auto mx-0 slideup">
+                          <i class="fa-regular fa-file"></i>
+                        </h2>
+                      </div>
+                      <div className="col-7 my-auto text-left">
+                        <h5 className="m-0 slideup d-flex align-items-center">
+                          Kimlik Belgesi
+                          <div class="dropdown2 ms-3">
+                            <button
+                              class="d-flex info-btn"
+                              type="button"
+                              id="dropdownMenuButton2"
+                              data-bs-toggle="dropdown"
+                              aria-expanded="false"
+                            >
+                              <i class="fa-solid fa-circle-info"></i>
+                            </button>
+                            <div
+                              class="dropdown-menu info"
+                              aria-labelledby="dropdownMenuButton2"
+                            >
+                              TC Kimlik kartınızın hem arka hem ön yüzünü tek
+                              bir sayfada renkli şekilde PDF dosyası halinde
+                              yükleyiniz.
+                            </div>
+                          </div>
+                        </h5>
+                      </div>
+                      <div className="col-3 my-auto p-0 justify-content-center d-flex">
+
+                          <form>
+                            <label
+                              htmlFor="identityDocument-file-upload"
+                              class="buton4 slideup"
+                            >
+                              Yükle <i class="fa-solid fa-cloud-arrow-up"></i>
+                            </label>
+                            <input
+                              id="identityDocument-file-upload"
+                              className="d-none"
+                              type="file"
+                              onChange={(e) => warningNotification("Belge yüklemeden önce hizmetler sayfasından paket satın almanız gerekmektedir")}
+                            />
+                            <button
+                              type="submit"
+                              style={{ display: "none" }}
+                              class="identityDocument"
+                            ></button>
+                          </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="col-12 col-lg-10 p-0 slideup">
+                <div className="col-12 w-auto pb-3">
+                  <div className="pbg">
+                    <div className="row justify-content-between p-3">
+                      <div className="col-1 ms-0 ms-lg-5 my-auto">
+                        <h2 className="my-auto mx-0 slideup">
+                          <i class="fa-regular fa-file"></i>
+                        </h2>
+                      </div>
+                      <div className="col-7 my-auto text-left">
+                        <h5 className="m-0 slideup d-flex align-items-center">
+                          Faaliyet Belgesi
+                          <div class="dropdown2 ms-3">
+                            <button
+                              class="d-flex info-btn"
+                              type="button"
+                              id="dropdownMenuButton2"
+                              data-bs-toggle="dropdown"
+                              aria-expanded="false"
+                            >
+                              <i class="fa-solid fa-circle-info"></i>
+                            </button>
+                            <div
+                              class="dropdown-menu info"
+                              aria-labelledby="dropdownMenuButton2"
+                            >
+                              Türkiye Ticaret Odasına kayıtlı şirketinizin
+                              Faaliyet belgesini PDF formatında yükleyiniz.
+                              (faliyet belgesini kayıtlı olduğunuz ticaret
+                              odasından hem internet üzerinden hem fiziki olarak
+                              temin edebilirsiniz.)
+                            </div>
+                          </div>
+                        </h5>
+                      </div>
+                      <div className="col-3 my-auto p-0 justify-content-center d-flex">
+                          <form>
+                            <label
+                              for="activityDocument-file-upload"
+                              class="buton4 slideup"
+                            >
+                              Yükle <i class="fa-solid fa-cloud-arrow-up"></i>
+                            </label>
+                            <input
+                              id="activityDocument-file-upload"
+                              className="d-none"
+                              type="file"
+                              onChange={(e) => warningNotification("Belge yüklemeden önce hizmetler sayfasından paket satın almanız gerekmektedir")}
+                            />
+                            <button
+                              type="submit"
+                              style={{ display: "none" }}
+                              class="activityDocument"
+                            ></button>
+                          </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="col-12 col-lg-10 p-0 slideup">
+                <div className="col-12 w-auto pb-3">
+                  <div className="pbg">
+                    <div className="row justify-content-between p-3">
+                      <div className="col-1 ms-0 ms-lg-5 my-auto">
+                        <h2 className="my-auto mx-0 slideup">
+                          <i class="fa-regular fa-file"></i>
+                        </h2>
+                      </div>
+                      <div className="col-7 my-auto text-left">
+                        <h5 className="m-0 slideup d-flex align-items-center">
+                          Avrupa Şirket Açılımı
+                          <div class="dropdown2 ms-3">
+                            <button
+                              class="d-flex info-btn"
+                              type="button"
+                              id="dropdownMenuButton2"
+                              data-bs-toggle="dropdown"
+                              aria-expanded="false"
+                            >
+                              <i class="fa-solid fa-circle-info"></i>
+                            </button>
+                            <div
+                              class="dropdown-menu info"
+                              aria-labelledby="dropdownMenuButton2"
+                            >
+                              Yurtdışında kurduğunuz şirketinizin adı, kayıt
+                              numarası, ortaklık yapısı gibi bilgilerini içeren
+                              (kurulumu yapan firma tarafından size iletilen)
+                              dosyayı PDF olarak yükleyiniz.
+                            </div>
+                          </div>
+                        </h5>
+                      </div>
+                      <div className="col-3 my-auto p-0 justify-content-center d-flex">
+                          <form>
+                            <label
+                              for="eu_company-file-upload"
+                              class="buton4 slideup"
+                            >
+                              Yükle <i class="fa-solid fa-cloud-arrow-up"></i>
+                            </label>
+                            <input
+                              id="eu_company-file-upload"
+                              className="d-none"
+                              type="file"
+                              onChange={(e) => warningNotification("Belge yüklemeden önce hizmetler sayfasından paket satın almanız gerekmektedir")}
+                            />
+                            <button
+                              type="submit"
+                              style={{ display: "none" }}
+                              class="eu_company"
+                            ></button>
+                          </form>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="col-12 col-lg-10 p-0 slideup">
+                <div className="col-12 w-auto pb-3">
+                  <div className="pbg">
+                    <div className="row justify-content-between p-3">
+                      <div className="col-1 ms-0 ms-lg-5 my-auto">
+                        <h2 className="my-auto mx-0 slideup">
+                          <i class="fa-regular fa-file"></i>
+                        </h2>
+                      </div>
+                      <div className="col-7 my-auto text-left">
+                        <h5 className="m-0 slideup d-flex align-items-center">
+                          Avrupa Vergi Levhası
+                          <div class="dropdown2 ms-3">
+                            <button
+                              class="d-flex info-btn"
+                              type="button"
+                              id="dropdownMenuButton2"
+                              data-bs-toggle="dropdown"
+                              aria-expanded="false"
+                            >
+                              <i class="fa-solid fa-circle-info"></i>
+                            </button>
+                            <div
+                              class="dropdown-menu info"
+                              aria-labelledby="dropdownMenuButton2"
+                            >
+                              Yurtdışında kurduğunuz şirketinizin adı, kayıt
+                              numarası, ortaklık yapısı gibi bilgilerini içeren
+                              (kurulumu yapan firma tarafından size iletilen)
+                              dosyayı PDF olarak yükleyiniz.
+                            </div>
+                          </div>
+                        </h5>
+                      </div>
+                      <div className="col-3 my-auto p-0 justify-content-center d-flex">
+
+                          <form>
+                            <label
+                              for="eu_tax-file-upload"
+                              class="buton4 slideup"
+                            >
+                              Yükle <i class="fa-solid fa-cloud-arrow-up"></i>
+                            </label>
+                            <input
+                              id="eu_tax-file-upload"
+                              className="d-none"
+                              type="file"
+                              onChange={(e) => warningNotification("Belge yüklemeden önce hizmetler sayfasından paket satın almanız gerekmektedir")}
+                            />
+                            <button
+                              type="submit"
+                              style={{ display: "none" }}
+                              class="eu_tax"
+                            ></button>
+                          </form>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="col-12 col-lg-10 p-0 slideup">
+                <div className="col-12 w-auto pb-3">
+                  <div className="pbg">
+                    <div className="row justify-content-between p-3">
+                      <div className="col-1 ms-0 ms-lg-5 my-auto">
+                        <h2 className="my-auto mx-0 slideup">
+                          <i class="fa-regular fa-file"></i>
+                        </h2>
+                      </div>
+                      <div className="col-7 my-auto text-left">
+                        <h5 className="m-0 slideup d-flex align-items-center">
+                          Amerika Şirket Açılımı
+                          <div class="dropdown2 ms-3">
+                            <button
+                              class="d-flex info-btn"
+                              type="button"
+                              id="dropdownMenuButton2"
+                              data-bs-toggle="dropdown"
+                              aria-expanded="false"
+                            >
+                              <i class="fa-solid fa-circle-info"></i>
+                            </button>
+                            <div
+                              class="dropdown-menu info"
+                              aria-labelledby="dropdownMenuButton2"
+                            >
+                              Yurtdışında kurduğunuz şirketinizin adı, kayıt
+                              numarası, ortaklık yapısı gibi bilgilerini içeren
+                              (kurulumu yapan firma tarafından size iletilen)
+                              dosyayı PDF olarak yükleyiniz.
+                            </div>
+                          </div>
+                        </h5>
+                      </div>
+                      <div className="col-3 my-auto p-0 justify-content-center d-flex">
+
+                          <form>
+                            <label
+                              for="usa_company-file-upload"
+                              class="buton4 slideup"
+                            >
+                              Yükle <i class="fa-solid fa-cloud-arrow-up"></i>
+                            </label>
+                            <input
+                              id="usa_company-file-upload"
+                              className="d-none"
+                              type="file"
+                              onChange={(e) => warningNotification("Belge yüklemeden önce hizmetler sayfasından paket satın almanız gerekmektedir")}
+                            />
+                            <button
+                              type="submit"
+                              style={{ display: "none" }}
+                              class="eu_tax"
+                            ></button>
+                          </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="col-12 col-lg-10 p-0 slideup">
+                <div className="col-12 w-auto pb-3">
+                  <div className="pbg">
+                    <div className="row justify-content-between p-3">
+                      <div className="col-1 ms-0 ms-lg-5 my-auto">
+                        <h2 className="my-auto mx-0 slideup">
+                          <i class="fa-regular fa-file"></i>
+                        </h2>
+                      </div>
+                      <div className="col-7 my-auto text-left">
+                        <h5 className="m-0 slideup d-flex align-items-center">
+                          Amerika Vergi Levhası
+                          <div class="dropdown2 ms-3">
+                            <button
+                              class="d-flex info-btn"
+                              type="button"
+                              id="dropdownMenuButton2"
+                              data-bs-toggle="dropdown"
+                              aria-expanded="false"
+                            >
+                              <i class="fa-solid fa-circle-info"></i>
+                            </button>
+                            <div
+                              class="dropdown-menu info"
+                              aria-labelledby="dropdownMenuButton2"
+                            >
+                              Yurtdışında kurduğunuz şirketinizin adı, kayıt
+                              numarası, ortaklık yapısı gibi bilgilerini içeren
+                              (kurulumu yapan firma tarafından size iletilen)
+                              dosyayı PDF olarak yükleyiniz.
+                            </div>
+                          </div>
+                        </h5>
+                      </div>
+                      <div className="col-3 my-auto p-0 justify-content-center d-flex">
+
+                          <form>
+                            <label
+                              for="usa_tax-file-upload"
+                              class="buton4 slideup"
+                            >
+                              Yükle <i class="fa-solid fa-cloud-arrow-up"></i>
+                            </label>
+                            <input
+                              id="usa_tax-file-upload"
+                              className="d-none"
+                              type="file"
+                              onChange={(e) => warningNotification("Belge yüklemeden önce hizmetler sayfasından paket satın almanız gerekmektedir")}
+                            />
+                            <button
+                              type="submit"
+                              style={{ display: "none" }}
+                              class="eu_tax"
+                            ></button>
+                          </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="col-12 col-lg-10 p-0 slideup">
+                <div className="col-12 w-auto pb-3">
+                  <div className="pbg">
+                    <div className="row justify-content-between p-3">
+                      <div className="col-1 ms-0 ms-lg-5 my-auto">
+                        <h2 className="my-auto mx-0">
+                          <i class="fa-regular fa-file"></i>
+                        </h2>
+                      </div>
+                      <div className="col-7 my-auto text-left">
+                        <h5 className="m-0 d-flex align-items-center">
+                          Vergi Levhası
+                          <div class="dropdown2 ms-3">
+                            <button
+                              class="d-flex info-btn"
+                              type="button"
+                              id="dropdownMenuButton2"
+                              data-bs-toggle="dropdown"
+                              aria-expanded="false"
+                            >
+                              <i class="fa-solid fa-circle-info"></i>
+                            </button>
+                            <div
+                              class="dropdown-menu info"
+                              aria-labelledby="dropdownMenuButton2"
+                            >
+                              Şirketirketinize ait vergi levhanızı PDF olarak
+                              yükleyiniz.
+                            </div>
+                          </div>
+                        </h5>
+                      </div>
+                      <div className="col-3 my-auto p-0 justify-content-center d-flex">
+
+                          <form>
+                            <label for="taxPlate-file-upload" class="buton4">
+                              Yükle <i class="fa-solid fa-cloud-arrow-up"></i>
+                            </label>
+                            <input
+                              id="taxPlate-file-upload"
+                              className="d-none"
+                              type="file"
+                              onChange={(e) => warningNotification("Belge yüklemeden önce hizmetler sayfasından paket satın almanız gerekmektedir")}
+                            />
+                            <button
+                              type="submit"
+                              style={{ display: "none" }}
+                              class="taxPlate"
+                            ></button>
+                          </form>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="col-12 col-lg-10 p-0 slideup">
+                <div className="col-12 w-auto pb-3">
+                  <div className="pbg">
+                    <div className="row justify-content-between p-3">
+                      <div className="col-1 ms-0 ms-lg-5 my-auto">
+                        <h2 className="my-auto mx-0">
+                          <i class="fa-regular fa-file"></i>
+                        </h2>
+                      </div>
+                      <div className="col-7 my-auto text-left">
+                        <h5 className="m-0 d-flex align-items-center">
+                          GS1 Kayıt Sertifikası
+                          <div class="dropdown2 ms-3">
+                            <button
+                              class="d-flex info-btn"
+                              type="button"
+                              id="dropdownMenuButton2"
+                              data-bs-toggle="dropdown"
+                              aria-expanded="false"
+                            >
+                              <i class="fa-solid fa-circle-info"></i>
+                            </button>
+                            <div
+                              class="dropdown-menu info"
+                              aria-labelledby="dropdownMenuButton2"
+                            >
+                              Şirketirketinize ait vergi levhanızı PDF olarak
+                              yükleyiniz.
+                            </div>
+                          </div>
+                        </h5>
+                      </div>
+                      <div className="col-3 my-auto p-0 justify-content-center d-flex">
+
+                          <form>
+                            <label for="gsone-file-upload" class="buton4">
+                              Yükle <i class="fa-solid fa-cloud-arrow-up"></i>
+                            </label>
+                            <input
+                              id="gsone-file-upload"
+                              className="d-none"
+                              type="file"
+                              onChange={(e) => warningNotification("Belge yüklemeden önce hizmetler sayfasından paket satın almanız gerekmektedir")}
+                            />
+                            <button
+                              type="submit"
+                              style={{ display: "none" }}
+                              class="gsone"
+                            ></button>
+                          </form>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="col-12 col-lg-10 p-0 slideup">
+                <div className="col-12 w-auto pb-3">
+                  <div className="pbg">
+                    <div className="row justify-content-between p-3">
+                      <div className="col-1 ms-0 ms-lg-5 my-auto">
+                        <h2 className="my-auto mx-0">
+                          <i class="fa-regular fa-file"></i>
+                        </h2>
+                      </div>
+                      <div className="col-7 my-auto text-left">
+                        <h5 className="m-0 d-flex align-items-center">
+                          Marka Tescil Belgesi
+                          <div class="dropdown2 ms-3">
+                            <button
+                              class="d-flex info-btn"
+                              type="button"
+                              id="dropdownMenuButton2"
+                              data-bs-toggle="dropdown"
+                              aria-expanded="false"
+                            >
+                              <i class="fa-solid fa-circle-info"></i>
+                            </button>
+                            <div
+                              class="dropdown-menu info"
+                              aria-labelledby="dropdownMenuButton2"
+                            >
+                              Şirketirketinize ait vergi levhanızı PDF olarak
+                              yükleyiniz.
+                            </div>
+                          </div>
+                        </h5>
+                      </div>
+                      <div className="col-3 my-auto p-0 justify-content-center d-flex">
+
+                          <form>
+                            <label for="trademark-file-upload" class="buton4">
+                              Yükle <i class="fa-solid fa-cloud-arrow-up"></i>
+                            </label>
+                            <input
+                              id="trademark-file-upload"
+                              className="d-none"
+                              type="file"
+                              onChange={(e) => warningNotification("Belge yüklemeden önce hizmetler sayfasından paket satın almanız gerekmektedir")}
+                            />
+                            <button
+                              type="submit"
+                              style={{ display: "none" }}
+                              class="trademark"
+                            ></button>
+                          </form>
+    
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="col-12 col-lg-10 p-0 slideup">
+                <div className="col-12 w-auto pb-3">
+                  <div className="pbg">
+                    <div className="row justify-content-between p-3">
+                      <div className="col-1 ms-0 ms-lg-5 my-auto">
+                        <h2 className="my-auto mx-0">
+                          <i class="fa-regular fa-file"></i>
+                        </h2>
+                      </div>
+                      <div className="col-7 my-auto text-left">
+                        <h5 className="m-0 d-flex align-items-center">
+                          Fatura (Elektrik, Gaz, İnternet)
+                          <div class="dropdown2 ms-3">
+                            <button
+                              class="d-flex info-btn"
+                              type="button"
+                              id="dropdownMenuButton2"
+                              data-bs-toggle="dropdown"
+                              aria-expanded="false"
+                            >
+                              <i class="fa-solid fa-circle-info"></i>
+                            </button>
+                            <div
+                              class="dropdown-menu info"
+                              aria-labelledby="dropdownMenuButton2"
+                            >
+                              Şirketin en büyük hissedarına ait, doğrudan kendi
+                              adına kayıtlı Elektirik, doğalgaz, cep telefonu,
+                              internet faturasını PDF Formatında yükleyin.
+                            </div>
+                          </div>
+                        </h5>
+                      </div>
+                      <div className="col-3 my-auto p-0 justify-content-center d-flex">
+
+                          <form>
+                            <label for="billInfo-file-upload" class="buton4">
+                              Yükle <i class="fa-solid fa-cloud-arrow-up"></i>
+                            </label>
+                            <input
+                              id="billInfo-file-upload"
+                              className="d-none"
+                              type="file"
+                              onChange={(e) => warningNotification("Belge yüklemeden önce hizmetler sayfasından paket satın almanız gerekmektedir")}
+                            />
+                            <button
+                              type="submit"
+                              style={{ display: "none" }}
+                              class="bill"
+                            ></button>
+                          </form>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="col-12 col-lg-10 p-0 slideup">
+                <div className="col-12 w-auto pb-3">
+                  <div className="pbg">
+                    <div className="row justify-content-between p-3">
+                      <div className="col-1 ms-0 ms-lg-5 my-auto">
+                        <h2 className="my-auto mx-0">
+                          <i class="fa-regular fa-file"></i>
+                        </h2>
+                      </div>
+                      <div className="col-7 my-auto text-left">
+                        <h5 className="m-0 d-flex align-items-center">
+                          Sözleşme
+                          <div class="dropdown2 ms-3">
+                            <button
+                              class="d-flex info-btn"
+                              type="button"
+                              id="dropdownMenuButton2"
+                              data-bs-toggle="dropdown"
+                              aria-expanded="false"
+                            >
+                              <i class="fa-solid fa-circle-info"></i>
+                            </button>
+                            <div
+                              class="dropdown-menu info"
+                              aria-labelledby="dropdownMenuButton2"
+                            >
+                              Sözleşme
+                            </div>
+                          </div>
+                        </h5>
+                      </div>
+                      <div className="col-3 my-auto p-0 justify-content-center d-flex">
+
+                          <form>
+                            <label for="agreement-file-upload" class="buton4">
+                              Yükle <i class="fa-solid fa-cloud-arrow-up"></i>
+                            </label>
+                            <input
+                              id="agreement-file-upload"
+                              className="d-none"
+                              type="file"
+                              onChange={(e) => warningNotification("Belge yüklemeden önce hizmetler sayfasından paket satın almanız gerekmektedir")}
+                            />
+                            <button
+                              type="submit"
+                              style={{ display: "none" }}
+                              class="agreement"
+                            ></button>
+                          </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="col-12 col-lg-10 p-0 slideup">
+                <div className="col-12 w-auto pb-3">
+                  <div className="pbg">
+                    <div className="row justify-content-between p-3">
+                      <div className="col-1 ms-0 ms-lg-5 my-auto">
+                        <h2 className="my-auto mx-0">
+                          <i class="fa-regular fa-file"></i>
+                        </h2>
+                      </div>
+                      <div className="col-7 my-auto text-left">
+                        <h5 className="m-0 d-flex align-items-center">
+                          İkametgah Belgesi
+                          <div class="dropdown2 ms-3">
+                            <button
+                              class="d-flex info-btn"
+                              type="button"
+                              id="dropdownMenuButton2"
+                              data-bs-toggle="dropdown"
+                              aria-expanded="false"
+                            >
+                              <i class="fa-solid fa-circle-info"></i>
+                            </button>
+                            <div
+                              class="dropdown-menu info"
+                              aria-labelledby="dropdownMenuButton2"
+                            >
+                              İkametgah Belgesi
+                            </div>
+                          </div>
+                        </h5>
+                      </div>
+                      <div className="col-3 my-auto p-0 justify-content-center d-flex">
+
+                          <form>
+                            <label for="residence-file-upload" class="buton4">
+                              Yükle <i class="fa-solid fa-cloud-arrow-up"></i>
+                            </label>
+                            <input
+                              id="residence-file-upload"
+                              className="d-none"
+                              type="file"
+                              onChange={(e) => warningNotification("Belge yüklemeden önce hizmetler sayfasından paket satın almanız gerekmektedir")}
+                            />
+                            <button
+                              type="submit"
+                              style={{ display: "none" }}
+                              class="residence"
+                            ></button>
+                          </form>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="tab-pane fade"
+              id="req"
+              role="tabpanel"
+              aria-labelledby="req-tab"
+            >
+              <div>
+                <div className="p-3">{renderFormData()}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </>):(<>
+      
         <div className="slideleft pbg p-3">
           <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item" role="presentation">
@@ -1066,6 +1873,8 @@ function Documents() {
             </div>
           </div>
         </div>
+
+      </>)}
       </section>
     </UserPage>
   );
