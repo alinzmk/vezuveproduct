@@ -168,7 +168,11 @@ function Register() {
                     onClick={handleTogglePassword}
                   ></i>
                 </div>
-                <div className="">
+                <div>
+                  <input className="form-check-input" style={{cursor:"pointer"}} type="checkbox" required/> 
+                  <label className="d-inline ps-3" htmlFor=""><a href="https://vezuve.com.tr/kvkk/" target="_blank" style={{textDecoration:"underline"}} rel="noreferrer">KVKK Açık Rıza Metni</a>'ni okudum, kabul ediyorum</label>
+                </div>
+                <div className="mt-3">
                   <p onClick={()=>navigate("/")} style={{cursor:"pointer"}}>Kaydınız varsa, buradan giriş yapabilirsiniz</p>
                 </div>
                   <div className="row button">

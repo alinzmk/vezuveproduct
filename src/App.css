@@ -1187,6 +1187,10 @@ a:hover {
   #announcement .mySwiper1 .swiper-slide {
     margin: auto; }
 
+.form-check-input:checked {
+  background-color: #323377;
+  border-color: #323377; }
+
 @media only screen and (max-width: 1200px) {
   .chart-wrapper {
     padding: auto; } }

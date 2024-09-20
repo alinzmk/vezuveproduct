@@ -1670,6 +1670,10 @@ a:hover {
   }
 }
 
+.form-check-input:checked {
+  background-color: $login;
+  border-color: $login;
+}
 
 
 @media only screen and (max-width: 1200px) {
