@@ -281,7 +281,7 @@ function Dashboard() {
                   {plan ? (
                     <>
                       <span className="main-info2">
-                        {calculateRemainingDays()} gün
+                        {plan.finishDate}
                       </span>
                     </>
                   ) : (

@@ -642,3 +642,32 @@ export const deleteProductDetailLink = async (accessToken, customerId) => {
     return null;
   }
 };
+
+
+export const updateFinishDate = async (accessToken, customerId, finishDate) => {
+  try {
+    const response = await axios.post(
+      `${BASE_URL}/update_finish_date`, 
+      null, // Gönderilecek bir gövde olmadığı için buraya `null` koyuyoruz
+      {
+        params: { // URL parametreleri burada belirtilir
+          customer_id: customerId,
+          finish_date: finishDate,
+        },
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      }
+    );
+
+    if (response.status === 200) {
+      return response.data;
+    } else {
+      console.error('Failed to update finish date:', response.statusText);
+      return null;
+    }
+  } catch (error) {
+    console.error('Error updating finish date:', error);
+    return null;
+  }
+};

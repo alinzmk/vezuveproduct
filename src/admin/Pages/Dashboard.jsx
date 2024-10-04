@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import AdminPage from '../Modals/AdminPage';
 import fetchAdminRedux from '../../redux/fetchAdminRedux';
 import { successNotification } from '../../Modals/Notification';
-import { setUserPlan, updateToUserAds, updateToUserSales, updateToUserSalesUnit } from '../AdminApiService';
+import { setUserPlan, updateFinishDate, updateToUserAds, updateToUserSales, updateToUserSalesUnit } from '../AdminApiService';
 
 
 function Dashboard() {
@@ -25,6 +25,7 @@ function Dashboard() {
     
     const {planadmin} = useSelector((state) => state.planadmin)
     const {dashadmin} = useSelector((state) => state.dashadmin)
+
     const dispatch = useDispatch()
     if(dashadmin.length === 0){
         dispatch(fetchAdminRedux())
@@ -50,13 +51,13 @@ function Dashboard() {
         return total
     } 
 
-    const calculateRemainingDays = () => {
-    const start = new Date(planadmin.userPlan.startDate);
-    const end = new Date(planadmin.userPlan.finishDate);
-    const timeDifference = end.getTime() - start.getTime();
-    const daysDifference = Math.ceil(timeDifference / (1000 * 3600 * 24));
-    return(daysDifference);
-    }
+ /*    const calculateRemainingDays = () => {
+        const start = new Date(planadmin.userPlan.startDate);
+        const end = new Date(planadmin.userPlan.finishDate);
+        const timeDifference = end.getTime() - start.getTime();
+        const daysDifference = Math.ceil(timeDifference / (1000 * 3600 * 24));
+        return(daysDifference);
+    } */
 
     const handleSetSalesData = async () => {
         try {
@@ -118,11 +119,25 @@ function Dashboard() {
           dispatch(fetchAdminRedux()) 
           setEditable(null);
         } catch (error) {
-          console.error('Error setting user plan:', error);
-          // Handle error
+            console.error('Error setting user plan:', error);
+            // Handle error
+        }
+    };
+    
+    const handleUpdateFinishDate = async (finishDate) => {
+        try {
+            const data = await updateFinishDate(accessToken ,user_id, finishDate);
+            if (data) {
+                console.log('Finish date updated successfully');
+                dispatch(fetchAdminRedux())
+                setEditable(null);
+          } else {
+            console.log('Failed to update finish date');
+          }
+        } catch (error) {
+          console.error('Error updating finish date:', error);
         }
       };
-    
       
   return (
       <>
@@ -323,21 +338,32 @@ function Dashboard() {
                                             No Data
                                         </>
                                 )}
-                            </>)}                                 
-                        <hr className='info-hr' />
-                        <h5 className='main-info' >Kalan Abonelik Süreniz <i class="fa-regular fa-clock"></i> : <span className='main-info2' >
-                            {planadmin.userPlan ? (
-                                    <>
-                                        <span className='main-info2'>{calculateRemainingDays()} gün</span> 
-                                        
-                                        
-                                    </>
-                                ) : (
-                                    <>
-                                        No Data
-                                    </>
-                            )}
-                            </span></h5>
+                            </>)} 
+                            <hr className='info-hr' />                                
+                            {editable === "finishDate" ? (
+                                <>
+                                            <button class="profile-button ms-auto trans me-3 my-2" onClick={()=>handleUpdateFinishDate(newValue)} >
+                                                Kaydet <i class="fa-solid fa-floppy-disk"></i>
+                                            </button>
+                                            <input type='text' className='profile-input' placeholder={planadmin.userPlan.finishDate} onChange={(e) => setNewValue(e.target.value)}></input>
+                                </>
+                                ):(
+                                <>
+                                    {planadmin.userPlan ? (
+                                            <>
+                                            <form onSubmit={(e) => e.preventDefault()}>
+                                                    <button type='button' className="profile-button ms-auto trans me-3 my-2" onClick={()=>setEditable("finishDate")}>
+                                                        Kalan Abonelik Süresi Düzenle <i className="fa-solid fa-pen-to-square"></i>
+                                                    </button>
+                                                <span className='main-info2'>{planadmin.userPlan.finishDate}</span>
+                                            </form>
+                                            </>
+                                        ) : (
+                                            <>
+                                                No Data
+                                            </>
+                                    )}
+                            </>)}
                     </div>
                 </div>
             </div>
