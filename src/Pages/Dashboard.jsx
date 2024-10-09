@@ -67,12 +67,17 @@ function Dashboard() {
     return total;
   };
 
-  const calculateRemainingDays = () => {
-    const start = new Date(plan.startDate);
-    const end = new Date(plan.finishDate);
-    const timeDifference = end.getTime() - start.getTime();
-    const daysDifference = Math.ceil(timeDifference / (1000 * 3600 * 24));
-    return daysDifference;
+  const remainingDays = (date) => {
+    const today = new Date(); // Get today's date
+    const targetDate = new Date(date); // Parse the input date
+    
+    // Calculate the time difference in milliseconds
+    const timeDifference = targetDate - today;
+    
+    // Convert time difference from milliseconds to days
+    const daysDifference = Math.ceil(timeDifference / (1000 * 60 * 60 * 24));
+    
+    return daysDifference; // Return the remaining days
   };
 
   const statusIcon = (status) => {
@@ -281,7 +286,7 @@ function Dashboard() {
                   {plan ? (
                     <>
                       <span className="main-info2">
-                        {plan.finishDate}
+                        {remainingDays(plan.finishDate)} gün
                       </span>
                     </>
                   ) : (
