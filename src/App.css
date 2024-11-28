@@ -776,6 +776,9 @@ a:hover {
     border-radius: 10px; }
 
 /* ÜRÜNLER BİTİŞ */
+.bold {
+  font-weight: bold; }
+
 /* HİZMETLER */
 .hizmetler .hizmet-wrap {
   background-color: transparent;
@@ -785,7 +788,7 @@ a:hover {
     overflow: hidden;
     position: relative;
     padding: 20px;
-    height: 150px;
+    height: 100%;
     border: 1px solid rgba(28, 21, 59, 0.5);
     border-radius: 10px;
     transition: 0.5s; }
@@ -801,6 +804,28 @@ a:hover {
       background-color: white;
       border-radius: 10px;
       max-width: 400px; }
+    .hizmetler .hizmet-wrap .hizmet .packageList {
+      padding-left: 1.5rem;
+      font-size: 14px;
+      margin-bottom: 0;
+      padding: 0;
+      list-style: none; }
+      .hizmetler .hizmet-wrap .hizmet .packageList li {
+        position: relative;
+        padding-left: 20px; }
+        .hizmetler .hizmet-wrap .hizmet .packageList li::before {
+          content: '';
+          position: absolute;
+          left: 0;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 12px;
+          height: 12px;
+          background-image: url("../src/Assets/tick.svg");
+          background-size: cover;
+          background-repeat: no-repeat; }
+    .hizmetler .hizmet-wrap .hizmet .taksit12 {
+      font-size: 12px; }
   .hizmetler .hizmet-wrap .amazon {
     box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.192); }
     .hizmetler .hizmet-wrap .amazon:hover {
@@ -821,17 +846,31 @@ a:hover {
     box-shadow: 0px 0px 5px 1px rgba(0, 53, 244, 0.192); }
     .hizmetler .hizmet-wrap .ozon:hover {
       box-shadow: 0px 0px 5px 3px rgba(0, 72, 255, 0.192); }
+  .hizmetler .hizmet-wrap .mercado {
+    box-shadow: 0px 0px 5px 1px rgba(244, 207, 0, 0.192); }
+    .hizmetler .hizmet-wrap .mercado:hover {
+      box-shadow: 0px 0px 5px 3px rgba(244, 207, 0, 0.192); }
+  .hizmetler .hizmet-wrap .cdiscount {
+    box-shadow: 0px 0px 5px 1px rgba(255, 0, 0, 0.192); }
+    .hizmetler .hizmet-wrap .cdiscount:hover {
+      box-shadow: 0px 0px 5px 3px rgba(255, 0, 0, 0.192); }
   .hizmetler .hizmet-wrap .hizmet-isim {
     font-size: 20px;
     margin-bottom: 5px; }
   .hizmetler .hizmet-wrap .hizmet-tür {
     margin-bottom: 5px;
     color: rgba(28, 29, 34, 0.8); }
+  .hizmetler .hizmet-wrap .hizmet-ücret-indirim {
+    color: rgba(28, 29, 34, 0.5);
+    margin-bottom: 0;
+    text-decoration: line-through; }
   .hizmetler .hizmet-wrap .hizmet-ücret {
-    color: rgba(28, 29, 34, 0.5); }
+    font-weight: 600;
+    font-size: 24px;
+    color: rgba(28, 29, 34, 0.8); }
   .hizmetler .hizmet-wrap .hizmet-img {
     position: absolute;
-    bottom: 0px;
+    top: 65px;
     right: -30px;
     opacity: 0.1;
     rotate: -15deg;
@@ -929,6 +968,9 @@ a:hover {
     border: none; }
     .hizmetler .hizmet-wrap-vezu .hizmet-buton2:hover {
       padding: 3px 25px; }
+
+.accordion-collapse {
+  transition: .7s all ease-in-out; }
 
 /* HİZMETLER BİTİŞ */
 /* MARKETFINDER BAŞLANGIC */
@@ -1804,7 +1846,7 @@ a:hover {
       margin-bottom: 5px;
       color: rgba(28, 29, 34, 0.8); }
     .hizmetler .hizmet-wrap .hizmet-ücret {
-      color: rgba(28, 29, 34, 0.5); }
+      color: rgba(28, 29, 34, 0.7); }
     .hizmetler .hizmet-wrap .hizmet-img {
       position: absolute;
       bottom: 0px;
@@ -1922,7 +1964,7 @@ a:hover {
   .overlay .modalContainer {
     justify-content: center;
     z-index: 50;
-    width: 90vw;
+    width: 65vw;
     height: auto;
     position: fixed;
     top: 50%;

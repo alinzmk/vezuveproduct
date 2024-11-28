@@ -57,11 +57,7 @@ const UserPage = ({ pageName, children }) => {
 
   return (
     <>
-      <VideoModal
-            isOpen={modalIsOpen}
-            closeModal={closeModal}
-            videoId={selectedVideoId}
-        />
+      <VideoModal isOpen={modalIsOpen} closeModal={closeModal} videoId={selectedVideoId}/>
       <Whatsapp/>
       <div className="main m-0">
         <div className="slideup"></div>

@@ -1027,6 +1027,10 @@ a:hover {
 
 /* ÜRÜNLER BİTİŞ */
 
+.bold{
+  font-weight: bold;
+}
+
 /* HİZMETLER */
 
 .hizmetler {
@@ -1038,7 +1042,7 @@ a:hover {
       overflow: hidden;
       position: relative;
       padding: 20px;
-      height: 150px;
+      height: 100%;
       border: 1px solid rgba(28, 21, 59, 0.5);
       border-radius: 10px;
       transition: 0.5s;
@@ -1057,6 +1061,35 @@ a:hover {
         background-color: rgba(255, 255, 255, 1);
         border-radius: 10px;
         max-width: 400px;
+      }
+      .packageList {
+        padding-left: 1.5rem;
+        font-size: 14px;
+        margin-bottom: 0;
+        padding: 0;
+        list-style: none; // Remove default list bullets
+      
+        li {
+          position: relative;
+          padding-left: 20px; // Add space for the custom bullet
+      
+          &::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 12px; // Adjust the size of the image
+            height: 12px;
+            background-image: url("../src/Assets/tick.svg");
+            background-size: cover; // Make sure the image covers the element
+            background-repeat: no-repeat;
+          }
+        }
+      }
+      
+      .taksit12{
+        font-size: 12px;
       }
     }
 
@@ -1090,6 +1123,18 @@ a:hover {
         box-shadow: 0px 0px 5px 3px rgba(0, 72, 255, 0.192);
       }
     }
+    .mercado {
+      box-shadow: 0px 0px 5px 1px rgba(244, 207, 0, 0.192);
+      &:hover {
+        box-shadow: 0px 0px 5px 3px rgba(244, 207, 0, 0.192);
+      }
+    }
+    .cdiscount {
+      box-shadow: 0px 0px 5px 1px rgba(255, 0, 0, 0.192);
+      &:hover {
+        box-shadow: 0px 0px 5px 3px rgba(255, 0, 0, 0.192);
+      }
+    }
     .hizmet-isim {
       font-size: 20px;
       margin-bottom: 5px;
@@ -1098,12 +1143,19 @@ a:hover {
       margin-bottom: 5px;
       color: rgba(28, 29, 34, 0.8);
     }
-    .hizmet-ücret {
+    .hizmet-ücret-indirim{
       color: rgba(28, 29, 34, 0.5);
+      margin-bottom: 0;
+      text-decoration: line-through;
+    }
+    .hizmet-ücret {
+      font-weight: 600;
+      font-size: 24px;
+      color: rgba(28, 29, 34, .8);
     }
     .hizmet-img {
       position: absolute;
-      bottom: 0px;
+      top: 65px;
       right: -30px;
       opacity: 0.1;
       rotate: -15deg;
@@ -1160,6 +1212,7 @@ a:hover {
     .accordion-header {
       cursor: pointer;
     }
+    
     .accordion-item,
     .accordion-button,
     .accordion,
@@ -1273,6 +1326,9 @@ a:hover {
   }
 }
 
+.accordion-collapse{
+  transition: .7s all ease-in-out;
+}
 /* HİZMETLER BİTİŞ */
 
 /* MARKETFINDER BAŞLANGIC */
@@ -1582,9 +1638,9 @@ a:hover {
   }
 }
 
-.howto{
-  transition: .5s ease-in-out ;
-  &:hover{
+.howto {
+  transition: 0.5s ease-in-out;
+  &:hover {
     transform: scale(0.9);
   }
 }
@@ -1640,7 +1696,7 @@ a:hover {
   z-index: 2;
 }
 
-#announcement{
+#announcement {
   color: $white;
   padding-top: 5px;
   margin-bottom: 10px;
@@ -1663,8 +1719,8 @@ a:hover {
     rgba(85, 112, 241, 0.9) 75%,
     rgba(250, 88, 182, 0.9) 100%
   );
-  .mySwiper1{
-    .swiper-slide{
+  .mySwiper1 {
+    .swiper-slide {
       margin: auto;
     }
   }
@@ -1674,7 +1730,6 @@ a:hover {
   background-color: $login;
   border-color: $login;
 }
-
 
 @media only screen and (max-width: 1200px) {
   body {
@@ -2554,7 +2609,7 @@ a:hover {
         color: rgba(28, 29, 34, 0.8);
       }
       .hizmet-ücret {
-        color: rgba(28, 29, 34, 0.5);
+        color: rgba(28, 29, 34, .7);
       }
       .hizmet-img {
         position: absolute;
@@ -2722,7 +2777,7 @@ a:hover {
     .modalContainer {
       justify-content: center;
       z-index: 50;
-      width: 90vw;
+      width: 65vw;
       height: auto;
       position: fixed;
       top: 50%;
@@ -2859,7 +2914,6 @@ a:hover {
     }
   }
 }
-
 
 /* VideoModal.css */
 
