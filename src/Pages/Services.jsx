@@ -2017,10 +2017,7 @@ function Services() {
                   </div>
                   <div class="tab-pane fade" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
                     <div className="hizmet-wrap-vezu">
-                      <p>
-                        hizmet d-flex flex-column h-100 Açıklamalarını Okumak İçin Hizmetin Üstüne
-                        Tıklayınız.
-                      </p>
+                      <p>Hizmet Açıklamalarını Okumak İçin Hizmetin Üstüne Tıklayınız.</p>
                       <div className="row mt-3">
                         {partner &&
                           partner.data &&
