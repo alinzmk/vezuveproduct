@@ -109,7 +109,18 @@ function Tutorials() {
     {
       id: 6,
       name: "Wayfair",
-      url: ["SPfXR48elnI", "AUWvB1xqzx0", "7JWg33NdamE"],
+      url: [
+        "SPfXR48elnI", 
+        "AUWvB1xqzx0", 
+        "7JWg33NdamE",
+        "jEHmSjht98I",
+        "D06URao4w-U",
+        "SWcHH0Zu-A4",
+        "lSKogkZQPAQ",
+        "SE16R4AwLXQ",
+        "q8Ge5MlV5yo",
+        "8XEsTuwz5K0",
+      ],
     },
   ];
   const openModal = (videoId) => {
