@@ -40,7 +40,7 @@ function Dashboard() {
 
     const totalGrowth = () => {
         if(month !== 0){
-            var prevMonth = month- 1
+            var prevMonth = month - 1
         }
         else if(month === 0){
             var prevMonth = 11

@@ -61,6 +61,13 @@ function Dashboard() {
       prevMonth = 11;
       prevprevMotnh = 10;
     }
+
+    console.log(prevprevMotnh);
+
+    if (prevprevMotnh < 0) {
+      prevprevMotnh = 0;
+    }
+
     var currentSale = dash.sales[0][prevMonth].value;
     var previousSale = dash.sales[0][prevprevMotnh].value;
     var total = currentSale - previousSale;
@@ -70,13 +77,13 @@ function Dashboard() {
   const remainingDays = (date) => {
     const today = new Date(); // Get today's date
     const targetDate = new Date(date); // Parse the input date
-    
+
     // Calculate the time difference in milliseconds
     const timeDifference = targetDate - today;
-    
+
     // Convert time difference from milliseconds to days
     const daysDifference = Math.ceil(timeDifference / (1000 * 60 * 60 * 24));
-    
+
     return daysDifference; // Return the remaining days
   };
 
@@ -150,7 +157,7 @@ function Dashboard() {
               <div className="col-lg-4 col-12 trans mainhov" id="total-sales">
                 <div className="col-12 slideup position-relative">
                   <h6>Toplam Satış</h6>
-                  {dash.sales ? (
+                  {dash.length !== 0 && dash.sales ? (
                     <>
                       <h2>
                         {dash.sales[0][month].value}$
@@ -174,7 +181,7 @@ function Dashboard() {
               >
                 <div className="col-12 slideup">
                   <h6>Toplam Reklam Harcaması</h6>
-                  {dash.ads ? (
+                  {dash.length !== 0 && dash.ads ? (
                     <>
                       <h2>
                         {dash.ads[0][month].value}$
@@ -195,7 +202,7 @@ function Dashboard() {
               <div className="col-lg-3 col-12 trans mainhov" id="total-orders">
                 <div className="col-12 slideup">
                   <h6>Toplam Sipariş</h6>
-                  {dash.sales_unit ? (
+                  {dash.length !== 0 && dash.sales_unit ? (
                     <>
                       <h2>
                         {dash.sales_unit[0][month].value}
@@ -216,7 +223,7 @@ function Dashboard() {
               <div className="col-12 trans mainhov" id="total-growth">
                 <div className="col-12 slideup position-relative">
                   <h6>Toplam Büyüme</h6>
-                  {dash.sales ? (
+                  {dash.length !== 0 && dash.sales ? (
                     <>
                       <h2>
                         {totalGrowth()}$<span className="aylık">/aylık</span>
